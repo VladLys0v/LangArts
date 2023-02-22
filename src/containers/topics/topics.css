@@ -1,0 +1,34 @@
+.langarts__topics{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.langarts__topics-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 2rem 0 2rem;
+}
+
+.langarts__topics-heading h1{
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 34px;
+    line-height: 45px;
+    max-width: 510px;
+    color: var(--gradient-text);;
+}
+
+.langarts__topics-heading p{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    max-width: 510px;
+    color: var(--color-subtext);
+    cursor: pointer;
+}
+
