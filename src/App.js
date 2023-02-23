@@ -7,10 +7,11 @@ import './App.css'
 const App = () => {
   return (
     <div className="App">
-      <div className="gradient__bg"> 
+      <div className="gradient__pic">
+      
       <Navbar />
       <Header />
-      
+
       </div>
       <LangSwitch />
       <Features />

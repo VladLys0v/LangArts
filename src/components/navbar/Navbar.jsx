@@ -15,7 +15,7 @@ const Menu = () => (
 const Navbar = () => {
   const[toggleMenu, setToggleMenu] = useState(false);
   return (
-    <div className="langarts__navbar">
+    <div className="langarts__navbar ">
       <div className="langarts__navbar-links">
         <div className="langarts__navbar-links_logo"> 
         <img src={logo} alt="logo"/>

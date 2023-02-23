@@ -16,6 +16,15 @@ a {
 
 }
 
+.gradient__pic{
+    background-image: url('./assets/sopot_molo.jpg');
+        
+    background-position: top 50% center;
+    background-size: cover;
+
+    
+}
+
 .gradient__bg {
     
         /* ff 3.6+ */
@@ -30,8 +39,14 @@ a {
         background:-ms-linear-gradient(90deg, rgba(254, 255, 110, 1) 0%, rgba(130, 238, 172, 1) 100%);
         /* global 94%+ browsers support */
         background:linear-gradient(90deg, rgba(254, 255, 110, 1) 0%, rgba(130, 238, 172, 1) 100%);
+        background-blend-mode: overlay;
+        
+
+        opacity: 0.1;
+        
     
 }
+
 
 .gradient__text{
     background: var(--gradient-text);
