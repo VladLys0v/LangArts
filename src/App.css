@@ -21,9 +21,8 @@ a {
         
     background-position: top 50% center;
     background-size: cover;
-
-    
 }
+
 
 .gradient__bg {
     
@@ -39,10 +38,8 @@ a {
         background:-ms-linear-gradient(90deg, rgba(254, 255, 110, 1) 0%, rgba(130, 238, 172, 1) 100%);
         /* global 94%+ browsers support */
         background:linear-gradient(90deg, rgba(254, 255, 110, 1) 0%, rgba(130, 238, 172, 1) 100%);
-        background-blend-mode: overlay;
-        
+        position:static;
 
-        opacity: 0.1;
         
     
 }
