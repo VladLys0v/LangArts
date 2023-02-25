@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './wordsModal.css';
 import { RiCloseFill} from 'react-icons/ri';
 
 const WordsModal = ({ showWordsModal, setShowWordsModal }) => {
+  const [countdown, setCountdown] = useState(3);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdown(countdown => countdown - 1);
+    }, 1000);
+
+    if (countdown === 0) {
+      setCountdown("Start!");
+    }
+
+    return () => clearInterval(timer);
+  }, [countdown]);
+
   if (!showWordsModal) {
     return null;
   }
@@ -17,7 +31,7 @@ const WordsModal = ({ showWordsModal, setShowWordsModal }) => {
       </div>
 
         <div className="langarts__wordsModal__content">
-          
+          <div className="langarts__wordsModal__countdown">{countdown}</div>
         </div>
     </div>
   );
