@@ -6,16 +6,17 @@ const WordsModal = ({ showWordsModal, setShowWordsModal }) => {
   const [countdown, setCountdown] = useState(3);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown(countdown => countdown - 1);
-    }, 1000);
-
-    if (countdown === 0) {
-      setCountdown("Start!");
+    if (showWordsModal && countdown > 0) {
+      const timer = setTimeout(() => {
+        setCountdown(countdown - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else if (showWordsModal && countdown === 0) {
+      setCountdown('Start!');
+    } else if (!showWordsModal) {
+      setCountdown(3);
     }
-
-    return () => clearInterval(timer);
-  }, [countdown]);
+  }, [showWordsModal, countdown]);
 
   if (!showWordsModal) {
     return null;
