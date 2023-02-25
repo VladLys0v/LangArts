@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import './features.css';
-import Modal from 'C:/Users/Vlad/Desktop/langarts/src/containers/Modals/Modal.jsx';
+import WordsModal from '../wordsModals/WordsModal.jsx';
+import SentencesModal from '../sentencesModal/SentencesModal.jsx'
+import ParagraphsModal from '../paragraphsModal/ParagraphsModal.jsx'
 
 const Features = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showWordsModal, setShowWordsModal] = useState(false);
+  const [showSentencesModal, setShowSentencesModal] = useState(false);
+  const [showParagraphsModal, setShowParagraphsModal] = useState(false);
 
   const handleWordsButtonClick = () => {
-    setShowModal(true);
+    setShowWordsModal(true);
   };
 
   const handleSentencesButtonClick = () => {
-    // handle sentences button click
+    setShowSentencesModal(true);
   };
 
   const handleParagraphsButtonClick = () => {
-    // handle paragraphs button click
+    setShowParagraphsModal(true);
   };
 
   return (
@@ -34,7 +38,9 @@ const Features = () => {
           <button type="button" onClick={handleParagraphsButtonClick}>Paragraphs</button>
         </div>
       </div>
-      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <WordsModal showWordsModal={showWordsModal} setShowWordsModal={setShowWordsModal} />
+      <SentencesModal showSentencesModal={showSentencesModal} setShowSentencesModal={setShowSentencesModal} />
+      <ParagraphsModal showParagraphsModal={showParagraphsModal} setShowParagraphsModal={setShowParagraphsModal} />
     </div>
   );
 };
