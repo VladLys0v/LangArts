@@ -41,8 +41,9 @@ app.get('/words', (req, res) => {
     } else {
       const data = results.map((result) => {
         return Object.values(result).join(' ');
-      }).join('\n');
-      res.send(data);
+      });
+      res.setHeader('Content-Type', 'application/json');
+      res.send(JSON.stringify(data));
     }
   });
 });

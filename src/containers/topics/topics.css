@@ -19,7 +19,7 @@
     font-size: 34px;
     line-height: 45px;
     max-width: 510px;
-    color: var(--gradient-text);;
+    color: var(--gradient-text);
 }
 
 .langarts__topics-heading p{
@@ -32,3 +32,22 @@
     cursor: pointer;
 }
 
+.langarts__topics-content {
+    display: wrap;
+    justify-content: space-between;
+    
+}
+
+.langarts__topics-content-raw1 {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 1rem;
+}
+
+.langarts__topics-content-raw2 {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 1rem;
+}

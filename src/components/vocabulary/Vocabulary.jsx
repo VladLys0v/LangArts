@@ -7,7 +7,7 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary }) => {
 
   useEffect(() => {
     fetch('http://localhost:3000/words')
-      .then(response => response.text()) // use response.text() instead of response.json()
+      .then(response => response.json())
       .then(data => setWords(data))
       .catch(error => console.error(error));
   }, []);
@@ -25,9 +25,11 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary }) => {
         </div>
       </div>
       <div className="langarts__vocabulary__content">
-        <ul>
-        <p>{words}</p>
-        </ul>
+      <ul>
+    {words.split('\n').map((word, index) => (
+      <li key={index}>{word}</li>
+    ))}
+  </ul>
       </div>
     </div>
   );
