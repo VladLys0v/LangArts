@@ -8,10 +8,18 @@ const app = express();
 app.use(cors());
 
 const connection = createConnection({
-  host: 'localhost',
+  server: 'localhost',
   user: 'root',
   password: 'SalamP0p0lam',
   database: 'vocabulary_api',
+
+  options:{
+    trustedconnection: true,
+    enableArithPort: true,
+    instancename: 'MySQL80'
+
+  },
+  port: 3306
 });
 
 connection.connect((err) => {
