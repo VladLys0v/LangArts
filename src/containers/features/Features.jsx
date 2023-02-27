@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './features.css';
+import { createBrowserHistory } from 'history';
+
+
 import WordsModal from '../wordsModals/WordsModal.jsx';
 import SentencesModal from '../sentencesModal/SentencesModal.jsx'
 import ParagraphsModal from '../paragraphsModal/ParagraphsModal.jsx'
@@ -23,9 +26,13 @@ const Features = () => {
     setShowParagraphsModal(true);
   };
 
+  const history = createBrowserHistory();
+
   const handleVocabularyClick = () => {
     setShowVocabulary(true);
+    history.push('/words');
   };
+
 
   return (
     <div className="langarts__features section__padding" id="langartsFeatures">

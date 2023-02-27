@@ -1,28 +1,21 @@
 const express = require('express');
 const cors = require('cors');
-const { createConnection } = require('mysql');
-
+const { createPool } = require('mysql');
 
 const app = express();
 
 app.use(cors());
 
-const connection = createConnection({
-  server: 'localhost',
+const pool = createPool({
+  host: 'localhost',
   user: 'root',
   password: 'SalamP0p0lam',
   database: 'vocabulary_api',
-
-  options:{
-    trustedconnection: true,
-    enableArithPort: true,
-    instancename: 'MySQL80'
-
-  },
-  port: 3306
+  port: 3306,
+  connectionLimit: 10
 });
 
-connection.connect((err) => {
+pool.getConnection((err, connection) => {
   if (err) {
     console.error('Error connecting to database: ' + err.stack);
     return;
@@ -30,28 +23,28 @@ connection.connect((err) => {
   console.log('Connected to database with threadId: ' + connection.threadId);
 });
 
-connection.on('error', (err) => {
-  console.error('Database error: ' + err);
-  if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-    connection.connect();
-  } else {
-    throw err;
-  }
-});
-
 app.get('/words', (req, res) => {
   const query = 'SELECT * FROM russian_words';
 
-  connection.query(query, (error, results) => {
+  pool.query(query, (error, results) => {
     if (error) {
       console.error('Database query error: ' + error);
       res.status(500).send('Server error');
     } else {
       const data = results.map((result) => {
-        return Object.values(result).join(' ');
+        return {
+          id: result.id,
+          word: result.word,
+          polish_word_id: result.polish_word_id
+        };
       });
-      res.setHeader('Content-Type', 'application/json');
-      res.send(JSON.stringify(data));
+      res.json(data);
     }
   });
+});
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });

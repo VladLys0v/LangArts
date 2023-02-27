@@ -5,11 +5,12 @@ import { RiCloseFill} from 'react-icons/ri';
 const Vocabulary = ({ showVocabulary, setShowVocabulary }) => {
   const [words, setWords] = useState([]);
 
+
   useEffect(() => {
-    fetch('http://localhost:3000/words')
-      .then(response => response.json())
-      .then(data => setWords(data))
-      .catch(error => console.error(error));
+    fetch('/words')
+      .then((res) => res.json())
+      .then((data) => setWords(data))
+      .catch((err) => console.error(err));
   }, []);
 
   if (!showVocabulary) {
@@ -26,10 +27,12 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary }) => {
       </div>
       <div className="langarts__vocabulary__content">
       <ul>
-    {words.split('\n').map((word, index) => (
-      <li key={index}>{word}</li>
+      {words.map((word) => (
+            <li key={word.id}>
+            {word.word} - Polish word ID: {word.polish_word_id}
+          </li>
     ))}
-  </ul>
+      </ul>
       </div>
     </div>
   );
