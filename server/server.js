@@ -23,8 +23,9 @@ pool.getConnection((err, connection) => {
   console.log('Connected to database with threadId: ' + connection.threadId);
 });
 
-app.get('/words', (req, res) => {
-  const query = 'SELECT * FROM russian_words';
+app.get('/:language', (req, res) => {
+  const language = req.params.language;
+  const query = `SELECT * FROM ${language}`;
 
   pool.query(query, (error, results) => {
     if (error) {

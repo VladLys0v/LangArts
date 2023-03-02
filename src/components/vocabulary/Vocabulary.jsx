@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import './vocabulary.css';
 import { RiCloseFill} from 'react-icons/ri';
 
-const Vocabulary = ({ showVocabulary, setShowVocabulary }) => {
+const Vocabulary = ({ showVocabulary, setShowVocabulary, language }) => {
   const [words, setWords] = useState([]);
 
-
   useEffect(() => {
-    fetch('/words')
+    fetch(`/${language}`)
       .then((res) => res.json())
       .then((data) => setWords(data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [language]);
 
   if (!showVocabulary) {
     return null;
@@ -26,13 +25,13 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary }) => {
         </div>
       </div>
       <div className="langarts__vocabulary__content">
-      <ul>
-      {words.map((word) => (
+        <ul>
+          {words.map((word) => (
             <li key={word.id}>
-            {word.word} - Polish word ID: {word.polish_word_id}
-          </li>
-    ))}
-      </ul>
+              {word.word} - Polish word ID: {word.polish_word_id}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

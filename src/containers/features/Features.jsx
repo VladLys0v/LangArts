@@ -7,12 +7,16 @@ import WordsModal from '../wordsModals/WordsModal.jsx';
 import SentencesModal from '../sentencesModal/SentencesModal.jsx'
 import ParagraphsModal from '../paragraphsModal/ParagraphsModal.jsx'
 import Vocabulary from 'C:/Users/Vlad/Desktop/langarts/src/components/vocabulary/Vocabulary.jsx'
+//import LangSwitch from 'C:/Users/Vlad/Desktop/langarts/src/components/langSwitch/LangSwitch.jsx';
 
 const Features = () => {
   const [showWordsModal, setShowWordsModal] = useState(false);
   const [showSentencesModal, setShowSentencesModal] = useState(false);
   const [showParagraphsModal, setShowParagraphsModal] = useState(false);
   const [showVocabulary, setShowVocabulary] = useState(false);
+  
+  
+
 
   const handleWordsButtonClick = () => {
     setShowWordsModal(true);
@@ -28,9 +32,9 @@ const Features = () => {
 
   const history = createBrowserHistory();
 
-  const handleVocabularyClick = () => {
+  const handleVocabularyClick = (language) => {
     setShowVocabulary(true);
-    history.push('/words');
+    history.push(`/${language}`);
   };
 
 

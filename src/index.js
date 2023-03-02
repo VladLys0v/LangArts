@@ -14,7 +14,7 @@ root.render(
     <Routes>
       <Route exact path="/" element={<App />} />
 
-      <Route exact path="/words" element={<Vocabulary />} />
+      <Route exact path="/:language" element={<Vocabulary language="{language}" />} />
 
     </Routes>
   </BrowserRouter>
