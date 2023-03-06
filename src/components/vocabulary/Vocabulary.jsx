@@ -32,13 +32,15 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) 
           <RiCloseFill color="grey" size={35} onClick={() => setShowVocabulary(false)} />
         </div>
       </div>
-      <div className="langarts__vocabulary__content">
+      <div className="langarts__vocabulary__content section__padding">
         <ul>
           {words.map((word) => {
             const matchingWord = words2.find((w) => w.id === word.id);
             return (
               <li key={word.id}>
-                {word.word} - {matchingWord.word}
+                <div className="word">{word.word}</div>
+                <div className="dash">-</div>
+                <div className="matching-word">{matchingWord.word}</div>
               </li>
             );
           })}

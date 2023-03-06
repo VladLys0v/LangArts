@@ -45,3 +45,19 @@
   .langarts__vocabulary__header-close svg {
     cursor: pointer;
 }
+
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: 10px;
+
+}
+li {
+  display: flex;
+  justify-content: space-between;
+}
+.word, .dash, .matching-word {
+  flex: 1;
+}
+
