@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Footer, Blog, Topics, Features, Header } from './containers'
-import { LangSwitch, Navbar } from './components'
+import { Navbar } from './components'
 import './App.css'
 
 const App = () => {
@@ -11,7 +11,6 @@ const App = () => {
       <Navbar />
       <Header />
       </div>
-      <LangSwitch />
       <Features />
       <Topics />
       <Blog />

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './vocabulary.css';
 import { RiCloseFill} from 'react-icons/ri';
 
-const Vocabulary = ({ showVocabulary, setShowVocabulary, language }) => {
+const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) => {
   const [words, setWords] = useState([]);
+  const [words2, setWords2] = useState([]);
 
   useEffect(() => {
     fetch(`/${language}`)
@@ -11,6 +12,13 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language }) => {
       .then((data) => setWords(data))
       .catch((err) => console.error(err));
   }, [language]);
+
+  useEffect(() => {
+    fetch(`/${language2}`)
+      .then((res) => res.json())
+      .then((data) => setWords2(data))
+      .catch((err) => console.error(err));
+  }, [language2]);
 
   if (!showVocabulary) {
     return null;
@@ -26,11 +34,14 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language }) => {
       </div>
       <div className="langarts__vocabulary__content">
         <ul>
-          {words.map((word) => (
-            <li key={word.id}>
-              {word.word} - Polish word ID: {word.polish_word_id}
-            </li>
-          ))}
+          {words.map((word) => {
+            const matchingWord = words2.find((w) => w.id === word.id);
+            return (
+              <li key={word.id}>
+                {word.word} - {matchingWord.word}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>
