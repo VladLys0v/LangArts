@@ -108,7 +108,7 @@ const Features = () => {
           <button type="button" onClick={handleParagraphsButtonClick}>Paragraphs</button>
         </div>
       </div>
-      <WordsModal showWordsModal={showWordsModal} setShowWordsModal={setShowWordsModal} />
+      <WordsModal showWordsModal={showWordsModal} setShowWordsModal={setShowWordsModal} language={selectedValue1} language2={selectedValue2} />
       <SentencesModal showSentencesModal={showSentencesModal} setShowSentencesModal={setShowSentencesModal} />
       <ParagraphsModal showParagraphsModal={showParagraphsModal} setShowParagraphsModal={setShowParagraphsModal} />
       <Vocabulary showVocabulary={showVocabulary} setShowVocabulary={setShowVocabulary} language={selectedValue1} language2={selectedValue2}/>
