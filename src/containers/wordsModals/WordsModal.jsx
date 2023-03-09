@@ -7,6 +7,7 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
   const [countdown, setCountdown] = useState(3);
   const [words, setWords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showWords, setShowWords] = useState(false);
 
   useEffect(() => {
     const fetchWords = async () => {
@@ -18,6 +19,8 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
       }
     };
 
+//START! DOES NOT APPEAR, NEEDS TO BE FIXED
+
     if (showWordsModal && countdown > 0) {
       const timer = setTimeout(() => {
         setCountdown(countdown - 1);
@@ -28,6 +31,9 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
       fetchWords();
     } else if (!showWordsModal) {
       setCountdown(3);
+      setShowWords(false);
+      setCurrentIndex(0);
+      setWords([]);
     }
   }, [showWordsModal, countdown, language]);
 
@@ -35,10 +41,14 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
     setCurrentIndex(currentIndex + 1);
   }, [currentIndex]);
 
+  const handlePreviousWord = useCallback(() => {
+    setCurrentIndex(currentIndex - 1);
+  }, [currentIndex]);
+
   useEffect(() => {
     if (countdown === 'Start!') {
       const timer = setTimeout(() => {
-        setCountdown('');
+        setShowWords(true);
       }, 1000);
       return () => clearTimeout(timer);
     }
@@ -58,13 +68,15 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
       </div>
 
       <div className="langarts__wordsModal__content">
-        {words.length === 0 && <div>Loading words...</div>}
-        {words.length > 0 && (
+        {countdown !== 'Start!' && (
+          <div className="langarts__wordsModal__countdown">{countdown}</div>
+        )}
+        {showWords && words.length > 0 && (
           <div>
-            <div className="langarts__wordsModal__countdown">
-              {countdown}
-              {words[currentIndex].word}
-            </div>
+            <div className="langarts__wordsModal__word">{words[currentIndex].word}</div>
+            {currentIndex < words.length + 1 && (
+              <button onClick={handlePreviousWord}>Previous</button>
+            )}
             {currentIndex < words.length - 1 && (
               <button onClick={handleNextWord}>Next</button>
             )}
