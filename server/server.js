@@ -167,7 +167,7 @@ app.put('/:language/:id', (req, res) => {
   const word = req.body.word;
 
   if (!word) {
-    return res.status(400).send('Missing word');
+    return res.status(400).json({ message: 'Missing word' });
   }
 
   let query;
@@ -176,15 +176,15 @@ app.put('/:language/:id', (req, res) => {
   } else if (language === 'polish') {
     query = `UPDATE polish SET word = '${word}' WHERE id = ${id}`;
   } else {
-    return res.status(400).send('Invalid language');
+    return res.status(400).json({ message: 'Invalid language' });
   }
 
   pool.query(query, (error, results) => {
     if (error) {
       console.error(error);
-      return res.status(500).send('Server error');
+      return res.status(500).json({ message: 'Server error' });
     }
-    return res.status(200).send('Success');
+    return res.status(200).json({ message: 'Success' });
   });
 });
 

@@ -47,55 +47,55 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) 
       .catch((err) => console.error(err));
 }
 
-const handleWordUpdate = (word, matchingWord, id) => {
-  const newWord = prompt('Enter a new word:', word);
-  if (newWord !== null && newWord !== '') {
-    const newMatchingWord = prompt('Enter a new matching word:', matchingWord);
-    if (newMatchingWord !== null && newMatchingWord !== '') {
-      fetch(`/${language}/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ word: newWord })
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data === 'Success') {
-            setWords(
-              words.map((w) => {
-                if (w.id === id) {
-                  return { ...w, word: newWord };
-                } else {
-                  return w;
-                }
-              })
-            );
-          }
-        })
-        .catch((err) => console.error(err));
+const handleWordUpdate = (newWord, matchingWord, id) => {
+  fetch(`/${language}/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ word: newWord })
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      //console.log('Response data:', data);
+      if (data.message === 'Success') {
+        setWords(
+          words.map((w) => {
+            if (w.id === id) {
+              return { ...w, word: newWord };
+            } else {
+              return w;
+            }
+          })
+        );
+      }            
+    })
+    .catch((err) => console.error(err));
 
-      fetch(`/${language2}/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ word: newMatchingWord })
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data === 'Success') {
-            setWords2(
-              words2.map((w) => {
-                if (w.id === id) {
-                  return { ...w, word: newMatchingWord };
-                } else {
-                  return w;
-                }
-              })
-            );
-          }
-        })
-        .catch((err) => console.error(err));
-    }
-  }
+  fetch(`/${language2}/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ word: matchingWord })
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      //console.log('Response data:', data);
+      if (data.message === 'Success') {
+        setWords2(
+          words2.map((w) => {
+            if (w.id === id) {
+              return { ...w, word: matchingWord };
+            } else {
+              return w;
+            }
+          })
+        );
+      }
+    })
+    .catch((error) => {
+      console.log('Error updating word:', error);
+    });
 };
+
+
 
   if (!showVocabulary) {
     return null;
