@@ -47,46 +47,100 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) 
       .catch((err) => console.error(err));
 }
 
+const handleWordUpdate = (word, matchingWord, id) => {
+  const newWord = prompt('Enter a new word:', word);
+  if (newWord !== null && newWord !== '') {
+    const newMatchingWord = prompt('Enter a new matching word:', matchingWord);
+    if (newMatchingWord !== null && newMatchingWord !== '') {
+      fetch(`/${language}/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ word: newWord })
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data === 'Success') {
+            setWords(
+              words.map((w) => {
+                if (w.id === id) {
+                  return { ...w, word: newWord };
+                } else {
+                  return w;
+                }
+              })
+            );
+          }
+        })
+        .catch((err) => console.error(err));
+
+      fetch(`/${language2}/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ word: newMatchingWord })
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data === 'Success') {
+            setWords2(
+              words2.map((w) => {
+                if (w.id === id) {
+                  return { ...w, word: newMatchingWord };
+                } else {
+                  return w;
+                }
+              })
+            );
+          }
+        })
+        .catch((err) => console.error(err));
+    }
+  }
+};
+
   if (!showVocabulary) {
     return null;
   }
 // FIX: Warning: Encountered two children with the same key
 //but ignore for now, as the error requires to change IDs on unique once, 
 //my guess is the key is reading only the first digit out of 2digits id numbers
-  return (
-    <div className="langarts__vocabulary">
-      <div className="langarts__vocabulary__header">
-        <h2>Vocabulary</h2>
-        <div className="langarts__vocabulary__header-close">
-          <RiCloseFill color="grey" size={35} onClick={() => setShowVocabulary(false)} />
-        </div>
-      </div>
-      <div className="langarts__vocabulary__add">
-        {!displayInput ? (
-          <RiAddLine color="grey" size={35} onClick={handleAddWord} />
-        ) : (
-          <div>
-            <input type="text" value={newWord} onChange={handleWordInputChange} />
-            <button onClick={handleWordSubmit}>Approve</button>
-          </div>
-        )}
-      </div>
-      <div className="langarts__vocabulary__content section__padding">
-        <ul>
-          {words.map((word) => {
-            const matchingWord = words2.find((w) => w.id === word.id);
-            return (
-              <li key={word.id}>
-                <div className="word">{word.word}</div>
-                <div className="dash">-</div>
-                <div className="matching-word">{matchingWord.word}</div>
-              </li>
-            );
-          })}
-        </ul>
+return (
+  <div className="langarts__vocabulary">
+    <div className="langarts__vocabulary__header">
+      <h2>Vocabulary</h2>
+      <div className="langarts__vocabulary__header-close">
+        <RiCloseFill color="grey" size={35} onClick={() => setShowVocabulary(false)} />
       </div>
     </div>
-  );
+    <div className="langarts__vocabulary__add">
+      {!displayInput ? (
+        <RiAddLine color="grey" size={35} onClick={handleAddWord} />
+      ) : (
+        <div>
+          <input type="text" value={newWord} onChange={handleWordInputChange} />
+          <button onClick={handleWordSubmit}>Approve</button>
+        </div>
+      )}
+    </div>
+    <div className="langarts__vocabulary__content section__padding">
+      <ul>
+        {words.map((word) => {
+          const matchingWord = words2.find((w) => w.id === word.id);
+          return (
+            <li key={word.id}>
+              <div className="word">
+                <input type="text" value={word.word} onChange={(e) => handleWordUpdate(e.target.value, matchingWord.word, word.id)} />
+              </div>
+              <div className="dash">-</div>
+              <div className="matching-word">
+                <input type="text" value={matchingWord.word} onChange={(e) => handleWordUpdate(word.word, e.target.value, matchingWord.id)} />
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+);
 };
 
 export default Vocabulary;
