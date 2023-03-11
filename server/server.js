@@ -119,7 +119,6 @@ app.post('/:language', (req, res) => {
           console.error(error2);
           return res.status(500).send('Server error');
         }
-        // Update the "polish_id" foreign key in the "russian" table
         const polishId = results2.insertId;
         const query3 = `UPDATE russian SET polish_id = ${polishId} WHERE id = ${newId}`;
         pool.query(query3, (error3, results3) => {
@@ -127,7 +126,7 @@ app.post('/:language', (req, res) => {
             console.error(error3);
             return res.status(500).send('Server error');
           }
-          return res.status(200).send('Success');
+          return res.status(200).json({ message: 'Success' }); // returning json object instead of a plain string
         });
       });
     });
@@ -145,7 +144,7 @@ app.post('/:language', (req, res) => {
           console.error(error2);
           return res.status(500).send('Server error');
         }
-        // Update the "russian_id" foreign key in the "polish" table
+
         const russianId = results2.insertId;
         const query3 = `UPDATE polish SET russian_id = ${russianId} WHERE id = ${newId}`;
         pool.query(query3, (error3, results3) => {
@@ -153,7 +152,7 @@ app.post('/:language', (req, res) => {
             console.error(error3);
             return res.status(500).send('Server error');
           }
-          return res.status(200).send('Success');
+          return res.status(200).json({ message: 'Success' }); // returning json object instead of a plain string
         });
       });
     });

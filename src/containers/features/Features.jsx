@@ -10,7 +10,7 @@ import WordsModal from '../wordsModals/WordsModal.jsx';
 import SentencesModal from '../sentencesModal/SentencesModal.jsx'
 import ParagraphsModal from '../paragraphsModal/ParagraphsModal.jsx'
 import Vocabulary from 'C:/Users/Vlad/Desktop/langarts/src/components/vocabulary/Vocabulary.jsx'
-//import LangSwitch from 'C:/Users/Vlad/Desktop/langarts/src/components/langSwitch/LangSwitch.jsx';
+
 
 const Features = () => {
   const [showWordsModal, setShowWordsModal] = useState(false);

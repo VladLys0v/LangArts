@@ -74,7 +74,7 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
         {showWords && words.length > 0 && (
           <div>
             <div className="langarts__wordsModal__word">{words[currentIndex].word}</div>
-            {currentIndex < words.length + 1 && (
+             {currentIndex > 0 && (
               <button onClick={handlePreviousWord}>Previous</button>
             )}
             {currentIndex < words.length - 1 && (
