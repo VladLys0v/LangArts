@@ -100,9 +100,7 @@ const handleWordUpdate = (newWord, matchingWord, id) => {
   if (!showVocabulary) {
     return null;
   }
-// FIX: Warning: Encountered two children with the same key
-//but ignore for now, as the error requires to change IDs on unique once, 
-//my guess is the key is reading only the first digit out of 2digits id numbers
+
 return (
   <div className="langarts__vocabulary">
     <div className="langarts__vocabulary__header">
@@ -122,23 +120,26 @@ return (
       )}
     </div>
     <div className="langarts__vocabulary__content section__padding">
-      <ul>
-        {words.map((word) => {
-          const matchingWord = words2.find((w) => w.id === word.id);
-          return (
-            <li key={word.id}>
-              <div className="word">
-                <input type="text" value={word.word} onChange={(e) => handleWordUpdate(e.target.value, matchingWord.word, word.id)} />
-              </div>
-              <div className="dash">-</div>
-              <div className="matching-word">
-                <input type="text" value={matchingWord.word} onChange={(e) => handleWordUpdate(word.word, e.target.value, matchingWord.id)} />
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+  <ul>
+    {words.map((word, index) => {
+      const matchingWord = words2.find((w) => w.id === word.id);
+      if (!matchingWord) {
+        return null; // skip rendering word 
+      }
+      return (
+        <li key={index}>
+          <div className="word">
+            <input type="text" value={word.word} onChange={(e) => handleWordUpdate(e.target.value, matchingWord.word, word.id)} />
+          </div>
+          <div className="dash">-</div>
+          <div className="matching-word">
+            <input type="text" value={matchingWord.word} onChange={(e) => handleWordUpdate(word.word, e.target.value, matchingWord.id)} />
+          </div>
+        </li>
+      );
+    })}
+  </ul>
+</div>
   </div>
 );
 };
