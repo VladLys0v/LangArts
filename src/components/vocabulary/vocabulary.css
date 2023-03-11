@@ -46,6 +46,10 @@
     cursor: pointer;
 }
 
+.langarts__vocabulary__content {
+  max-height: 580px;
+  overflow-y: scroll;
+}
 
 ul {
   display: grid;
