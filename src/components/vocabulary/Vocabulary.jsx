@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './vocabulary.css';
+import { createBrowserHistory } from 'history';
 import { RiCloseFill, RiAddLine, RiDeleteBin6Line} from 'react-icons/ri';
 
 const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) => {
@@ -7,6 +8,7 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) 
   const [words2, setWords2] = useState([]);
   const [displayInput, setDisplayInput] = useState(false);
   const [newWord, setNewWord] = useState('');
+  const history = createBrowserHistory();
 
   useEffect(() => {
     fetch(`/${language}`)
@@ -21,6 +23,11 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) 
       .then((data) => setWords2(data))
       .catch((err) => console.error(err));
   }, [language2]);
+
+  const handleClose = () => {
+    setShowVocabulary(false);
+    history.push(`/`);
+  };
 
   const handleAddWord = () => {
     setDisplayInput(true);
@@ -125,7 +132,7 @@ return (
     <div className="langarts__vocabulary__header">
       <h2>Vocabulary</h2>
       <div className="langarts__vocabulary__header-close">
-        <RiCloseFill color="grey" size={35} onClick={() => setShowVocabulary(false)} />
+        <RiCloseFill color="grey" size={35} onClick={() => handleClose()} />
       </div>
     </div>
     <div className="langarts__vocabulary__add">
