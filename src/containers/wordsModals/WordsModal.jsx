@@ -13,11 +13,13 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
     const fetchWords = async () => {
       try {
         const response = await axios.get(`http://localhost:3001/${language}`);
-        setWords(response.data);
-      } catch (error) {
+        const filteredWords = response.data.filter((wordObj) => wordObj.word.trim() !== ''); //doesn't display empty words
+        setWords(filteredWords);
+          }     
+        catch (error) {
         console.error('Error fetching words: ' + error);
-      }
-    };
+    }
+  };
 
 //START! DOES NOT APPEAR, NEEDS TO BE FIXED
 
