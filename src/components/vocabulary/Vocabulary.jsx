@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './vocabulary.css';
-import { RiCloseFill, RiAddLine } from 'react-icons/ri';
+import { RiCloseFill, RiAddLine, RiDeleteBin6Line} from 'react-icons/ri';
 
 const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) => {
   const [words, setWords] = useState([]);
@@ -95,7 +95,26 @@ const handleWordUpdate = (newWord, matchingWord, id) => {
     });
 };
 
-
+    const handleWordDelete = (id) => {
+      fetch(`/${language}/${id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+      })
+      .then((res) =>  {
+        if (res.status === 204) {
+          const index = words.findIndex((word) => word.id === id);
+          if (index !== -1) {
+            const newWords = [...words];
+            newWords.splice(index, 1);
+            setWords(newWords);
+          }
+        } else {
+          throw new Error('Failed to delete word');
+        }
+      })
+      .catch((err) => console.error(err)); 
+    }
+     
 
   if (!showVocabulary) {
     return null;
@@ -134,6 +153,9 @@ return (
           <div className="dash">-</div>
           <div className="matching-word">
             <input type="text" value={matchingWord.word} onChange={(e) => handleWordUpdate(word.word, e.target.value, matchingWord.id)} />
+          </div>
+          <div className="deleteLine">
+            <RiDeleteBin6Line color="grey" size={25} onClick={() => handleWordDelete(word.id)} />
           </div>
         </li>
       );

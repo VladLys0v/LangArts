@@ -202,7 +202,7 @@ app.delete('/:language/:id', (req, res) => {
     foreignTable = 'russian';
     foreignKey = 'polish_id';
   } else {
-    return res.status(400).send('Invalid language');
+    return res.status(400).json({ message:'Invalid language'});
   }
 
   const deleteQuery = `DELETE ${primaryTable}, ${foreignTable}
@@ -213,11 +213,11 @@ app.delete('/:language/:id', (req, res) => {
   pool.query(deleteQuery, [id], (error, results) => {
     if (error) {
       console.error('Database query error: ' + error);
-      res.status(500).send('Server error');
+      res.status(500).json({message:'Server error'});
     } else if (results.affectedRows === 0) {
-      res.status(404).send('Word not found');
+      res.status(404).json({message:'Word not found'});
     } else {
-      res.status(204).send();
+      res.status(204).json({message:'Success!'});
     }
   });
 });
