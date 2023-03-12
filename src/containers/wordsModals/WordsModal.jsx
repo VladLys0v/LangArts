@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './wordsModal.css';
-import { RiCloseFill } from 'react-icons/ri';
+import { RiCloseFill, RiCheckboxCircleLine } from 'react-icons/ri';
 import axios from 'axios';
 
 const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) => {
@@ -9,12 +9,16 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showWords, setShowWords] = useState(false);
 
+  //const [userInput, setUserInput] = useState('');
+  //const [matchingWord, setMatchingWord] = useState('');
+
   useEffect(() => {
     const fetchWords = async () => {
       try {
         const response = await axios.get(`http://localhost:3001/${language}`);
         const filteredWords = response.data.filter((wordObj) => wordObj.word.trim() !== ''); //doesn't display empty words
         setWords(filteredWords);
+        //setMatchingWord(filteredWords[currentIndex][language2]);
           }     
         catch (error) {
         console.error('Error fetching words: ' + error);
@@ -36,8 +40,9 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
       setShowWords(false);
       setCurrentIndex(0);
       setWords([]);
+      //setUserInput('');
     }
-  }, [showWordsModal, countdown, language]);
+  }, [showWordsModal, countdown, language, currentIndex]);
 
   const handleNextWord = useCallback(() => {
     setCurrentIndex(currentIndex + 1);
@@ -84,6 +89,14 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
             )}
           </div>
         )}
+      </div>
+      <div className="langarts__wordsModal__userPart">
+        <div className="userInput">
+          <input type="text" />
+        </div>
+        <div className="submitIcon">
+          <RiCheckboxCircleLine color="grey" size={25} /*onClick={() => handleSubmitAnswer()}*/ />
+        </div>
       </div>
     </div>
   );
