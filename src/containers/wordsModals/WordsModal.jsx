@@ -19,12 +19,22 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
         const response = await axios.get(`http://localhost:3001/${language}`);
         const filteredWords = response.data.filter((wordObj) => wordObj.word.trim() !== ''); //doesn't display empty words
         setWords(filteredWords);
-        
           }     
         catch (error) {
         console.error('Error fetching words: ' + error);
     }
   }; 
+    const fetchMatchingWords = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3001/${language2}`);
+        const matchingWords = response.data.filter((wordObj) => wordObj.word.trim() !== '');
+        setMatchingWord(matchingWords[currentIndex]?.word || '');
+      } catch (error) {
+        console.error('Error fetching matching words: ' + error);
+      }
+    };
+
+
 //START! DOES NOT APPEAR, NEEDS TO BE FIXED
     if (showWordsModal && countdown > 0) {
       const timer = setTimeout(() => {
@@ -34,28 +44,15 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
     } else if (showWordsModal && countdown === 0) {
       setCountdown('Start!');
       fetchWords();
+      fetchMatchingWords();
     } else if (!showWordsModal) {
       setCountdown(3);
       setShowWords(false);
       setCurrentIndex(0);
       setWords([]);
-
+      setMatchingWord('');
     }
   }, [showWordsModal, countdown, language, currentIndex, language2]);
-
-//  useEffect(() => {
-//    const fetchWords = async () => {
-//      try {
-//        const response = await axios.get(`http://localhost:3001/${language2}`);
-//        const matchingWord = response.data.filter((wordObj) => wordObj.word.trim() !== '');
-//        setWords(matchingWord);
-//        setMatchingWord([currentIndex][language2]);
-//      }     
-//      catch (error) {
-//      console.error('Error fetching words: ' + error);
-//  }
-//}
-// }, [language2, currentIndex]);
 
   const handleNextWord = useCallback(() => {
     if (currentIndex + 1 < words.length) {
