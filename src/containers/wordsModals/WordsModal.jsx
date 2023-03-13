@@ -9,8 +9,9 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showWords, setShowWords] = useState(false);
 
-  //const [userInput, setUserInput] = useState('');
-  //const [matchingWord, setMatchingWord] = useState('');
+  const [userInput, setUserInput] = useState('');
+  const [matchingWord, setMatchingWord] = useState('');
+  
 
   useEffect(() => {
     const fetchWords = async () => {
@@ -18,15 +19,13 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
         const response = await axios.get(`http://localhost:3001/${language}`);
         const filteredWords = response.data.filter((wordObj) => wordObj.word.trim() !== ''); //doesn't display empty words
         setWords(filteredWords);
-        //setMatchingWord(filteredWords[currentIndex][language2]);
+        
           }     
         catch (error) {
         console.error('Error fetching words: ' + error);
     }
-  };
-
+  }; 
 //START! DOES NOT APPEAR, NEEDS TO BE FIXED
-
     if (showWordsModal && countdown > 0) {
       const timer = setTimeout(() => {
         setCountdown(countdown - 1);
@@ -40,17 +39,39 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
       setShowWords(false);
       setCurrentIndex(0);
       setWords([]);
-      //setUserInput('');
+
     }
-  }, [showWordsModal, countdown, language, currentIndex]);
+  }, [showWordsModal, countdown, language, currentIndex, language2]);
+
+//  useEffect(() => {
+//    const fetchWords = async () => {
+//      try {
+//        const response = await axios.get(`http://localhost:3001/${language2}`);
+//        const matchingWord = response.data.filter((wordObj) => wordObj.word.trim() !== '');
+//        setWords(matchingWord);
+//        setMatchingWord([currentIndex][language2]);
+//      }     
+//      catch (error) {
+//      console.error('Error fetching words: ' + error);
+//  }
+//}
+// }, [language2, currentIndex]);
 
   const handleNextWord = useCallback(() => {
-    setCurrentIndex(currentIndex + 1);
-  }, [currentIndex]);
+    if (currentIndex + 1 < words.length) {
+      setCurrentIndex(currentIndex + 1);
+      setMatchingWord(words[currentIndex + 1][language2]);
+      setUserInput('');
+    }
+  }, [currentIndex, words, language2]);
 
   const handlePreviousWord = useCallback(() => {
+  if (currentIndex - 1 >= 0) {
     setCurrentIndex(currentIndex - 1);
-  }, [currentIndex]);
+    setMatchingWord(words[currentIndex - 1][language2]);
+    setUserInput('');
+  }
+}, [currentIndex, words, language2]);
 
   useEffect(() => {
     if (countdown === 'Start!') {
@@ -60,6 +81,16 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
       return () => clearTimeout(timer);
     }
   }, [countdown]);
+
+
+  const handleSubmitAnswer = useCallback(() => {
+    if (userInput === matchingWord) {
+      alert('Correct!');
+      handleNextWord();
+    }
+    setUserInput('');
+  }, [userInput, matchingWord, handleNextWord]);
+
 
   if (!showWordsModal) {
     return null;
@@ -92,10 +123,10 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
       </div>
       <div className="langarts__wordsModal__userPart">
         <div className="userInput">
-          <input type="text" />
+          <input id="userInput" type="text" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
         </div>
         <div className="submitIcon">
-          <RiCheckboxCircleLine color="grey" size={25} /*onClick={() => handleSubmitAnswer()}*/ />
+          <RiCheckboxCircleLine color="grey" size={25} onClick={() => handleSubmitAnswer()} />
         </div>
       </div>
     </div>
