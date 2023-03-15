@@ -11,6 +11,8 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
 
   const [userInput, setUserInput] = useState('');
   const [matchingWord, setMatchingWord] = useState('');
+
+  const [showCorrectMessage, setShowCorrectMessage] = useState(false)
   
 
   useEffect(() => {
@@ -79,15 +81,26 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
     }
   }, [countdown]);
 
+  const handleCorrectMessage = useCallback((correct) => {
+    setShowCorrectMessage(correct);
+    if (correct) {
+      const timer = setTimeout(() => {
+        setShowCorrectMessage(false);
+        handleNextWord();
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  },[handleNextWord]);
 
   const handleSubmitAnswer = useCallback(() => {
     if (userInput === matchingWord) {
-      alert('Correct!');
-      handleNextWord();
+      handleCorrectMessage(true);
+      setUserInput('');
+    } else {
+      handleCorrectMessage(false);
+      setUserInput('');
     }
-    setUserInput('');
-  }, [userInput, matchingWord, handleNextWord]);
-
+  }, [userInput, matchingWord, handleCorrectMessage]);
 
   if (!showWordsModal) {
     return null;
@@ -124,6 +137,11 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
         </div>
         <div className="submitIcon">
           <RiCheckboxCircleLine color="grey" size={25} onClick={() => handleSubmitAnswer()} />
+          {showCorrectMessage && (
+          <div className="correctIcon">
+            <RiCheckboxCircleLine color="green" size={45} />
+          </div>
+        )}
         </div>
       </div>
     </div>
