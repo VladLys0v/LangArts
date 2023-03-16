@@ -86,11 +86,13 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
     if (correct) {
       const timer = setTimeout(() => {
         setShowCorrectMessage(false);
-        handleNextWord();
+        setUserInput('');
+        setCurrentIndex(currentIndex + 1);
+        setMatchingWord(words[currentIndex + 1]?.[language2] || '');
       }, 1000);
       return () => clearTimeout(timer);
     }
-  },[handleNextWord]);
+  },[setCurrentIndex, setMatchingWord, words, currentIndex, language2]);
 
   const handleSubmitAnswer = useCallback(() => {
     if (userInput === matchingWord) {
