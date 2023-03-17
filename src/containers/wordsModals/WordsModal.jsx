@@ -35,7 +35,7 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
         console.error('Error fetching matching words: ' + error);
       }
     };
-
+    fetchMatchingWords();
 
 //START! DOES NOT APPEAR, NEEDS TO BE FIXED
     if (showWordsModal && countdown > 0) {
@@ -135,6 +135,7 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
       </div>
       <div className="langarts__wordsModal__userPart">
         <div className="userInput">
+          <p>{matchingWord}</p>
           <input id="userInput" type="text" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
         </div>
         <div className="submitIcon">
