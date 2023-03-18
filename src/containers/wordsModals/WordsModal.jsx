@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './wordsModal.css';
-import { RiCloseFill, RiCheckboxCircleLine } from 'react-icons/ri';
+import { RiCloseFill, RiCheckboxCircleLine, RiMicLine } from 'react-icons/ri';
 import axios from 'axios';
 
+
 const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) => {
+  
   const [countdown, setCountdown] = useState(3);
   const [words, setWords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,6 +16,45 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
 
   const [showCorrectMessage, setShowCorrectMessage] = useState(false)
   
+  const handleSpeechRecognition = useCallback(() => {
+    
+    // create a new SpeechRecognition object
+    if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+      // SpeechRecognition API is supported
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      // rest of the code that uses recognition object
+    } else {
+      // SpeechRecognition API is not supported
+      console.log('SpeechRecognition is not supported in this browser');
+    }
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+  
+    // add a 'result' event listener to the recognition object
+    recognition.addEventListener('result', (event) => {
+      const speechToText = event.results[0][0].transcript;
+      setUserInput(speechToText);
+    });
+  
+    // add an 'end' event listener to the recognition object
+    recognition.addEventListener('end', recognition.start);
+  
+    // start the recognition process
+    recognition.start();
+  
+    // return the cleanup function
+    return () => {
+      recognition.removeEventListener('result', (event) => {
+        const speechToText = event.results[0][0].transcript;
+        setUserInput(speechToText);
+      });
+      recognition.removeEventListener('end', recognition.start);
+      recognition.abort();
+    };
+  }, []);
 
   useEffect(() => {
     const fetchWords = async () => {
@@ -130,6 +171,7 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
             {currentIndex < words.length - 1 && (
               <button onClick={handleNextWord}>Next</button>
             )}
+            <RiMicLine color="grey" size={25} onClick= {handleSpeechRecognition} />
           </div>
         )}
       </div>

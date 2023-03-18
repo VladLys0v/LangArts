@@ -60,7 +60,6 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) 
     // check if newWord or matchingWord is empty and update state accordingly
     if (newWord === '' && matchingWord === '') {
       handleWordDelete(id);
-      
       return;
     }
     fetch(`/${language}/${id}`, {
