@@ -37,32 +37,39 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) 
     setNewWord(event.target.value);
   };
 
-  const handleWordSubmit = () => {
-    fetch(`/${language}`, {
-      method: 'POST',
+  const handleWordSubmit = async () => {
+    try {
+      const res = await fetch(`/${language}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ word: newWord })
+      });
+      const data = await res.json();
+      if (data.message === 'Success') {
+        const newWordObj = { word: newWord, id: words.length + 1 };
+        setWords([...words, newWordObj]);
+        setWords2([...words2,{word:'', id: words2.length + 1}]);
+        setDisplayInput(false);
+        setNewWord('');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const handleWordUpdate = (newWord, matchingWord, id) => {
+    // check if newWord or matchingWord is empty and update state accordingly
+    if (newWord === '' && matchingWord === '') {
+      handleWordDelete(id);
+      
+      return;
+    }
+    fetch(`/${language}/${id}`, {
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ word: newWord })
     })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.message === 'Success') {
-          setWords([...words, { word: newWord, id: words.length + 1 }]);
-          setDisplayInput(false);
-          setNewWord('');
-        }
-      })
-      .catch((err) => console.error(err));
-}
-
-const handleWordUpdate = (newWord, matchingWord, id) => {
-  fetch(`/${language}/${id}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ word: newWord })
-  })
     .then((res) => res.json())
     .then((data) => {
-      //console.log('Response data:', data);
       if (data.message === 'Success') {
         setWords(
           words.map((w) => {
@@ -76,15 +83,14 @@ const handleWordUpdate = (newWord, matchingWord, id) => {
       }            
     })
     .catch((err) => console.error(err));
-
-  fetch(`/${language2}/${id}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ word: matchingWord })
-  })
+  
+    fetch(`/${language2}/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ word: matchingWord })
+    })
     .then((res) => res.json())
     .then((data) => {
-      //console.log('Response data:', data);
       if (data.message === 'Success') {
         setWords2(
           words2.map((w) => {
@@ -100,27 +106,27 @@ const handleWordUpdate = (newWord, matchingWord, id) => {
     .catch((error) => {
       console.log('Error updating word:', error);
     });
-};
+    
+  };
 
-    const handleWordDelete = (id) => {
-      fetch(`/${language}/${id}`, {
+  const handleWordDelete = async (id) => {
+    try {
+      const res = await fetch(`/${language}/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
-      })
-      .then((res) =>  {
-        if (res.status === 204) {
-          const index = words.findIndex((word) => word.id === id);
-          if (index !== -1) {
-            const newWords = [...words];
-            newWords.splice(index, 1);
-            setWords(newWords);
-          }
-        } else {
-          throw new Error('Failed to delete word');
-        }
-      })
-      .catch((err) => console.error(err)); 
+      });
+  
+      if (res.status === 204 || res.status === 200) {
+        
+        const newWords = words.filter((word) => word.id !== id);
+        const newWords2 = words2.filter((word) => word.id !== id);
+        setWords(newWords);
+        setWords2(newWords2);
     }
+  } catch (err) {
+    console.error(err);
+  }
+};
      
 
   if (!showVocabulary) {
