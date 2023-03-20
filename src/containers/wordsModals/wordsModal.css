@@ -49,6 +49,7 @@
 .langarts__wordsModal__countdown {
   font-size: 5rem;
   margin-bottom: 100px;
+  justify-content: center;
 }
 
 .langarts__wordsModal__content {
@@ -58,9 +59,54 @@
   padding-top: 2rem;
 }
 
+.langarts__wordsModal__word {
+  display: flex;
+  text-align: center;
+  font-size: 40px;
+}
+
+.langarts__wordsModal__previousWord {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.langarts__wordsModal__nextWord {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.langarts__wordsModal__taskWord {
+  display: flex;
+  justify-content: center;
+}
+
+.langarts__wordsModal__Mic {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  cursor: pointer;
+}
 
 .langarts__wordsModal__userPart {
   display: flex;
   justify-content: center;
-  padding-top: 2rem;
+  padding-top: 3rem;
+}
+
+.userInput{
+  display: flex;
+  justify-content: center;
+}
+
+.submitIcon {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.correctIcon {
+  position: fixed;
+  z-index: 9;
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './wordsModal.css';
-import { RiCloseFill, RiCheckboxCircleLine, RiMicLine } from 'react-icons/ri';
+import { RiCloseFill, RiCheckboxCircleLine, RiMicLine, RiArrowRightSLine, RiArrowLeftSLine } from 'react-icons/ri';
 import axios from 'axios';
 import {useSpeechRecognition} from 'C:/Users/Vlad/Desktop/langarts/src/components/speechRecognition/SpeechRecognition.jsx';
 
@@ -130,31 +130,41 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
           <div className="langarts__wordsModal__countdown">{countdown}</div>
         )}
         {showWords && words.length > 0 && (
-          <div>
-            <div className="langarts__wordsModal__word">{words[currentIndex].word}</div>
+          <div className = "langarts__wordsModal__afterCountdown">
+            <div className ="langarts__wordsModal__taskWord">
+            <div className ="langarts__wordsModal__previousWord">
              {currentIndex > 0 && (
-              <button onClick={handlePreviousWord}>Previous</button>
+              <RiArrowLeftSLine color="grey" size={35} onClick={handlePreviousWord} />
             )}
+            </div>
+            <div className ="langarts__wordsModal__word">{words[currentIndex].word}</div>
+            <div className ="langarts__wordsModal__nextWord">
             {currentIndex < words.length - 1 && (
-              <button onClick={handleNextWord}>Next</button>
+              <RiArrowRightSLine color="grey" size={35} onClick={handleNextWord} />
             )}
-            <RiMicLine color="grey" size={25} onClick= {handleMicClick} />
+            </div>
+            </div>
+
+            <div className ="langarts__wordsModal__Mic">
+            <RiMicLine color="grey" size={40} onClick= {handleMicClick} />
+            </div>
+            <div className="langarts__wordsModal__userPart">
+              <div className="userInput">
+                <input id="userInput" type="text" value={userInput || recognizedSpeech} onChange={(e) => setUserInput(e.target.value)} />
+              </div>
+              <div className="submitIcon">
+                <RiCheckboxCircleLine color="grey" size={27} onClick={() => handleSubmitAnswer()} />
+                
+                              <p>{matchingWord}</p>
+              </div>
+              {showCorrectMessage && (
+                <div className="correctIcon">
+                  <RiCheckboxCircleLine color="green" size={200} />
+                </div>
+              )}
+            </div>
           </div>
         )}
-      </div>
-      <div className="langarts__wordsModal__userPart">
-        <div className="userInput">
-          <p>{matchingWord}</p>
-          <input id="userInput" type="text" value={userInput || recognizedSpeech} onChange={(e) => setUserInput(e.target.value)} />
-        </div>
-        <div className="submitIcon">
-          <RiCheckboxCircleLine color="grey" size={25} onClick={() => handleSubmitAnswer()} />
-          {showCorrectMessage && (
-          <div className="correctIcon">
-            <RiCheckboxCircleLine color="green" size={45} />
-          </div>
-        )}
-        </div>
       </div>
     </div>
   );
