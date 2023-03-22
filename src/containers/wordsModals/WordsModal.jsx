@@ -150,7 +150,7 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
             </div>
 
             <div className ="langarts__wordsModal__Mic">
-            <RiMicLine color="grey" size={40} onClick= {handleMicClick} />
+            <RiMicLine color={isRecognizing ? "green" : "grey"} size={40} onClick={handleMicClick} />
             </div>
             <div className="langarts__wordsModal__userPart">
               <div className="userInput">
