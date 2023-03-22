@@ -16,10 +16,14 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
   const [matchingWord, setMatchingWord] = useState('');
 
   const [showCorrectMessage, setShowCorrectMessage] = useState(false)
-  const [handleSpeechRecognition, recognizedSpeech] = useSpeechRecognition();
+  const [handleSpeechRecognition, stopSpeechRecognition, recognizedSpeech, isRecognizing] = useSpeechRecognition();
 
   const handleMicClick = () => {
-    handleSpeechRecognition();
+    if (isRecognizing) {
+      stopSpeechRecognition();
+    } else {
+      handleSpeechRecognition();
+    }
   };
 
 
