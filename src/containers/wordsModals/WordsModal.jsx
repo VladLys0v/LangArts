@@ -107,14 +107,14 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
   },[setCurrentIndex, setMatchingWord, words, currentIndex, language2]);
 
   const handleSubmitAnswer = useCallback(() => {
-    if (userInput === matchingWord) {
+    if (userInput || recognizedSpeech === matchingWord) {
       handleCorrectMessage(true);
       setUserInput('');
     } else {
       handleCorrectMessage(false);
       setUserInput('');
     }
-  }, [userInput, matchingWord, handleCorrectMessage]);
+  }, [userInput, matchingWord, handleCorrectMessage, recognizedSpeech]);
 
   if (!showWordsModal) {
     return null;
