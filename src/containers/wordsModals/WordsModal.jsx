@@ -110,11 +110,14 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
     if (userInput === matchingWord) {
       handleCorrectMessage(true);
       setUserInput('');
-    } else {
+    } else if (recognizedSpeech === matchingWord) {
+      handleCorrectMessage(true);
+      setUserInput('');
+    } else if (recognizedSpeech) {
       handleCorrectMessage(false);
       setUserInput('');
-    }
-  }, [userInput, matchingWord, handleCorrectMessage]);
+    } 
+  }, [recognizedSpeech,userInput, matchingWord, handleCorrectMessage]);
 
   if (!showWordsModal) {
     return null;
