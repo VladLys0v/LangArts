@@ -119,6 +119,11 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
     } 
   }, [recognizedSpeech,userInput, matchingWord, handleCorrectMessage]);
 
+  const handleClose = () => {
+    setShowWordsModal(false);
+    setUserInput('');
+  };
+
   if (!showWordsModal) {
     return null;
   }
@@ -128,7 +133,7 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
       <div className="langarts__wordsModal__header">
         <h2>Words Tab</h2>
         <div className="langarts__wordsModal__header-close">
-          <RiCloseFill color="grey" size={35} onClick={() => setShowWordsModal(false)} />
+          <RiCloseFill color="grey" size={35} onClick={() => handleClose(false)} />
         </div>
       </div>
 
