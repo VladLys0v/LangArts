@@ -18,6 +18,12 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
   const [showCorrectMessage, setShowCorrectMessage] = useState(false)
   const [handleSpeechRecognition, stopSpeechRecognition, recognizedSpeech, isRecognizing] = useSpeechRecognition();
 
+  useEffect(() => {
+    if (recognizedSpeech) {
+      setUserInput(recognizedSpeech);
+    }
+  }, [recognizedSpeech]);
+
   const handleMicClick = () => {
     if (isRecognizing) {
       stopSpeechRecognition();
@@ -25,7 +31,6 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
       handleSpeechRecognition();
     }
   };
-
 
   useEffect(() => {
     const fetchWords = async () => {
@@ -162,7 +167,7 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
             </div>
             <div className="langarts__wordsModal__userPart">
               <div className="userInput">
-                <input id="userInput" type="text" value={userInput || recognizedSpeech} onChange={(e) => setUserInput(e.target.value)} />
+                <input id="userInput" type="text" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
               </div>
               <div className="submitIcon">
                 <RiCheckboxCircleLine color="grey" size={27} onClick={() => handleSubmitAnswer()} />
