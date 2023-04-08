@@ -26,6 +26,7 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) 
 
   const handleClose = () => {
     setShowVocabulary(false);
+    setDisplayInput(false);
     history.push(`/`);
   };
 
