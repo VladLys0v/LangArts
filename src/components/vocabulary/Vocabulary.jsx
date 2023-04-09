@@ -131,12 +131,11 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) 
 const addWordsToDatabase = async () => {
   try {
     const languageCode = {
-      "russian":"ru",
-      "polish":"pl"
+      "russian": "ru",
+      "polish": "pl"
     }
-    const languageCoded = languageCode[language]; 
-    const language2Coded = languageCode[language2]; 
-    //const apiKey = 'ba33f41ed192a8f6110f';
+    const languageCoded = languageCode[language];
+    const language2Coded = languageCode[language2];
     const wordsToUpdate = [];
     for (const [index, word] of words.entries()) {
       if (words2[index].word === '') {
@@ -150,18 +149,20 @@ const addWordsToDatabase = async () => {
     for (const wordToUpdate of wordsToUpdate) {
       const { index, word } = wordToUpdate;
       words2[index].word = word;
-      const res = await fetch(`/${language}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ word })
-      });
-      const resData = await res.json();
-      if (resData.message === 'Success') {
-        const newWordObj = { word, id: words.length + 1 };
-        setWords([...words, newWordObj]);
-        setWords2([...words2, { word: '', id: words2.length + 1 }]);
+      if (!words.some(w => w.word === word)) {
+        const res = await fetch(`/${language}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ word })
+        });
+        const resData = await res.json();
+        if (resData.message === 'Success') {
+          const newWordObj = { word, id: words.length + 1 };
+          setWords([...words, newWordObj]);
+        }
       }
     }
+    setWords2([...words2]);
   } catch (error) {
     console.error(error);
   }
