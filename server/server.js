@@ -188,6 +188,33 @@ app.put('/:language/:id', (req, res) => {
   }
 });
 
+app.put('/:language2/:id', (req, res) => {
+  const language2 = req.params.language2;
+  const id = req.params.id;
+  const word = req.body.word;
+
+  let query;
+  if (word === undefined) {
+    return res.status(400).json({ message: 'Missing word' });
+  } else if (word === '') {
+    query = `UPDATE ${language2} SET word = '' WHERE id = ${id}`;
+  } else {
+    query = `UPDATE ${language2} SET word = '${word}' WHERE id = ${id}`;
+  }
+
+  if (language2 === 'language2' || language2 === 'polish2') {
+    pool.query(query, (error, results) => {
+      if (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Server error' });
+      }
+      return res.status(200).json({ message: 'Success' });
+    });
+  } else {
+    return res.status(400).json({ message: 'Invalid language' });
+  }
+});
+
 app.delete('/:language/:id', (req, res) => {
   const language = req.params.language;
   const id = req.params.id;

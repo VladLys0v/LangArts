@@ -52,6 +52,9 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) 
         setWords2([...words2,{word:'', id: words2.length + 1}]);
         setDisplayInput(false);
         setNewWord('');
+        setTimeout(() => {
+          addTranslationWhereMissing();
+        }, 3000);
       }
     } catch (err) {
       console.error(err);
@@ -128,7 +131,7 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) 
   }
 };
 
-const addWordsToDatabase = async () => {
+const addTranslationWhereMissing = async () => {
   try {
     const languageCode = {
       "russian": "ru",
@@ -150,15 +153,15 @@ const addWordsToDatabase = async () => {
       const { index, word } = wordToUpdate;
       words2[index].word = word;
       if (!words.some(w => w.word === word)) {
-        const res = await fetch(`/${language}`, {
-          method: 'POST',
+        const wordId = words[index].id;
+        const res = await fetch(`/${language2}/${wordId}`, {
+          method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ word })
         });
         const resData = await res.json();
         if (resData.message === 'Success') {
-          const newWordObj = { word, id: words.length + 1 };
-          setWords([...words, newWordObj]);
+          setWords([...words]);
         }
       }
     }
@@ -188,7 +191,6 @@ return (
         <div>
           <input type="text" value={newWord} onChange={handleWordInputChange} />
           <button onClick={handleWordSubmit}>Approve</button>
-          <button onClick={addWordsToDatabase}>Add new words</button>
         </div>
       )}
     </div>
