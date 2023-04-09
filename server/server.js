@@ -16,6 +16,13 @@ const pool = createPool({
   connectionLimit: 10
 });
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 pool.getConnection((err, connection) => {
   if (err) {
     console.error('Error connecting to database: ' + err.stack);
