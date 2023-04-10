@@ -171,56 +171,39 @@ const addTranslationWhereMissing = async () => {
   }
 }
 
-//const addRandomWords = async (language) => {
-//  try {
-//    const languageCode = {
-//      "russian": "ru",
-//      "polish": "pl"
-//    }
-//    const languageCoded = languageCode[language];
-//    if (!languageCoded) {
-//      throw new Error(`Invalid language: ${language}`);
-//    }
-//    const apiUrl = `https://api.mymemory.translated.net/getrandomword?languagepair=${languageCoded}|${languageCoded}&n=10`;
-//    console.log(`Fetching words for ${language} from ${apiUrl}...`);
-//    const res = await fetch(apiUrl, { mode: "cors" });
-//    if (!res.ok) {
-//      throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`);
-//    }
-//    const data = await res.json();
-//    const newWords = data.responseData.map((word, index) => ({ word: word.word, id: index }));
-//
-//    // Send the new words to the server to be added to the database
-//    const res2 = await fetch(`/${language}`, {
-//      method: 'POST',
-//      headers: { 'Content-Type': 'application/json' },
-//      mode: "cors",
-//      body: JSON.stringify({ words: newWords })
-//    });
-//    const resData = await res2.json();
-//    if (resData.message === 'Success') {
-//      setWords([...words, ...newWords]);
-//    }
-//  } catch (err) {
-//    console.error(err);
-//  }
-//};
-//
-//const populateDB = async () => {
-//  await addRandomWords(language);
-//};
+const addRandomWords = async (language) => {
+  try {
+    const languageCode = {
+      "russian": "ru",
+      "polish": "pl"
+    };
+    const languageCoded = languageCode[language];
+    if (!languageCoded) {
+      throw new Error(`Invalid language: ${language}`);
+    }
+    const res = await fetch(`https://random-word-api.herokuapp.com/word?number=10&lang=en`, { 
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    });
+    if (!res.ok) {
+      throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`);
+    }
+    const wordsText = await res.text();
+    const words = JSON.parse(wordsText);
+    console.log(words);
+  } catch (err) {
+    console.error(err);
+  }
+};
 
+const populateDB = async () => {
+  await addRandomWords(language);
+}
 
-//<button onClick={populateDB}>Add Random WORDS</button>
-
-
-
-//Multilingual Wordnet API
-//http://babelnet.org/search?searchLang=PL&pos=noun&source=WORDNET&offset=0&limit=10&key=YOUR_API_KEY
-
-//https://api.wordnik.com/v4/word.json/apple/definitions?limit=1&api_key=YOUR_API_KEY
-//https://www.wordreference.com/
-//Lingua Robot API
+//https://random-word-api.herokuapp.com/word?number=10&lang=en
+//random api for english, spanish, italian, deutch
 
 
   if (!showVocabulary) {
@@ -242,7 +225,7 @@ return (
         <div>
           <input type="text" value={newWord} onChange={handleWordInputChange} />
           <button onClick={handleWordSubmit}>Approve</button>
-          
+          <button onClick={populateDB}>Add Random WORDS</button>
         </div>
       )}
     </div>
