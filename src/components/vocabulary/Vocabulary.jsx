@@ -181,6 +181,9 @@ const addRandomWords = async (language) => {
     if (!languageCoded) {
       throw new Error(`Invalid language: ${language}`);
     }
+    //https://random-word-api.herokuapp.com/word?number=10&lang=en
+    //random api for english, spanish, italian, deutch
+    //change the number for more words to be added
     const res = await fetch(`https://random-word-api.herokuapp.com/word?number=1&lang=en`, { 
       method: 'GET',
       headers: {
@@ -216,24 +219,16 @@ const addRandomWords = async (language) => {
     const resData = await res2.json();
     if (resData.message === 'Success') {
       console.log('Random words added successfully');
-      setWords([...wordsToInsert]);
+      setWords((prevWords) => [...prevWords, ...wordsToInsert]);
     }
   } catch (err) {
     console.error(err);
   }
 };
-//GET respose = ["weatherly"]
-//translation response = {"responseData":{"translatedText":"\u043c\u0435\u0442\u0435\u043e\u0440\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0439","match":0.85},"quotaFinished":false,"mtLangSupported":null,"responseDetails":"","responseStatus":200,"responderId":null,"exception_code":null,"matches":[{"id":0,"segment":"weatherly","translation":"\u043c\u0435\u0442\u0435\u043e\u0440\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0439","source":"en-GB","target":"ru-RU","quality":70,"reference":"Machine Translation.","usage-count":2,"subject":false,"created-by":"MT!","last-updated-by":"MT!","create-date":"2023-04-10 21:15:08","last-update-date":"2023-04-10 21:15:08","match":0.85,"model":"neural"},{"id":"530916109","segment":"2. Weatherly A. \/\/ Ibid. 1985.","translation":"2. Weatherly A. \/\/ Ibid. 1985.","source":"en-GB","target":"ru-RU","quality":"0","reference":null,"usage-count":2,"subject":"All","created-by":"Public_Corpora","last-updated-by":"Public_Corpora","create-date":"2018-02-21 16:02:20","last-update-date":"2018-02-21 16:02:20","match":0.44},{"id":"524752958","segment":"Weatherly (Pennsylvania) 570427 **** Phone","translation":"\u0423\u044d\u0442\u0435\u0440\u043b\u0438 (\u041f\u0435\u043d\u0441\u0438\u043b\u044c\u0432\u0430\u043d\u0438\u044f) 570427 **** \u0422\u0435\u043b\u0435\u0444\u043e\u043d","source":"en-GB","target":"ru-RU","quality":"0","reference":null,"usage-count":2,"subject":"All","created-by":"Public_Corpora","last-updated-by":"Public_Corpora","create-date":"2018-02-21 16:02:20","last-update-date":"2018-02-21 16:02:20","match":0.34}]}
-
-//request payload of last POST:[{word: "discussing", translation: "Обсуждаем"}]
 
 const populateDB = async () => {
   await addRandomWords(language);
 }
-
-//https://random-word-api.herokuapp.com/word?number=10&lang=en
-//random api for english, spanish, italian, deutch
-
 
   if (!showVocabulary) {
     return null;
