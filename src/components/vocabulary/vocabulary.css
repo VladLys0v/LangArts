@@ -1,23 +1,24 @@
 .langarts__vocabulary-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    z-index: 9999;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
   
-  .langarts__vocabulary {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    background-color: #fff;
-    z-index: 10000;
-  }
+.langarts__vocabulary {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background-color: #fff;
+  z-index: 10000;
+  font-family: 'Open Sans', sans-serif;
+}
   
   .langarts__vocabulary-open {
     overflow: hidden;
@@ -35,6 +36,13 @@
     display: flex;
     justify-content: space-between;
 
+  }
+
+  .langarts__vocabulary__header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #444;
+    margin: 0;
   }
 
   .langarts__vocabulary__header-close {
@@ -57,11 +65,26 @@ ul {
   grid-column-gap: 10px;
 
 }
+
 li {
   display: flex;
   justify-content: space-between;
 }
+
 .word, .dash, .matching-word {
   flex: 1;
+  font-size: 16px;
+  color: #444;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #f8f8f8;
 }
+
+.deleteLine {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+
 

@@ -4,16 +4,13 @@
     justify-content: center;
     align-items: center;
 
-
 }
-
 
 .langarts__langSwitch div {
     flex: 1;
     max-width: 150px;
     min-width: 100px;
-    margin: -1rem;
-
+    margin: 0rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,27 +19,46 @@
 .langarts__option1-select,
 .langarts__option3-select {
     display:flex;
-
     font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 25px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
     text-transform: capitalize;
     color:var(--color-text);
     border-radius: 5px;
+    border: none;
+    padding: 10px 15px;
     
 }
 
+.langarts__option1-select:hover,
+.langarts__option3-select:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.langarts__option1-select:focus,
+.langarts__option3-select:focus {
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .langarts__changebutton button {
-    cursor: pointer;
+    cursor: pointer;  
+    background-color: transparent;
+    border: 0cm;
+    border-radius:90px;
+    height: 40px;
+    width: 40px;
 }
 
 .langarts__changebutton button:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     transform: translateZ(5px);
+    background-color: transparent;
+    border: none;
 }
 
 .langarts__changebutton img{
-height: 25px;
-width: 25px;
+    height: 30px;
+    width: 30px;
 }
