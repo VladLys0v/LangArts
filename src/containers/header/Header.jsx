@@ -5,10 +5,9 @@ const Header = () => {
   return (
     <div className="langarts__header section__padding" id="home">
       <div className="langarts__header-content">
-        <h1 className="gradient__text">Let's Learn New Languages together!</h1>
-        <p>We both know how difficult that can be to start learning new language, but together with this application you will significantly enlarge your vocabulary 
-          and consistently improve your language skills </p>
-
+        <h1 className="gradient__text">Learn New Languages with Ease</h1>
+        <p>We all know how difficult it can be to start learning a new language. That's why our application makes it easy and fun to improve your language skills and vocabulary.</p>
+        <button className="cta-button">Get Started</button>
       </div>
     </div>
   )

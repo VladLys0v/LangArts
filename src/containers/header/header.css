@@ -1,36 +1,48 @@
 .langarts__header {
-    display: flex;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-size: cover;
 }
-
 
 .langarts__header-content {
-    flex:1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-
+  max-width: 960px;
+  text-align: center;
+  color: var(--color-text);
 }
 
-.langarts__header-content h1{
-    font-family: var(--font-family);
-    font-weight: 800;
-    font-size: 62px;
-    line-height: 75px;
-    letter-spacing: -0.04em;
+.langarts__header-content h1 {
+  font-size: 6rem;
+  font-weight: bold;
+  line-height: 1.2;
+  background: linear-gradient(to right, #AE67FA, #F49867);
+  background-clip:padding-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.langarts__header-content p{
-    display: flex;
-    font-family: var(--font-family);
-    font-weight: normal;
-    font-style: normal;
-    font-size: 20px;
-    line-height: 27px;
-    color:var(--color-text);
 
-    margin-top: 1.5rem;
-    
+.langarts__header-content p {
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+
+.cta-button {
+  background: var(--color-subtext);
+  font-weight: bolder;
+  font-family: var(--font-family);
+  color: var(--color-bg);
+  font-size: 1.5rem;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 1050px) {
