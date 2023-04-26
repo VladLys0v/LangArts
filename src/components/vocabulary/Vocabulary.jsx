@@ -11,6 +11,19 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) 
   const history = createBrowserHistory();
 
   useEffect(() => {
+    if (showVocabulary) {
+      // Disable scrolling for the body when the vocabulary is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Enable scrolling for the body when the vocabulary is closed
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [showVocabulary]);
+
+  useEffect(() => {
     fetch(`/${language}`)
       .then((res) => res.json())
       .then((data) => setWords(data))
@@ -235,7 +248,8 @@ const populateDB = async () => {
   }
 
 return (
-  <div className="langarts__vocabulary">
+  <div className="langarts__vocabulary-overlay">
+  <div className="langarts__vocabulary ">
     <div className="langarts__vocabulary__header">
       <h2>Vocabulary</h2>
       <div className="langarts__vocabulary__header-close">
@@ -253,7 +267,7 @@ return (
         </div>
       )}
     </div>
-    <div className="langarts__vocabulary__content section__padding">
+    <div className="langarts__vocabulary__content">
   <ul>
     {words.map((word, index) => {
       const matchingWord = words2.find((w) => w.id === word.id);
@@ -262,21 +276,25 @@ return (
       }
       return (
         <li key={index}>
+          
           <div className="word">
             <input type="text" value={word.word} onChange={(e) => handleWordUpdate(e.target.value, matchingWord.word, word.id)} />
           </div>
-          <div className="dash">-</div>
+
           <div className="matching-word">
             <input type="text" value={matchingWord.word} onChange={(e) => handleWordUpdate(word.word, e.target.value, matchingWord.id)} />
           </div>
+
           <div className="deleteLine">
             <RiDeleteBin6Line color="grey" size={25} onClick={() => handleWordDelete(word.id)} />
           </div>
+
         </li>
       );
     })}
   </ul>
 </div>
+  </div>
   </div>
 );
 };

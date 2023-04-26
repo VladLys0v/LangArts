@@ -1,3 +1,7 @@
+body {
+  overflow: auto;
+}
+
 .langarts__vocabulary-overlay {
   position: fixed;
   top: 0;
@@ -18,11 +22,13 @@
   background-color: #fff;
   z-index: 10000;
   font-family: 'Open Sans', sans-serif;
+  
 }
   
   .langarts__vocabulary-open {
     overflow: hidden;
   }
+
   
   .langarts__vocabulary-open .modal-overlay {
     overflow: auto;
@@ -35,11 +41,11 @@
   .langarts__vocabulary__header {
     display: flex;
     justify-content: space-between;
-
+    margin-bottom: 10px;
   }
 
   .langarts__vocabulary__header h2 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 600;
     color: #444;
     margin: 0;
@@ -48,15 +54,20 @@
   .langarts__vocabulary__header-close {
     display: flex;
     justify-content: flex-end;
+    
   }
 
   .langarts__vocabulary__header-close svg {
     cursor: pointer;
+
 }
 
 .langarts__vocabulary__content {
-  max-height: 580px;
+  padding-left: 50px;
+  padding-right: 50px;
+  max-height: 570px;
   overflow-y: scroll;
+  
 }
 
 ul {
@@ -68,11 +79,13 @@ ul {
 
 li {
   display: flex;
-  justify-content: space-between;
+  justify-content:left;
+  margin-left: 15px;
 }
 
-.word, .dash, .matching-word {
-  flex: 1;
+.word, .matching-word  {
+  display: flex;
+  justify-content: left;
   font-size: 16px;
   color: #444;
   border: 1px solid #ddd;
@@ -81,9 +94,25 @@ li {
   background-color: #f8f8f8;
 }
 
+.word input, .matching-word input {
+  border: none;
+  background-color: #f8f8f8;
+  font-size: 15px;
+  
+}
+
+.matching-word {
+  margin-left: 20px;
+}
+
 .deleteLine {
-  margin-left: 10px;
+  margin-left: 20px;
   cursor: pointer;
+  color: #444;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #f8f8f8;
 }
 
 
