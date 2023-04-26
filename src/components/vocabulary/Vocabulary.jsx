@@ -268,31 +268,48 @@ return (
       )}
     </div>
     <div className="langarts__vocabulary__content">
-  <ul>
-    {words.map((word, index) => {
-      const matchingWord = words2.find((w) => w.id === word.id);
-      if (!matchingWord) {
-        return null; // skip rendering word 
-      }
-      return (
-        <li key={index}>
-          
-          <div className="word">
-            <input type="text" value={word.word} onChange={(e) => handleWordUpdate(e.target.value, matchingWord.word, word.id)} />
-          </div>
-
-          <div className="matching-word">
-            <input type="text" value={matchingWord.word} onChange={(e) => handleWordUpdate(word.word, e.target.value, matchingWord.id)} />
-          </div>
-
-          <div className="deleteLine">
-            <RiDeleteBin6Line color="grey" size={25} onClick={() => handleWordDelete(word.id)} />
-          </div>
-
-        </li>
-      );
-    })}
-  </ul>
+      <div className="langarts__vocabulary__content-table">
+        <ul>
+          <div className="langarts__vocabulary__content-LangSwitch">
+          <li>
+            <h3>LANGUAGE</h3>
+          </li>
+          </div> 
+          {words.map((word, index) => {
+            const matchingWord = words2.find((w) => w.id === word.id);
+            if (!matchingWord) {
+              return null; // skip rendering word 
+            }
+            return (
+              <li key={index}>
+                
+                <div className="word">
+                  <input type="text" value={word.word} onChange={(e) => handleWordUpdate(e.target.value, matchingWord.word, word.id)} />
+                </div>
+            
+                <div className="matching-word">
+                  <input type="text" value={matchingWord.word} onChange={(e) => handleWordUpdate(word.word, e.target.value, matchingWord.id)} />
+                </div>
+            
+                <div className="deleteLine">
+                  <RiDeleteBin6Line color="grey" size={25} onClick={() => handleWordDelete(word.id)} />
+                </div>
+            
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      <div className="langarts__vocabulary__content-menu">
+        <ul>
+          <li>
+          <button>Filter</button>
+          <button>Add to Topic</button>
+          <button>Add Random Words</button>
+          <button>Change reoccurrence</button>
+          </li>
+        </ul>
+      </div>
 </div>
   </div>
   </div>

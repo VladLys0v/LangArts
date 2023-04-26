@@ -67,13 +67,16 @@ body {
   padding-right: 50px;
   max-height: 570px;
   overflow-y: scroll;
+  display: flex; /* Add this line to create a flex container */
+  flex-wrap: wrap; /* Add this line to enable wrapping */
   
 }
 
-ul {
+.langarts__vocabulary__content-table ul {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-column-gap: 10px;
+  
 
 }
 
@@ -81,6 +84,12 @@ li {
   display: flex;
   justify-content:left;
   margin-left: 15px;
+  width: fit-content; 
+  
+}
+
+.langarts__vocabulary__content-LangSwitch li {
+  width: 100%; 
 }
 
 .word, .matching-word  {
@@ -115,5 +124,35 @@ li {
   background-color: #f8f8f8;
 }
 
+.langarts__vocabulary__content-menu {
+  display: flex;
+  
+}
+
+.langarts__vocabulary__content-menu button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px; /* Adjust the width as needed */
+  height: 150px; /* Adjust the height as needed */
+  padding: 0px;
+  color: black;
+  background: linear-gradient(90deg, rgb(101, 101, 101) 0%, rgba(172, 172, 177, 0.27) 100%);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
+
+}
+
+.langarts__vocabulary__content-menu button:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transform: translateZ(5px);
+}
 
 
