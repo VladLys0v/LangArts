@@ -17,7 +17,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: 60%;
   height: 80%;
   background-color: #fff;
   z-index: 10000;
@@ -67,8 +67,10 @@ body {
   padding-right: 50px;
   max-height: 570px;
   overflow-y: scroll;
-  display: flex; /* Add this line to create a flex container */
-  flex-wrap: wrap; /* Add this line to enable wrapping */
+  display: flex; 
+  flex-wrap: wrap; 
+  flex-direction: column; 
+  justify-content: flex-start;
   
 }
 
@@ -126,7 +128,9 @@ li {
 
 .langarts__vocabulary__content-menu {
   display: flex;
-  
+  margin-left: auto;
+  position: sticky; 
+  top: 10px;
 }
 
 .langarts__vocabulary__content-menu button {
@@ -134,10 +138,10 @@ li {
   align-items: center;
   justify-content: center;
   width: 150px; /* Adjust the width as needed */
-  height: 150px; /* Adjust the height as needed */
+  height: 60px; /* Adjust the height as needed */
   padding: 0px;
   color: black;
-  background: linear-gradient(90deg, rgb(101, 101, 101) 0%, rgba(172, 172, 177, 0.27) 100%);
+  background: linear-gradient(90deg, rgba(58, 67, 148, 0.499) 0%, rgba(21, 21, 68, 0.499) 100%);
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 18px;
@@ -146,7 +150,8 @@ li {
   cursor: pointer;
   border-radius: 5px;
   margin-top: 10px;
-  margin-left: 10px;
+  
+  align-self: center;
 
 }
 

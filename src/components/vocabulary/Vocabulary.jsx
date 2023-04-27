@@ -304,8 +304,14 @@ return (
         <ul>
           <li>
           <button>Filter</button>
+          </li>
+          <li>
           <button>Add to Topic</button>
+          </li>
+          <li>
           <button>Add Random Words</button>
+          </li>
+          <li>
           <button>Change reoccurrence</button>
           </li>
         </ul>
