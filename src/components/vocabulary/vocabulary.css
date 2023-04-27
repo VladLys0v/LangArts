@@ -41,14 +41,25 @@ body {
   .langarts__vocabulary__header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    z-index: 1;
+    background-color: #fff;
   }
 
+  .langarts__vocabulary__header-title {
+    display: flex;
+  align-items: center;
+  }
   .langarts__vocabulary__header h2 {
     font-size: 30px;
     font-weight: 600;
     color: #444;
     margin: 0;
+  }
+
+  .langarts__vocabulary__header-add {
+    margin-left: auto; 
   }
 
   .langarts__vocabulary__header-close {
@@ -71,6 +82,7 @@ body {
   flex-wrap: wrap; 
   flex-direction: column; 
   justify-content: flex-start;
+  background-color: #fff;
   
 }
 
@@ -90,8 +102,13 @@ li {
   
 }
 
-.langarts__vocabulary__content-LangSwitch li {
-  width: 100%; 
+.langarts__vocabulary__content-LangSwitch{
+  position: sticky; 
+  top: 0px;
+  height: 30px;
+  background-color: #fff;
+  z-index: 2;
+  margin-left: 70px;
 }
 
 .word, .matching-word  {
@@ -130,15 +147,15 @@ li {
   display: flex;
   margin-left: auto;
   position: sticky; 
-  top: 10px;
+  top: 0px;
 }
 
 .langarts__vocabulary__content-menu button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px; /* Adjust the width as needed */
-  height: 60px; /* Adjust the height as needed */
+  width: 150px; 
+  height: 60px; 
   padding: 0px;
   color: black;
   background: linear-gradient(90deg, rgba(58, 67, 148, 0.499) 0%, rgba(21, 21, 68, 0.499) 100%);
@@ -149,10 +166,21 @@ li {
   outline: none;
   cursor: pointer;
   border-radius: 5px;
-  margin-top: 10px;
-  
+  margin-top: 0px; 
   align-self: center;
+}
 
+.langarts__vocabulary__content-menu button.filter {
+  margin-bottom: 10px;
+}
+
+.langarts__vocabulary__content-menu button.addToTopic {
+  margin-bottom: 10px;
+}
+
+.langarts__vocabulary__content-menu button.randomWords {
+  background: rgb(6, 100, 85) !important; 
+  margin-bottom: 10px;
 }
 
 .langarts__vocabulary__content-menu button:hover {

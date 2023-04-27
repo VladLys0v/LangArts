@@ -249,32 +249,34 @@ const populateDB = async () => {
 
 return (
   <div className="langarts__vocabulary-overlay">
-  <div className="langarts__vocabulary ">
-    <div className="langarts__vocabulary__header">
-      <h2>Vocabulary</h2>
-      <div className="langarts__vocabulary__header-close">
-        <RiCloseFill color="grey" size={35} onClick={() => handleClose()} />
-      </div>
-    </div>
-    <div className="langarts__vocabulary__add">
+  <div className="langarts__vocabulary">
+  <div className="langarts__vocabulary__header">
+  <div className="langarts__vocabulary__header-title">
+    <h2>Vocabulary</h2>
+    <div className="langarts__vocabulary__header-add">
       {!displayInput ? (
         <RiAddLine color="grey" size={35} onClick={handleAddWord} />
       ) : (
         <div>
           <input type="text" value={newWord} onChange={handleWordInputChange} />
           <button onClick={handleWordSubmit}>Approve</button>
-          <button onClick={populateDB}>Add Random WORDS</button>
         </div>
       )}
     </div>
+  </div>
+  <div className="langarts__vocabulary__header-close">
+    <RiCloseFill color="grey" size={35} onClick={() => handleClose()} />
+  </div>
+</div>
+<div className="langarts__vocabulary__content-LangSwitch">
+         
+            <h3>LANGUAGE</h3>
+          
+          </div> 
     <div className="langarts__vocabulary__content">
       <div className="langarts__vocabulary__content-table">
         <ul>
-          <div className="langarts__vocabulary__content-LangSwitch">
-          <li>
-            <h3>LANGUAGE</h3>
-          </li>
-          </div> 
+          
           {words.map((word, index) => {
             const matchingWord = words2.find((w) => w.id === word.id);
             if (!matchingWord) {
@@ -303,16 +305,16 @@ return (
       <div className="langarts__vocabulary__content-menu">
         <ul>
           <li>
-          <button>Filter</button>
+          <button className="filter">Filter</button>
           </li>
           <li>
-          <button>Add to Topic</button>
+          <button className="addToTopic">Add to Topic</button>
           </li>
           <li>
-          <button>Add Random Words</button>
+          <button className="randomWords" onClick={populateDB}>Add Random Words</button>
           </li>
           <li>
-          <button>Change reoccurrence</button>
+          <button className="changeReoccurrence">Change reoccurrence</button>
           </li>
         </ul>
       </div>
