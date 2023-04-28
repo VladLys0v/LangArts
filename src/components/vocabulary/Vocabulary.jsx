@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './vocabulary.css';
 import { createBrowserHistory } from 'history';
-import { RiCloseFill, RiAddLine, RiDeleteBin6Line, RiSearchLine, RiCheckboxCircleLine} from 'react-icons/ri';
+import { RiCloseFill, RiAddLine, RiDeleteBin6Line, RiSearchLine, RiCheckboxCircleLine, RiCloseCircleLine} from 'react-icons/ri';
 import LangSwitch from'C:/Users/Vlad/Desktop/langarts/src/components/LangSwitch/LangSwitch.jsx'
 
 const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2, 
@@ -269,6 +269,7 @@ return (
         <div>
           <input type="text" value={newWord} onChange={handleWordInputChange} />
           <RiCheckboxCircleLine color="grey" size={35} onClick={handleWordSubmit} />
+          <RiCloseCircleLine color="grey" size={35} onClick= { ()=> setDisplayInput(false)} />
         </div>
       )}
     </div>
