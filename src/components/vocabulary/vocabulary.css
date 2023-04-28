@@ -18,7 +18,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 60%;
-  height: 80%;
+  height: 90%;
   background-color: #fff;
   z-index: 10000;
   font-family: 'Open Sans', sans-serif;
@@ -49,7 +49,7 @@ body {
 
   .langarts__vocabulary__header-title {
     display: flex;
-  align-items: center;
+    align-items: center;
   }
   .langarts__vocabulary__header h2 {
     font-size: 30px;
@@ -60,6 +60,16 @@ body {
 
   .langarts__vocabulary__header-add {
     margin-left: auto; 
+    display: flex;
+    align-items: center;
+  }
+
+  .langarts__vocabulary__header-add svg {
+    vertical-align: middle;
+  }
+
+  .langarts__vocabulary__header-add input[type="text"] {
+    padding: 5px;
   }
 
   .langarts__vocabulary__header-close {
@@ -70,6 +80,25 @@ body {
 
   .langarts__vocabulary__header-close svg {
     cursor: pointer;
+
+}
+
+.langarts__vocabulary__search {
+  display: flex;
+  align-items: center;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.langarts__vocabulary__search input[type="search"] {
+
+  padding: 5px; /* Adjust padding as needed */
+}
+
+.langarts__vocabulary__search svg {
+  flex-shrink: 0; /* Prevent shrinking */
+  width: 30px; /* Set desired width */
+  height: 30px; /* Set desired height */
 
 }
 
