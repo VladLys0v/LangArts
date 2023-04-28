@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './vocabulary.css';
 import { createBrowserHistory } from 'history';
-import { RiCloseFill, RiAddLine, RiDeleteBin6Line, RiSearchLine, RiCheckboxCircleLine, RiCloseCircleLine} from 'react-icons/ri';
+import { RiCloseFill, RiAddLine, RiDeleteBin6Line,  RiCheckboxCircleLine, RiCloseCircleLine} from 'react-icons/ri';
 import LangSwitch from'C:/Users/Vlad/Desktop/langarts/src/components/LangSwitch/LangSwitch.jsx'
 
 const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2, 
@@ -10,8 +10,22 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2,
   const [words2, setWords2] = useState([]);
   const [displayInput, setDisplayInput] = useState(false);
   const [newWord, setNewWord] = useState('');
+  const [searchInput, setSearchInput] = useState('');
   const history = createBrowserHistory();
 
+  const handleSearch = (event) => {
+    setSearchInput(event.target.value);
+  };
+
+  const filteredWords = words.filter((word) => {
+    const matchingWord = words2.find((w) => w.id === word.id);
+    if (!matchingWord) {
+      return false; 
+    }
+    const wordContainsSearchInput = word.word.toLowerCase().includes(searchInput.toLowerCase());
+    const matchingWordContainsSearchInput = matchingWord.word.toLowerCase().includes(searchInput.toLowerCase());
+    return wordContainsSearchInput || matchingWordContainsSearchInput;
+  });
 
   const handleSwap = () => {
     const temp = selectedValue1;
@@ -267,7 +281,7 @@ return (
         <RiAddLine color="grey" size={35} onClick={handleAddWord} />
       ) : (
         <div>
-          <input type="text" value={newWord} onChange={handleWordInputChange} />
+          <input type="text" placeholder="Add new word" value={newWord} onChange={handleWordInputChange} />
           <RiCheckboxCircleLine color="grey" size={35} onClick={handleWordSubmit} />
           <RiCloseCircleLine color="grey" size={35} onClick= { ()=> setDisplayInput(false)} />
         </div>
@@ -279,8 +293,7 @@ return (
   </div>
 </div>
 <div className="langarts__vocabulary__search">
- <input type="search" />
- <RiSearchLine color="grey" size={30} />
+ <input type="search" placeholder="Search" value={searchInput} onChange={handleSearch} />
 </div>
 <div className="langarts__vocabulary__content-LangSwitch">        
 <LangSwitch
@@ -294,11 +307,11 @@ return (
     <div className="langarts__vocabulary__content">
       <div className="langarts__vocabulary__content-table">
         <ul>
-          {words.map((word, index) => {
-            const matchingWord = words2.find((w) => w.id === word.id);
-            if (!matchingWord) {
-              return null; // skip rendering word 
-            }
+          {filteredWords.map((word, index) => {
+              const matchingWord = words2.find((w) => w.id === word.id);
+              if (!matchingWord) {
+                return null; // skip rendering word
+              }
             return (
               <li key={index}>
                 
