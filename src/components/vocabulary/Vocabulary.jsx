@@ -277,21 +277,18 @@ return (
     <RiCloseFill color="grey" size={35} onClick={() => handleClose()} />
   </div>
 </div>
-<div className="langarts__vocabulary__content-LangSwitch">
-         
+<div className="langarts__vocabulary__content-LangSwitch">        
 <LangSwitch
     selectedValue1={selectedValue1}
     setSelectedValue1={setSelectedValue1}
     selectedValue2={selectedValue2}
     setSelectedValue2={setSelectedValue2}
     onSwap={handleSwap}
-  />
-          
-          </div> 
+/>         
+</div> 
     <div className="langarts__vocabulary__content">
       <div className="langarts__vocabulary__content-table">
         <ul>
-          
           {words.map((word, index) => {
             const matchingWord = words2.find((w) => w.id === word.id);
             if (!matchingWord) {

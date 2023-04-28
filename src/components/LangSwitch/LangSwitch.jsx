@@ -4,7 +4,7 @@ import "./langSwitch.css";
 
 const LangSwitch = ({ selectedValue1, setSelectedValue1, selectedValue2, setSelectedValue2, onSwap, onSelectValue1, onSelectValue2 }) => {
     return (
-    <div className="langarts__langSwitch section__margin">
+    <div className="langarts__langSwitch">
       <div className="langarts__option1">
         <select
           className="langarts__option1-select"

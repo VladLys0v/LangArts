@@ -23,6 +23,10 @@
                
 }
 
+.langarts__features-LangSwitch {
+    display: flex;
+    justify-content: center;
+}
 
 .langarts__features-heading{
     display: flex;

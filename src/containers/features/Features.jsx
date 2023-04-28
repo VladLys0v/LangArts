@@ -47,6 +47,7 @@ const Features = () => {
   return (
     
     <div className="langarts__features section__padding" id="langartsFeatures">
+      <div className="langarts__features-LangSwitch">
       <LangSwitch
         selectedValue1={selectedValue1}
         selectedValue2={selectedValue2}
@@ -54,6 +55,7 @@ const Features = () => {
         onSelectValue1={(e) => setSelectedValue1(e.target.value)}
         onSelectValue2={(e) => setSelectedValue2(e.target.value)}
       />
+      </div>
       <div className="langarts__features-heading">
         <h1 className="gradient__text">Choose the difficulty level:</h1>
         <p>
