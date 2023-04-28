@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './features.css';
 import { createBrowserHistory } from 'history';
+import LangSwitch from'C:/Users/Vlad/Desktop/langarts/src/components/LangSwitch/LangSwitch.jsx'
 
-import "./langSwitch.css";
-import swap from "../../assets/swap.png";
 
 
 import WordsModal from '../wordsModals/WordsModal.jsx';
@@ -51,44 +50,13 @@ const Features = () => {
   return (
     
     <div className="langarts__features section__padding" id="langartsFeatures">
-      <div className="langarts__langSwitch section__margin">
-
-
-      <div className="langarts__option1">
-        <select
-          className="langarts__option1-select"
-          id="language1"
-          value={selectedValue1}
-          onChange={(e) => setSelectedValue1(e.target.value)}
-        >
-          <option value="russian">russian</option>
-          <option value="polish">polish</option>
-        </select>
-      </div>
-
-
-      <div className="langarts__changebutton">
-        <button type="button" onClick={handleSwap}>
-          <img src={swap} alt="swap" />
-        </button>
-      </div>
-
-
-      <div className="langarts__option3">
-        <select
-          className="langarts__option3-select"
-          id="language2"
-          value={selectedValue2}
-          onChange={(e) => setSelectedValue2(e.target.value)}
-        >
-          <option value="polish">polish</option>
-          <option value="russian">russian</option>
-        </select>
-      </div>
-
-
-
-      </div>
+      <LangSwitch
+        selectedValue1={selectedValue1}
+        selectedValue2={selectedValue2}
+        onSwap={handleSwap}
+        onSelectValue1={(e) => setSelectedValue1(e.target.value)}
+        onSelectValue2={(e) => setSelectedValue2(e.target.value)}
+      />
       <div className="langarts__features-heading">
         <h1 className="gradient__text">Choose the difficulty level:</h1>
         <p>
