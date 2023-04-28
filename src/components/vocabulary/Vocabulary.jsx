@@ -2,13 +2,22 @@ import React, { useState, useEffect } from 'react';
 import './vocabulary.css';
 import { createBrowserHistory } from 'history';
 import { RiCloseFill, RiAddLine, RiDeleteBin6Line} from 'react-icons/ri';
+import LangSwitch from'C:/Users/Vlad/Desktop/langarts/src/components/LangSwitch/LangSwitch.jsx'
 
-const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2 }) => {
+const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2, 
+  selectedValue1, setSelectedValue1, selectedValue2, setSelectedValue2 }) => {
   const [words, setWords] = useState([]);
   const [words2, setWords2] = useState([]);
   const [displayInput, setDisplayInput] = useState(false);
   const [newWord, setNewWord] = useState('');
   const history = createBrowserHistory();
+
+
+  const handleSwap = () => {
+    const temp = selectedValue1;
+    setSelectedValue1(selectedValue2);
+    setSelectedValue2(temp);
+  };
 
   useEffect(() => {
     if (showVocabulary) {
@@ -270,7 +279,13 @@ return (
 </div>
 <div className="langarts__vocabulary__content-LangSwitch">
          
-            <h3>LANGUAGE</h3>
+<LangSwitch
+    selectedValue1={selectedValue1}
+    setSelectedValue1={setSelectedValue1}
+    selectedValue2={selectedValue2}
+    setSelectedValue2={setSelectedValue2}
+    onSwap={handleSwap}
+  />
           
           </div> 
     <div className="langarts__vocabulary__content">

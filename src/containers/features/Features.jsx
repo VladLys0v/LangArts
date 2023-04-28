@@ -38,9 +38,9 @@ const Features = () => {
 
   const history = createBrowserHistory();
 
-  const handleVocabularyClick = (language) => {
+  const handleVocabularyClick = () => {
     setShowVocabulary(true);
-    history.push(`/${language}`);
+    history.push(`/vocabulary`);
   };
 
 
@@ -76,7 +76,8 @@ const Features = () => {
       <WordsModal showWordsModal={showWordsModal} setShowWordsModal={setShowWordsModal} language={selectedValue1} language2={selectedValue2} />
       <SentencesModal showSentencesModal={showSentencesModal} setShowSentencesModal={setShowSentencesModal} />
       <ParagraphsModal showParagraphsModal={showParagraphsModal} setShowParagraphsModal={setShowParagraphsModal} />
-      <Vocabulary showVocabulary={showVocabulary} setShowVocabulary={setShowVocabulary} language={selectedValue1} language2={selectedValue2}/>
+      <Vocabulary showVocabulary={showVocabulary} setShowVocabulary={setShowVocabulary} language={selectedValue1} language2={selectedValue2}
+      selectedValue1={selectedValue1} setSelectedValue1={setSelectedValue1} selectedValue2={selectedValue2} setSelectedValue2={setSelectedValue2}/>
     </div>
   );
 };
