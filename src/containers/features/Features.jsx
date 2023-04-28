@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import './features.css';
 import { createBrowserHistory } from 'history';
 import LangSwitch from'C:/Users/Vlad/Desktop/langarts/src/components/LangSwitch/LangSwitch.jsx'
-
-
-
 import WordsModal from '../wordsModals/WordsModal.jsx';
 import SentencesModal from '../sentencesModal/SentencesModal.jsx'
 import ParagraphsModal from '../paragraphsModal/ParagraphsModal.jsx'
