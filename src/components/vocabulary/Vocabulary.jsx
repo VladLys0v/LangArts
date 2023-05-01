@@ -85,7 +85,7 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2,
       if (data.message === 'Success') {
         const newWordObj = { word: newWord, id: words.length + 1 };
         setWords([...words, newWordObj]);
-        setWords2([...words2,{word:'', id: words2.length + 1}]);
+        setWords2([...words2, { word: '', id: words2.length + 1 }]);
         setDisplayInput(false);
         setNewWord('');
         setTimeout(() => {

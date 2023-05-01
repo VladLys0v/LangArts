@@ -64,9 +64,8 @@
 }
 
 
-.langarts__card1 button,
-.langarts__card2 button,
-.langarts__card3 button {
+.langarts__card1 button
+ {
     padding: 0.5rem 1rem;
     color: var(--color-subtext);
     /* ff 3.6+ */
@@ -103,9 +102,7 @@
 
 }
 
-.langarts__card1 button:hover,
-.langarts__card2 button:hover,
-.langarts__card3 button:hover {
+.langarts__card1 button:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     transform: translateZ(5px);
 }
@@ -115,9 +112,7 @@
         margin: 2rem 0 4rem;    
     }
 
-    .langarts__card1 button,
-    .langarts__card2 button,
-    .langarts__card3 button {
+    .langarts__card1 button {
         line-height: 130px;
         min-width: 400px;
         max-width: 500px;
@@ -131,9 +126,7 @@
         margin: 1rem 0 1rem;   
     }
 
-    .langarts__card1 button,
-    .langarts__card2 button,
-    .langarts__card3 button {
+    .langarts__card1 button {
         line-height: 60px;
         min-width: 400px;
         max-width: 500px;
@@ -146,9 +139,7 @@
         margin: 1rem 0 1rem; 
     }
 
-    .langarts__card1 button,
-    .langarts__card2 button,
-    .langarts__card3 button {
+    .langarts__card1 button {
         line-height: 55px;
         min-width: 300px;
         max-width: 400px;
