@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './features.css';
 import { createBrowserHistory } from 'history';
+import { useLocation } from 'react-router-dom';
 import LangSwitch from'C:/Users/Vlad/Desktop/langarts/src/components/LangSwitch/LangSwitch.jsx'
 import WordsModal from '../wordsModals/WordsModal.jsx';
 import SentencesModal from '../sentencesModal/SentencesModal.jsx'
@@ -37,11 +38,29 @@ const Features = () => {
   };
 
   const history = createBrowserHistory();
+  const location = useLocation(); 
+
+  useEffect(() => {
+    const storedShowVocabulary = localStorage.getItem('showVocabulary');
+    if (storedShowVocabulary) {
+      setShowVocabulary(JSON.parse(storedShowVocabulary));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('showVocabulary', JSON.stringify(showVocabulary));
+  }, [showVocabulary]);
 
   const handleVocabularyClick = () => {
     setShowVocabulary(true);
     history.push(`/vocabulary`);
   };
+
+  useEffect(() => {
+    if (location.pathname === '/vocabulary') {
+      setShowVocabulary(true);
+    }
+  }, [location]);
 
 
   return (
