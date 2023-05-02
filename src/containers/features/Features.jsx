@@ -3,12 +3,12 @@ import './features.css';
 import { createBrowserHistory } from 'history';
 import { useLocation } from 'react-router-dom';
 import LangSwitch from'C:/Users/Vlad/Desktop/langarts/src/components/LangSwitch/LangSwitch.jsx'
-import WordsModal from '../wordsModals/WordsModal.jsx';
+import MemoryCards from '../memoryCards/MemoryCards.jsx';
 import Vocabulary from 'C:/Users/Vlad/Desktop/langarts/src/components/vocabulary/Vocabulary.jsx'
 
 
 const Features = () => {
-  const [showWordsModal, setShowWordsModal] = useState(false);
+  const [showMemoryCards, setShowMemoryCards] = useState(false);
   const [showVocabulary, setShowVocabulary] = useState(false);
   
   const [selectedValue1, setSelectedValue1] = useState("russian");
@@ -22,7 +22,7 @@ const Features = () => {
 
 
   const handleWordsButtonClick = () => {
-    setShowWordsModal(true);
+    setShowMemoryCards(true);
   };
 
   const history = createBrowserHistory();
@@ -73,10 +73,10 @@ const Features = () => {
       </div>
       <div className="langarts__cards_container" id="cards">
         <div className="langarts__card1">
-          <button type="button" onClick={handleWordsButtonClick}>Words</button>
+          <button type="button" onClick={handleWordsButtonClick}>Memory cards</button>
         </div>
       </div>
-      <WordsModal showWordsModal={showWordsModal} setShowWordsModal={setShowWordsModal} language={selectedValue1} language2={selectedValue2} />
+      <MemoryCards showMemoryCards={showMemoryCards} setShowMemoryCards={setShowMemoryCards} language={selectedValue1} language2={selectedValue2} />
       <Vocabulary showVocabulary={showVocabulary} setShowVocabulary={setShowVocabulary} language={selectedValue1} language2={selectedValue2}
       selectedValue1={selectedValue1} setSelectedValue1={setSelectedValue1} selectedValue2={selectedValue2} setSelectedValue2={setSelectedValue2}/>
     </div>

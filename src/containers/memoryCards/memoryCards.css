@@ -1,4 +1,4 @@
-.langarts__wordsModal-overlay {
+.langarts__memoryCards-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,7 +8,7 @@
     z-index: 9999;
   }
   
-  .langarts__wordsModal {
+  .langarts__memoryCards {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -19,77 +19,77 @@
     z-index: 10000;
   }
   
-  .langarts__wordsModal-open {
+  .langarts__memoryCards-open {
     overflow: hidden;
   }
   
-  .langarts__wordsModal-open .modal-overlay {
+  .langarts__memoryCards-open .modal-overlay {
     overflow: auto;
   }
   
-  .langarts__wordsModal-open body {
+  .langarts__memoryCards-open body {
     filter: brightness(0.5);
   }
 
-  .langarts__wordsModal__header {
+  .langarts__memoryCards__header {
     display: flex;
     justify-content: space-between;
 
   }
 
-  .langarts__wordsModal__header-close {
+  .langarts__memoryCards__header-close {
     display: flex;
     justify-content: flex-end;
   }
 
-  .langarts__wordsModal__header-close svg {
+  .langarts__memoryCards__header-close svg {
     cursor: pointer;
 }
 
-.langarts__wordsModal__countdown {
+.langarts__memoryCards__countdown {
   font-size: 5rem;
   margin-bottom: 100px;
   justify-content: center;
 }
 
-.langarts__wordsModal__content {
+.langarts__memoryCards__content {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 2rem;
 }
 
-.langarts__wordsModal__word {
+.langarts__memoryCards__word {
   display: flex;
   text-align: center;
   font-size: 40px;
 }
 
-.langarts__wordsModal__previousWord {
+.langarts__memoryCards__previousWord {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.langarts__wordsModal__nextWord {
+.langarts__memoryCards__nextWord {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.langarts__wordsModal__taskWord {
+.langarts__memoryCards__taskWord {
   display: flex;
   justify-content: center;
 }
 
-.langarts__wordsModal__Mic {
+.langarts__memoryCards__Mic {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
   cursor: pointer;
 }
 
-.langarts__wordsModal__userPart {
+.langarts__memoryCards__userPart {
   display: flex;
   justify-content: center;
   padding-top: 3rem;

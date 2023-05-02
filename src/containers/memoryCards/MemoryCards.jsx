@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import './wordsModal.css';
+import './memoryCards.css';
 import { RiCloseFill, RiCheckboxCircleLine, RiMicLine, RiArrowRightSLine, RiArrowLeftSLine } from 'react-icons/ri';
 import axios from 'axios';
 import {useSpeechRecognition} from 'C:/Users/Vlad/Desktop/langarts/src/components/speechRecognition/SpeechRecognition.jsx';
 
 
-const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) => {
+const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 }) => {
   
   const [countdown, setCountdown] = useState(3);
   const [words, setWords] = useState([]);
@@ -55,23 +55,23 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
     fetchMatchingWords();
 
 //START! DOES NOT APPEAR, NEEDS TO BE FIXED
-    if (showWordsModal && countdown > 0) {
+    if (showMemoryCards && countdown > 0) {
       const timer = setTimeout(() => {
         setCountdown(countdown - 1);
       }, 1000);
       return () => clearTimeout(timer);
-    } else if (showWordsModal && countdown === 0) {
+    } else if (showMemoryCards && countdown === 0) {
       setCountdown('Start!');
       fetchWords();
       fetchMatchingWords();
-    } else if (!showWordsModal) {
+    } else if (!showMemoryCards) {
       setCountdown(3);
       setShowWords(false);
       setCurrentIndex(0);
       setWords([]);
       setMatchingWord('');
     }
-  }, [showWordsModal, countdown, language, currentIndex, language2]);
+  }, [showMemoryCards, countdown, language, currentIndex, language2]);
 
   const handleNextWord = useCallback(() => {
     if (currentIndex + 1 < words.length) {
@@ -125,47 +125,47 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
   }, [recognizedSpeech,userInput, matchingWord, handleCorrectMessage]);
 
   const handleClose = () => {
-    setShowWordsModal(false);
+    setShowMemoryCards(false);
     setUserInput('');
   };
 
-  if (!showWordsModal) {
+  if (!showMemoryCards) {
     return null;
   }
 
   return (
-    <div className="langarts__wordsModal">
-      <div className="langarts__wordsModal__header">
+    <div className="langarts__memoryCards">
+      <div className="langarts__memoryCards__header">
         <h2>Words Tab</h2>
-        <div className="langarts__wordsModal__header-close">
+        <div className="langarts__memoryCards__header-close">
           <RiCloseFill color="grey" size={35} onClick={() => handleClose(false)} />
         </div>
       </div>
 
-      <div className="langarts__wordsModal__content">
+      <div className="langarts__memoryCards__content">
         {countdown !== 'Start!' && (
-          <div className="langarts__wordsModal__countdown">{countdown}</div>
+          <div className="langarts__memoryCards__countdown">{countdown}</div>
         )}
         {showWords && words.length > 0 && (
-          <div className = "langarts__wordsModal__afterCountdown">
-            <div className ="langarts__wordsModal__taskWord">
-            <div className ="langarts__wordsModal__previousWord">
+          <div className = "langarts__memoryCards__afterCountdown">
+            <div className ="langarts__memoryCards__taskWord">
+            <div className ="langarts__memoryCards__previousWord">
              {currentIndex > 0 && (
               <RiArrowLeftSLine color="grey" size={35} onClick={handlePreviousWord} />
             )}
             </div>
-            <div className ="langarts__wordsModal__word">{words[currentIndex].word}</div>
-            <div className ="langarts__wordsModal__nextWord">
+            <div className ="langarts__memoryCards__word">{words[currentIndex].word}</div>
+            <div className ="langarts__memoryCards__nextWord">
             {currentIndex < words.length - 1 && (
               <RiArrowRightSLine color="grey" size={35} onClick={handleNextWord} />
             )}
             </div>
             </div>
 
-            <div className ="langarts__wordsModal__Mic">
+            <div className ="langarts__memoryCards__Mic">
             <RiMicLine color={isRecognizing ? "green" : "grey"} size={40} onClick={handleMicClick} />
             </div>
-            <div className="langarts__wordsModal__userPart">
+            <div className="langarts__memoryCards__userPart">
               <div className="userInput">
                 <input id="userInput" type="text" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
               </div>
@@ -187,4 +187,4 @@ const WordsModal = ({ showWordsModal, setShowWordsModal, language, language2 }) 
   );
 };
 
-export default WordsModal;
+export default MemoryCards;
