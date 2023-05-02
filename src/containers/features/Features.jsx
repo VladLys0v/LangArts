@@ -9,11 +9,9 @@ import Vocabulary from 'C:/Users/Vlad/Desktop/langarts/src/components/vocabulary
 
 const Features = () => {
   const [showMemoryCards, setShowMemoryCards] = useState(false);
-  const [showVocabulary, setShowVocabulary] = useState(false);
-  
+  const [showVocabulary, setShowVocabulary] = useState(false); 
   const [selectedValue1, setSelectedValue1] = useState("russian");
   const [selectedValue2, setSelectedValue2] = useState("polish");
-
   const history = createBrowserHistory();
   const location = useLocation(); 
   

@@ -13,10 +13,8 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showWords, setShowWords] = useState(false);
   const history = createBrowserHistory();
-
   const [userInput, setUserInput] = useState('');
   const [matchingWord, setMatchingWord] = useState('');
-
   const [showCorrectMessage, setShowCorrectMessage] = useState(false)
   const [handleSpeechRecognition, stopSpeechRecognition, recognizedSpeech, isRecognizing] = useSpeechRecognition();
 
