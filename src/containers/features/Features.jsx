@@ -13,6 +13,9 @@ const Features = () => {
   
   const [selectedValue1, setSelectedValue1] = useState("russian");
   const [selectedValue2, setSelectedValue2] = useState("polish");
+
+  const history = createBrowserHistory();
+  const location = useLocation(); 
   
   const handleSwap = () => {
     const temp = selectedValue1;
@@ -20,13 +23,27 @@ const Features = () => {
     setSelectedValue2(temp);
   };
 
+  useEffect(() => {
+    const storedShowMemoryCards = localStorage.getItem('showMemoryCards');
+    if (storedShowMemoryCards) {
+      setShowMemoryCards(JSON.parse(storedShowMemoryCards));
+    }
+  }, []);
 
-  const handleWordsButtonClick = () => {
+  useEffect(() => {
+    localStorage.setItem('showMemoryCards', JSON.stringify(showMemoryCards));
+  }, [showMemoryCards]);
+
+  const handleMemoryCards = () => {
     setShowMemoryCards(true);
+    history.push(`/memory-cards`);
   };
 
-  const history = createBrowserHistory();
-  const location = useLocation(); 
+  useEffect(() => {
+    if (location.pathname === '/memory-cards') {
+      setShowMemoryCards(true);
+    }
+  }, [location]);
 
   useEffect(() => {
     const storedShowVocabulary = localStorage.getItem('showVocabulary');
@@ -73,7 +90,7 @@ const Features = () => {
       </div>
       <div className="langarts__cards_container" id="cards">
         <div className="langarts__card1">
-          <button type="button" onClick={handleWordsButtonClick}>Memory cards</button>
+          <button type="button" onClick={handleMemoryCards}>Memory cards</button>
         </div>
       </div>
       <MemoryCards showMemoryCards={showMemoryCards} setShowMemoryCards={setShowMemoryCards} language={selectedValue1} language2={selectedValue2} />

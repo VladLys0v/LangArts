@@ -6,6 +6,7 @@ import './index.css';
 
 import { createRoot } from 'react-dom/client';
 import Vocabulary from './components/vocabulary/Vocabulary';
+import MemoryCards from 'C:/Users/Vlad/Desktop/langarts/src/containers/memoryCards/MemoryCards.jsx';
 
 const root = createRoot(document.getElementById('root'));
 
@@ -15,6 +16,8 @@ root.render(
       <Route exact path="/" element={<App />} />
 
       <Route exact path="/:vocabulary" element={<Vocabulary />} />
+
+      <Route exact path="/:memory-cards" element={<MemoryCards />} />
 
     </Routes>
   </HashRouter>

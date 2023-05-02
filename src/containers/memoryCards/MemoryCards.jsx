@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './memoryCards.css';
 import { RiCloseFill, RiCheckboxCircleLine, RiMicLine, RiArrowRightSLine, RiArrowLeftSLine } from 'react-icons/ri';
 import axios from 'axios';
+import { createBrowserHistory } from 'history';
 import {useSpeechRecognition} from 'C:/Users/Vlad/Desktop/langarts/src/components/speechRecognition/SpeechRecognition.jsx';
 
 
@@ -11,12 +12,26 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
   const [words, setWords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showWords, setShowWords] = useState(false);
+  const history = createBrowserHistory();
 
   const [userInput, setUserInput] = useState('');
   const [matchingWord, setMatchingWord] = useState('');
 
   const [showCorrectMessage, setShowCorrectMessage] = useState(false)
   const [handleSpeechRecognition, stopSpeechRecognition, recognizedSpeech, isRecognizing] = useSpeechRecognition();
+
+  useEffect(() => {
+    if (showMemoryCards) {
+      // Disable scrolling for the body when the MemoryCards is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Enable scrolling for the body when the MemoryCards is closed
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [showMemoryCards]);
 
   useEffect(() => {
     if (recognizedSpeech) {
@@ -127,6 +142,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
   const handleClose = () => {
     setShowMemoryCards(false);
     setUserInput('');
+    history.push(`/`);
   };
 
   if (!showMemoryCards) {
