@@ -21,12 +21,14 @@ const Topics = () => {
 
           <div className="langarts__topics-content-scroll">
             <button className="scroll-button left-button"></button>
-            <Feature title="Sports" items={sportsItems} />
-            <Feature title="Music" items={musicItems} />
-            <Feature title="Hobby" items={hobbyItems} />
-            <Feature title="Attractions" items={attactionsItems} />
-            <Feature title="Countries" items={countriesItems} />
-            <Feature title="Profession" items={professionItems} />
+              <div className="langarts__topics-content-scroll-items">
+                <Feature title="Sports" items={sportsItems} />
+                <Feature title="Music" items={musicItems} />
+                <Feature title="Hobby" items={hobbyItems} />
+                <Feature title="Attractions" items={attactionsItems} />
+                <Feature title="Countries" items={countriesItems} />
+                <Feature title="Profession" items={professionItems} />
+              </div>
             <button className="scroll-button right-button"></button>
           </div>
 

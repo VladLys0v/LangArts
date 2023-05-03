@@ -50,20 +50,35 @@
 .langarts__topics-content-scroll {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:center;
     margin-top: 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
 }
+.langarts__topics-content-scroll > .langarts__topics-content-scroll-items {
+    display: flex;
+  }
 
-.langarts__topics-content-scroll > *:not(.scroll-button) {
+.langarts__topics-content-scroll > .langarts__topics-content-scroll-items > *:not(.scroll-button) {
     flex: 0 0 auto;
-    width: 100px; 
-    height: 100px; 
-    background-color: #abc; 
+    width: 130px; 
+    height: 130px; 
+    background-color: rgb(218, 224, 231); 
     margin-right: 10px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .langarts__topics-content-scroll > .langarts__topics-content-scroll-items > *:not(.scroll-button) h2 {
+    font-size: 20px; 
+    text-align: center;
   }
 
 .scroll-button {
     width: 20px;
-    height: 90px;
+    height: 100px;
     cursor: pointer;
 }
