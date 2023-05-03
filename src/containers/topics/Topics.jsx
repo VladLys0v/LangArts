@@ -17,19 +17,20 @@ const Topics = () => {
           <h1 className="gradient__text">Choose the topic/situation you want to be ready for:</h1>
           <p>Create your own topic</p>
         </div>
-        <div className="langarts__topics-content">
-          <div className="langarts__topics-content-raw1">
-          <Feature title="Sports" items={sportsItems} />
-          <Feature title="Music" items={musicItems} />
-          <Feature title="Hobby" items={hobbyItems} />
-          <Feature title="Attractions" items={attactionsItems} />
+          <div className="langarts__topics-content">
+
+          <div className="langarts__topics-content-scroll">
+            <button className="scroll-button left-button"></button>
+            <Feature title="Sports" items={sportsItems} />
+            <Feature title="Music" items={musicItems} />
+            <Feature title="Hobby" items={hobbyItems} />
+            <Feature title="Attractions" items={attactionsItems} />
+            <Feature title="Countries" items={countriesItems} />
+            <Feature title="Profession" items={professionItems} />
+            <button className="scroll-button right-button"></button>
           </div>
-          <div className="langarts__topics-content-raw2">
-          <Feature title="Countries" items={countriesItems} />
-          <Feature title="Profession" items={professionItems} />
-          
+
           </div>
-        </div>
       </div>
     </div>
   );
