@@ -13,11 +13,11 @@ const Topics = () => {
 
   const scrollContainerRef = useRef(null);
   const scrollLeft = () => {
-    scrollContainerRef.current.style.transform = `translateX(-140px)`; // Adjust the scroll distance and item width as per your preference
+    scrollContainerRef.current.style.transform = `translateX(-140px)`;
   };
 
   const scrollRight = () => {
-    scrollContainerRef.current.style.transform = `translateX(140px)`; // Adjust the scroll distance and item width as per your preference
+    scrollContainerRef.current.style.transform = `translateX(140px)`;
   };
 
   return (
