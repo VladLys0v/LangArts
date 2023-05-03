@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRef } from 'react';
 import './topics.css';
 import Feature from "C:/Users/Vlad/Desktop/langarts/src/components/feature/Feature.jsx";
 
@@ -10,8 +11,16 @@ const Topics = () => {
   const countriesItems = ['Italy', 'Norway', 'Irland'];
   const professionItems = ['IT', 'Analitics', 'Developer'];
 
+  const scrollContainerRef = useRef(null);
+  const scrollLeft = () => {
+    scrollContainerRef.current.style.transform = `translateX(-140px)`; // Adjust the scroll distance and item width as per your preference
+  };
+
+  const scrollRight = () => {
+    scrollContainerRef.current.style.transform = `translateX(140px)`; // Adjust the scroll distance and item width as per your preference
+  };
+
   return (
-    <div>
       <div className="langarts__topics section__padding gradient__bg" id="topics">
         <div className="langarts__topics-heading">
           <h1 className="gradient__text">Choose the topic/situation you want to be ready for:</h1>
@@ -20,8 +29,8 @@ const Topics = () => {
           <div className="langarts__topics-content">
 
           <div className="langarts__topics-content-scroll">
-            <button className="scroll-button left-button"></button>
-              <div className="langarts__topics-content-scroll-items">
+            <button className="scroll-button left-button" onClick={scrollLeft}></button>
+              <div className="langarts__topics-content-scroll-items" ref={scrollContainerRef}>
                 <Feature title="Sports" items={sportsItems} />
                 <Feature title="Music" items={musicItems} />
                 <Feature title="Hobby" items={hobbyItems} />
@@ -29,12 +38,11 @@ const Topics = () => {
                 <Feature title="Countries" items={countriesItems} />
                 <Feature title="Profession" items={professionItems} />
               </div>
-            <button className="scroll-button right-button"></button>
+            <button className="scroll-button right-button" onClick={scrollRight}></button>
           </div>
 
           </div>
       </div>
-    </div>
   );
 };
 

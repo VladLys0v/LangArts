@@ -58,6 +58,7 @@
 }
 .langarts__topics-content-scroll > .langarts__topics-content-scroll-items {
     display: flex;
+    transition: transform 0.3s ease-in-out;
   }
 
 .langarts__topics-content-scroll > .langarts__topics-content-scroll-items > *:not(.scroll-button) {
