@@ -181,12 +181,10 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
             </div>
             <div className="langarts__memoryCards__userPart">
               <div className="userInput">
-                <input id="userInput" type="text" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
+                <input id="userInput" type="text" placeholder={matchingWord} value={userInput} onChange={(e) => setUserInput(e.target.value)} />
               </div>
               <div className="submitIcon">
                 <RiCheckboxCircleLine color="grey" size={27} onClick={() => handleSubmitAnswer()} />
-                
-                              <p>{matchingWord}</p>
               </div>
               {showCorrectMessage && (
                 <div className="correctIcon">
