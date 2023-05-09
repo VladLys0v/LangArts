@@ -196,11 +196,13 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
               </div>
               
             </div>
+            <div className="langarts__memoryCards__count">{currentIndex + 1} of {words.length}</div>
             {showCorrectMessage && (
                 <div className="correctIcon">
                   <RiCheckboxCircleLine color="green" size={200} />
                 </div>
               )}
+              
           </div>
         )}
       </div>

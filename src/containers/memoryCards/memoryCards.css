@@ -129,7 +129,7 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   cursor: pointer;
   width: 100%;
 }
@@ -141,10 +141,11 @@ body {
 .langarts__memoryCards__userPart {
   display: flex;
   justify-content: center;
-  padding-top: 3rem;
+  padding-top: 2rem;
   padding-left:1.6rem;
   width: 100%;
   border-left: 2px solid #ccc;
+  margin-bottom: 3.5rem;
 }
 
 .userInput{
@@ -166,4 +167,8 @@ body {
 
 .userInput input::placeholder {
   padding-left: 2px;
+}
+
+.langarts__memoryCards__count {
+  padding-top: 8rem;
 }
