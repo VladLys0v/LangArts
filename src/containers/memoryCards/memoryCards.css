@@ -70,7 +70,7 @@
   align-items: center;
   flex-direction: column;
   height: 90vh;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
   
 }
@@ -78,7 +78,10 @@
 .langarts__memoryCards__word {
   display: flex;
   text-align: center;
+  justify-content: center;
   font-size: 60px;
+  width: 300px;
+  font-size: clamp(24px, calc(2vw + 20px), 80px);
 }
 
 .langarts__memoryCards__previousWord {
