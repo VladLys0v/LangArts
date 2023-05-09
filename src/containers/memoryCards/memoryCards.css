@@ -41,7 +41,7 @@
 
   .langarts__memoryCards__header-close {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 
   .langarts__memoryCards__header-close svg {
@@ -54,16 +54,6 @@
   justify-content: center;
 }
 
-.langarts__memoryCards__afterCountdown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  border-left: 2px solid #ccc;
-}
-
-
 .langarts__memoryCards__content {
   display: flex;
   justify-content: center;
@@ -73,6 +63,21 @@
   max-width: 700px;
   margin: 0 auto;
   
+}
+
+.langarts__memoryCards__afterCountdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  
+}
+
+.langarts__memoryCards__afterCountdown-header {
+  width: 100%;
+  padding-left:1rem;
+  margin-bottom: 2rem;
 }
 
 .langarts__memoryCards__word {
@@ -101,6 +106,8 @@
   justify-content: center;
   padding-left: 1rem;
   margin-bottom: 1rem;
+  width: 100%;
+  border-left: 2px solid #ccc;
 }
 
 .langarts__memoryCards__Mic {
@@ -109,14 +116,21 @@
   padding-top: 2rem;
   margin-bottom: 1rem;
   cursor: pointer;
+  width: 100%;
+}
+.langarts__memoryCards__Mic svg{
+  border-radius: 90px;
+
+  border: 2px solid #ccc;
 }
 
 .langarts__memoryCards__userPart {
   display: flex;
   justify-content: center;
   padding-top: 3rem;
-  padding-left:1.6rem
-
+  padding-left:1.6rem;
+  width: 100%;
+  border-left: 2px solid #ccc;
 }
 
 .userInput{

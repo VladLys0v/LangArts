@@ -150,7 +150,6 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
   return (
     <div className="langarts__memoryCards">
       <div className="langarts__memoryCards__header">
-        <h2>Words Tab</h2>
         <div className="langarts__memoryCards__header-close">
           <RiCloseFill color="grey" size={35} onClick={() => handleClose(false)} />
         </div>
@@ -160,9 +159,11 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
         {countdown !== 'Start!' && (
           <div className="langarts__memoryCards__countdown">{countdown}</div>
         )}
-        {showWords && words.length > 0 && (
+        {showWords && words.length > 0 && (    
           <div className = "langarts__memoryCards__afterCountdown">
-          
+            <div className = "langarts__memoryCards__afterCountdown-header">
+              <h2>Words Tab</h2>
+            </div>
             <div className ="langarts__memoryCards__taskWord">
             <div className ="langarts__memoryCards__previousWord">
              {currentIndex > 0 && (
@@ -197,6 +198,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
           </div>
         )}
       </div>
+      
     </div>
   );
 };
