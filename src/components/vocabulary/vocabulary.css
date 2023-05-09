@@ -17,8 +17,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
+
+  width: 70%;
   height: 90%;
+
   background-color: #fff;
   z-index: 10000;
   font-family: 'Open Sans', sans-serif;
@@ -105,22 +107,27 @@ body {
 .langarts__vocabulary__content {
   padding-left: 50px;
   padding-right: 50px;
-  max-height: 570px;
+  max-height: 580px;
   overflow-y: scroll;
   display: flex; 
   flex-wrap: wrap; 
-  flex-direction: column; 
-  justify-content: flex-start;
+  flex-direction: row; 
+  justify-content: center;
   background-color: #fff;
+}
+
+.langarts__vocabulary__content-table {
+  display: grid;
+
+  grid-column-gap: 10px;
+  margin: auto;
   
 }
 
 .langarts__vocabulary__content-table ul {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-column-gap: 10px;
-  
 
+  grid-column-gap: 10px;
 }
 
 li {
@@ -133,11 +140,14 @@ li {
 
 .langarts__vocabulary__content-LangSwitch{
   position: sticky; 
-  top: 0px;
+  
   height: 50px;
+  width:fit-content;
   background-color: #fff;
-  margin-left: 60px;
+  margin-top: 10px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .word, .matching-word  {
@@ -172,11 +182,13 @@ li {
   background-color: #f8f8f8;
 }
 
-.langarts__vocabulary__content-menu {
-  display: flex;
-  margin-left: auto;
-  position: sticky; 
-  top: 0px;
+.langarts__vocabulary__content-menu ul{
+  position: absolute;
+  right:30px;
+
+    margin-top: 1rem;
+    min-width: 20px;
+
 }
 
 .langarts__vocabulary__content-menu button {
@@ -199,7 +211,7 @@ li {
   align-self: center;
 }
 
-.langarts__vocabulary__content-menu button.filter {
+.langarts__vocabulary__content-menu button.addToFavourite {
   margin-bottom: 10px;
 }
 

@@ -171,10 +171,10 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
               <h2>Memory cards</h2>
               <div className = "langarts__memoryCards__afterCountdown-header-buttons">
               <div onClick={like}>
-              {isFilled ? <RiHeartFill color="red" size={35} /> : <RiHeartLine color="grey" size={35} />}
+              {isFilled ? <RiHeartFill color="red" size={30} /> : <RiHeartLine color="grey" size={30} />}
               </div>
-                <RiQuestionFill color="grey" size={35} />
-                <RiSettings4Line color="grey" size={35} />
+                <RiQuestionFill color="grey" size={30} />
+                <RiSettings4Line color="grey" size={30} />
               </div>
             </div>
             <div className ="langarts__memoryCards__taskWord">

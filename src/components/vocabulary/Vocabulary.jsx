@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './vocabulary.css';
 import { createBrowserHistory } from 'history';
-import { RiCloseFill, RiAddLine, RiDeleteBin6Line,  RiCheckboxCircleLine, RiCloseCircleLine} from 'react-icons/ri';
+import { RiCloseFill, RiAddLine, RiDeleteBin6Line,  RiCheckboxCircleLine, RiCloseCircleLine, RiCloseLine, RiSettings4Line, RiFilter2Fill} from 'react-icons/ri';
 import LangSwitch from'C:/Users/Vlad/Desktop/langarts/src/components/LangSwitch/LangSwitch.jsx'
 
 const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2, 
@@ -12,6 +12,7 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2,
   const [newWord, setNewWord] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const history = createBrowserHistory();
+  const[toggleMenu, setToggleMenu] = useState(false);
 
   const handleSearch = (event) => {
     setSearchInput(event.target.value);
@@ -295,15 +296,7 @@ return (
 <div className="langarts__vocabulary__search">
  <input type="search" placeholder="Search" value={searchInput} onChange={handleSearch} />
 </div>
-<div className="langarts__vocabulary__content-LangSwitch">        
-<LangSwitch
-    selectedValue1={selectedValue1}
-    setSelectedValue1={setSelectedValue1}
-    selectedValue2={selectedValue2}
-    setSelectedValue2={setSelectedValue2}
-    onSwap={handleSwap}
-/>         
-</div> 
+
     <div className="langarts__vocabulary__content">
       <div className="langarts__vocabulary__content-table">
         <ul>
@@ -333,10 +326,13 @@ return (
         </ul>
       </div>
       <div className="langarts__vocabulary__content-menu">
+        <RiFilter2Fill color="grey" size={30} />
+      {toggleMenu 
+          ? <RiCloseLine color="grey" size={30} onClick={() => setToggleMenu(false)}/>
+          : <RiSettings4Line color="grey" size={30} onClick={() => setToggleMenu(true)}/>
+          }
+          {toggleMenu && (
         <ul>
-          <li>
-          <button className="filter">Filter</button>
-          </li>
           <li>
           <button className="addToTopic">Add to Topic</button>
           </li>
@@ -344,11 +340,24 @@ return (
           <button className="randomWords" onClick={populateDB}>Add Random Words</button>
           </li>
           <li>
+          <button className="addToFavourite"> Add to favourite</button>
+          </li>
+          <li>
           <button className="changeReoccurrence">Change reoccurrence</button>
           </li>
         </ul>
+        )}
       </div>
 </div>
+<div className="langarts__vocabulary__content-LangSwitch">        
+<LangSwitch
+    selectedValue1={selectedValue1}
+    setSelectedValue1={setSelectedValue1}
+    selectedValue2={selectedValue2}
+    setSelectedValue2={setSelectedValue2}
+    onSwap={handleSwap}
+/>         
+</div> 
   </div>
   </div>
 );
