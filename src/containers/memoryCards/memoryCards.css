@@ -87,6 +87,8 @@ body {
   padding-left: 1rem;
   justify-content: flex-start;
   font-size: 30px;
+  font-family: var(--font-family);
+  color: grey;
 }
 
 .langarts__memoryCards__afterCountdown-header-buttons {
@@ -101,7 +103,8 @@ body {
   justify-content: center;
   font-size: 60px;
   width: 300px;
-  font-size: clamp(24px, calc(2vw + 20px), 80px);
+  font-size: clamp(24px, calc(2vw + 6px), 40px);
+  font-family: var(--font-family);
 }
 
 .langarts__memoryCards__previousWord {
@@ -171,4 +174,5 @@ body {
 
 .langarts__memoryCards__count {
   padding-top: 8rem;
+  font-family: var(--font-family);
 }
