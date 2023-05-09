@@ -162,7 +162,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
         {showWords && words.length > 0 && (    
           <div className = "langarts__memoryCards__afterCountdown">
             <div className = "langarts__memoryCards__afterCountdown-header">
-              <h2>Words Tab</h2>
+              <h2>Memory cards</h2>
             </div>
             <div className ="langarts__memoryCards__taskWord">
             <div className ="langarts__memoryCards__previousWord">
