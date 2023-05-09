@@ -54,12 +54,22 @@
   justify-content: center;
 }
 
+.langarts__memoryCards__afterCountdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
 .langarts__memoryCards__content {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 90vh;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .langarts__memoryCards__word {
@@ -83,6 +93,8 @@
 .langarts__memoryCards__taskWord {
   display: flex;
   justify-content: center;
+  border-left: 2px solid #ccc;
+  padding-left: 1rem;
 }
 
 .langarts__memoryCards__Mic {
@@ -96,6 +108,8 @@
   display: flex;
   justify-content: center;
   padding-top: 3rem;
+  border-left: 2px solid #ccc;
+  padding-left: 1rem;
 }
 
 .userInput{
