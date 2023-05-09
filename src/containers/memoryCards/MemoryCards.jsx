@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './memoryCards.css';
-import { RiCloseFill, RiCheckboxCircleLine, RiMicLine, RiArrowRightSLine, RiArrowLeftSLine, RiSettings4Line, RiHeartLine, RiQuestionFill } from 'react-icons/ri';
+import { RiCloseFill, RiCheckboxCircleLine, RiMicLine, RiArrowRightSLine, RiArrowLeftSLine, RiSettings4Line, RiHeartLine, RiHeartFill, RiQuestionFill } from 'react-icons/ri';
 import axios from 'axios';
 import { createBrowserHistory } from 'history';
 import {useSpeechRecognition} from 'C:/Users/Vlad/Desktop/langarts/src/components/speechRecognition/SpeechRecognition.jsx';
@@ -17,6 +17,11 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
   const [matchingWord, setMatchingWord] = useState('');
   const [showCorrectMessage, setShowCorrectMessage] = useState(false)
   const [handleSpeechRecognition, stopSpeechRecognition, recognizedSpeech, isRecognizing] = useSpeechRecognition();
+  const [isFilled, setIsFilled] = useState(false);
+
+  const like = () => {
+    setIsFilled(!isFilled);
+  }
 
   useEffect(() => {
     if (showMemoryCards) {
@@ -165,7 +170,9 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
             <div className = "langarts__memoryCards__afterCountdown_header">
               <h2>Memory cards</h2>
               <div className = "langarts__memoryCards__afterCountdown-header-buttons">
-                <RiHeartLine color="grey" size={35} />
+              <div onClick={like}>
+              {isFilled ? <RiHeartFill color="red" size={35} /> : <RiHeartLine color="grey" size={35} />}
+              </div>
                 <RiQuestionFill color="grey" size={35} />
                 <RiSettings4Line color="grey" size={35} />
               </div>
