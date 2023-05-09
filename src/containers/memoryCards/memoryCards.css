@@ -89,6 +89,7 @@ body {
   font-size: 30px;
   font-family: var(--font-family);
   color: grey;
+  margin-bottom: 2rem;
 }
 
 .langarts__memoryCards__afterCountdown-header-buttons {
@@ -126,6 +127,7 @@ body {
   margin-bottom: 2rem;
   width: 100%;
   border-left: 2px solid #ccc;
+  border-right: 2px solid #ccc;
 }
 
 .langarts__memoryCards__Mic {
@@ -148,6 +150,7 @@ body {
   padding-left:1.6rem;
   width: 100%;
   border-left: 2px solid #ccc;
+  border-right: 2px solid #ccc;
   margin-bottom: 3rem;
 }
 
@@ -173,6 +176,6 @@ body {
 }
 
 .langarts__memoryCards__count {
-  padding-top: 8rem;
+  padding-top: 6rem;
   font-family: var(--font-family);
 }
