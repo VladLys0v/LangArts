@@ -60,7 +60,9 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
+  border-left: 2px solid #ccc;
 }
+
 
 .langarts__memoryCards__content {
   display: flex;
@@ -70,12 +72,13 @@
   height: 90vh;
   max-width: 800px;
   margin: 0 auto;
+  
 }
 
 .langarts__memoryCards__word {
   display: flex;
   text-align: center;
-  font-size: 40px;
+  font-size: 60px;
 }
 
 .langarts__memoryCards__previousWord {
@@ -93,14 +96,15 @@
 .langarts__memoryCards__taskWord {
   display: flex;
   justify-content: center;
-  border-left: 2px solid #ccc;
   padding-left: 1rem;
+  margin-bottom: 1rem;
 }
 
 .langarts__memoryCards__Mic {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
+  margin-bottom: 1rem;
   cursor: pointer;
 }
 
@@ -108,8 +112,8 @@
   display: flex;
   justify-content: center;
   padding-top: 3rem;
-  border-left: 2px solid #ccc;
-  padding-left: 1rem;
+  padding-left:1.6rem
+
 }
 
 .userInput{
@@ -120,6 +124,7 @@
 .submitIcon {
   display: flex;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 

@@ -178,21 +178,22 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
             </div>
 
             <div className ="langarts__memoryCards__Mic">
-            <RiMicLine color={isRecognizing ? "green" : "grey"} size={40} onClick={handleMicClick} />
+            <RiMicLine color={isRecognizing ? "green" : "grey"} size={50} onClick={handleMicClick} />
             </div>
             <div className="langarts__memoryCards__userPart">
               <div className="userInput">
                 <input id="userInput" type="text" placeholder={matchingWord} value={userInput} onChange={(e) => setUserInput(e.target.value)} />
               </div>
               <div className="submitIcon">
-                <RiCheckboxCircleLine color="grey" size={27} onClick={() => handleSubmitAnswer()} />
+                <RiCheckboxCircleLine color="grey" size={30} onClick={() => handleSubmitAnswer()} />
               </div>
-              {showCorrectMessage && (
+              
+            </div>
+            {showCorrectMessage && (
                 <div className="correctIcon">
                   <RiCheckboxCircleLine color="green" size={200} />
                 </div>
               )}
-            </div>
           </div>
         )}
       </div>
