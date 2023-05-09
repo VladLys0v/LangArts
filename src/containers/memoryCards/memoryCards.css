@@ -58,7 +58,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 2rem;
+  flex-direction: column;
+  height: 90vh;
 }
 
 .langarts__memoryCards__word {
