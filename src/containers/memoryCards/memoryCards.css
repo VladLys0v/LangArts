@@ -1,10 +1,14 @@
+body {
+  overflow: auto;
+}
+
 .langarts__memoryCards-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
   }
   
@@ -14,8 +18,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 90%;
     
     background-color: #fff;
     z-index: 10000;
@@ -35,13 +39,11 @@
 
   .langarts__memoryCards__header {
     display: flex;
-    justify-content: space-between;
-
+    justify-content: flex-end;
   }
-
+  
   .langarts__memoryCards__header-close {
     display: flex;
-    justify-content: flex-start;
   }
 
   .langarts__memoryCards__header-close svg {
@@ -59,7 +61,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 90vh;
+  height: 85vh;
   max-width: 700px;
   margin: 0 auto;
   
@@ -74,14 +76,27 @@
   
 }
 
-.langarts__memoryCards__afterCountdown-header {
+.langarts__memoryCards__afterCountdown_header {
+  display: flex;
   width: 100%;
-  padding-left:1rem;
+  justify-content: space-between;
   margin-bottom: 2rem;
+}
+
+.langarts__memoryCards__afterCountdown_header h2 {
+  padding-left: 1rem;
+  justify-content: flex-start;
+  font-size: 30px;
+}
+
+.langarts__memoryCards__afterCountdown-header-buttons {
+  display: flex;
+  padding-right: 1rem;
 }
 
 .langarts__memoryCards__word {
   display: flex;
+  align-items: center;
   text-align: center;
   justify-content: center;
   font-size: 60px;
@@ -104,8 +119,8 @@
 .langarts__memoryCards__taskWord {
   display: flex;
   justify-content: center;
-  padding-left: 1rem;
-  margin-bottom: 1rem;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
   width: 100%;
   border-left: 2px solid #ccc;
 }
@@ -114,14 +129,13 @@
   display: flex;
   justify-content: center;
   padding-top: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   cursor: pointer;
   width: 100%;
 }
 .langarts__memoryCards__Mic svg{
   border-radius: 90px;
-
-  border: 2px solid #ccc;
+  border: 4px solid grey;
 }
 
 .langarts__memoryCards__userPart {

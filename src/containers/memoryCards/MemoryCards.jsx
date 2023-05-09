@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './memoryCards.css';
-import { RiCloseFill, RiCheckboxCircleLine, RiMicLine, RiArrowRightSLine, RiArrowLeftSLine } from 'react-icons/ri';
+import { RiCloseFill, RiCheckboxCircleLine, RiMicLine, RiArrowRightSLine, RiArrowLeftSLine, RiSettings4Line, RiHeartLine, RiQuestionFill } from 'react-icons/ri';
 import axios from 'axios';
 import { createBrowserHistory } from 'history';
 import {useSpeechRecognition} from 'C:/Users/Vlad/Desktop/langarts/src/components/speechRecognition/SpeechRecognition.jsx';
@@ -148,6 +148,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
   }
 
   return (
+    <div className="langarts__memoryCards-overlay">
     <div className="langarts__memoryCards">
       <div className="langarts__memoryCards__header">
         <div className="langarts__memoryCards__header-close">
@@ -161,8 +162,13 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
         )}
         {showWords && words.length > 0 && (    
           <div className = "langarts__memoryCards__afterCountdown">
-            <div className = "langarts__memoryCards__afterCountdown-header">
+            <div className = "langarts__memoryCards__afterCountdown_header">
               <h2>Memory cards</h2>
+              <div className = "langarts__memoryCards__afterCountdown-header-buttons">
+                <RiHeartLine color="grey" size={35} />
+                <RiQuestionFill color="grey" size={35} />
+                <RiSettings4Line color="grey" size={35} />
+              </div>
             </div>
             <div className ="langarts__memoryCards__taskWord">
             <div className ="langarts__memoryCards__previousWord">
@@ -179,7 +185,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
             </div>
 
             <div className ="langarts__memoryCards__Mic">
-            <RiMicLine color={isRecognizing ? "green" : "grey"} size={50} onClick={handleMicClick} />
+            <RiMicLine color={isRecognizing ? "green" : "grey"} size={60} onClick={handleMicClick} />
             </div>
             <div className="langarts__memoryCards__userPart">
               <div className="userInput">
@@ -198,7 +204,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
           </div>
         )}
       </div>
-      
+    </div>
     </div>
   );
 };
