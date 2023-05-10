@@ -41,7 +41,8 @@
 }
 
 .langarts__topics-content {
-    display: wrap;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between; 
     padding-left: 30px; 
     padding-right: 30px; 
@@ -71,6 +72,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
   }
 
   .langarts__topics-content-scroll > .langarts__topics-content-scroll-items > *:not(.scroll-button) h2 {
@@ -78,7 +80,15 @@
     text-align: center;
   }
 
+.langarts__topics-content-scroll-left,
+.langarts__topics-content-scroll-right {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .scroll-button {
+    z-index: 2;
     width: 20px;
     height: 100px;
     cursor: pointer;

@@ -13,11 +13,11 @@ const Topics = () => {
 
   const scrollContainerRef = useRef(null);
   const scrollLeft = () => {
-    scrollContainerRef.current.style.transform = `translateX(-140px)`;
+    scrollContainerRef.current.style.transform = `translateX(-80px)`;
   };
 
   const scrollRight = () => {
-    scrollContainerRef.current.style.transform = `translateX(140px)`;
+    scrollContainerRef.current.style.transform = `translateX(80px)`;
   };
 
   return (
@@ -27,9 +27,11 @@ const Topics = () => {
           <p>Create your own topic</p>
         </div>
           <div className="langarts__topics-content">
-
+          <div className="langarts__topics-content-scroll-left">
+              <button className="scroll-button left-button" onClick={scrollLeft}></button>
+            </div>
           <div className="langarts__topics-content-scroll">
-            <button className="scroll-button left-button" onClick={scrollLeft}></button>
+            
               <div className="langarts__topics-content-scroll-items" ref={scrollContainerRef}>
                 <Feature title="Sports" items={sportsItems} />
                 <Feature title="Music" items={musicItems} />
@@ -38,9 +40,11 @@ const Topics = () => {
                 <Feature title="Countries" items={countriesItems} />
                 <Feature title="Profession" items={professionItems} />
               </div>
-            <button className="scroll-button right-button" onClick={scrollRight}></button>
+            
           </div>
-
+          <div className="langarts__topics-content-scroll-right">
+                <button className="scroll-button right-button" onClick={scrollRight}></button>
+            </div>
           </div>
       </div>
   );
