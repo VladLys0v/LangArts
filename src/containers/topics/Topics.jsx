@@ -23,7 +23,7 @@ const Topics = () => {
   return (
       <div className="langarts__topics section__padding gradient__bg" id="topics">
         <div className="langarts__topics-heading">
-          <h1 className="gradient__text">Choose the topic/situation you want to be ready for:</h1>
+          <h1 className="gradient__text">Topics:</h1>
           <p>Create your own topic</p>
         </div>
           <div className="langarts__topics-content">

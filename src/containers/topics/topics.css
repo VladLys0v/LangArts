@@ -4,12 +4,7 @@
 }
 
 .gradient__bg {
-    background:-moz-linear-gradient(90deg, rgba(255, 255, 170, 1) 1%, rgba(255, 179, 156, 1) 100%); 
-    background:-webkit-linear-gradient(90deg, rgba(255, 255, 170, 1) 1%, rgba(255, 179, 156, 1) 100%);
-    background:-o-linear-gradient(90deg, rgba(255, 255, 170, 1) 1%, rgba(255, 179, 156, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFB39C', endColorstr='#FFFFAA', GradientType=0 );
-    background:-ms-linear-gradient(90deg, rgba(255, 255, 170, 1) 1%, rgba(255, 179, 156, 1) 100%);
-    background:linear-gradient(90deg, rgba(255, 255, 170, 1) 1%, rgba(255, 179, 156, 1) 100%);
+    background:linear-gradient(90deg, rgb(26, 0, 99) 1%, rgb(83, 21, 3) 100%);
     position:static;
 }
 
@@ -18,7 +13,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 2rem 0 2rem;
 }
 
 .langarts__topics-heading h1{
