@@ -1,6 +1,7 @@
 .langarts__topics{
     display: flex;
     flex-direction: column;
+    border-top: solid 2px grey;
 }
 
 .gradient__bg {
