@@ -41,6 +41,7 @@
     justify-content: space-between; 
     padding-left: 30px; 
     padding-right: 30px; 
+    align-items: center; 
 }
 
 .langarts__topics-content-scroll {
@@ -51,7 +52,13 @@
     overflow-x: auto;
     white-space: nowrap;
     scroll-behavior: smooth;
+    align-items: center;
 }
+
+.langarts__topics-content-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+  
 .langarts__topics-content-scroll > .langarts__topics-content-scroll-items {
     display: flex;
     transition: transform 0.3s ease-in-out;
@@ -78,9 +85,17 @@
 .langarts__topics-content-scroll-left,
 .langarts__topics-content-scroll-right {
     display:flex;
-    justify-content: center;
+
     align-items: center;
 }
+
+.langarts__topics-content-scroll-left {
+    margin-left: 30px;
+  }
+
+  .langarts__topics-content-scroll-right {
+    margin-right: 30px;
+  }
 
 .scroll-button {
     z-index: 2;
