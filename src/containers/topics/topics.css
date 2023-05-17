@@ -37,22 +37,24 @@
 
 .langarts__topics-content {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; 
+    justify-content: center;
+    align-items: center; 
     padding-left: 30px; 
     padding-right: 30px; 
-    align-items: center; 
 }
 
 .langarts__topics-content-scroll {
     display: flex;
     flex-direction: row;
-    justify-content:center;
+    
     margin-top: 1rem;
     overflow-x: auto;
     white-space: nowrap;
     scroll-behavior: smooth;
     align-items: center;
+    flex-grow: 1;
+    min-width: 0;
+    max-width: 800px;
 }
 
 .langarts__topics-content-scroll::-webkit-scrollbar {
@@ -85,16 +87,19 @@
 .langarts__topics-content-scroll-left,
 .langarts__topics-content-scroll-right {
     display:flex;
-
+    margin-top: 1rem;
     align-items: center;
+
 }
 
 .langarts__topics-content-scroll-left {
     margin-left: 30px;
+    margin-right: 10px;
   }
 
   .langarts__topics-content-scroll-right {
     margin-right: 30px;
+    margin-left: 10px;
   }
 
 .scroll-button {
@@ -103,3 +108,5 @@
     height: 100px;
     cursor: pointer;
 }
+
+
