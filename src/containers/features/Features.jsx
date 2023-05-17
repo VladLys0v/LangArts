@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './features.css';
 import { createBrowserHistory } from 'history';
 import { useLocation } from 'react-router-dom';
-import LangSwitch from'C:/Users/Vlad/Desktop/langarts/src/components/LangSwitch/LangSwitch.jsx'
+import LangSwitch from'../../components/LangSwitch/LangSwitch.jsx'
 import MemoryCards from '../memoryCards/MemoryCards.jsx';
-import Vocabulary from 'C:/Users/Vlad/Desktop/langarts/src/components/vocabulary/Vocabulary.jsx'
+import Vocabulary from '../../components/vocabulary/Vocabulary.jsx'
 
 
 const Features = () => {

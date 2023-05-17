@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './vocabulary.css';
 import { createBrowserHistory } from 'history';
 import { RiCloseFill, RiAddLine, RiDeleteBin6Line,  RiCheckboxCircleLine, RiCloseCircleLine, RiCloseLine, RiSettings4Line, RiFilter2Fill} from 'react-icons/ri';
-import LangSwitch from'C:/Users/Vlad/Desktop/langarts/src/components/LangSwitch/LangSwitch.jsx'
+import LangSwitch from'../../components/LangSwitch/LangSwitch.jsx'
 
 const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2, 
   selectedValue1, setSelectedValue1, selectedValue2, setSelectedValue2 }) => {

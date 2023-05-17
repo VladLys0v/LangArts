@@ -4,7 +4,7 @@ import App from './App';
 import './index.css';
 import { createRoot } from 'react-dom/client';
 import Vocabulary from './components/vocabulary/Vocabulary';
-import MemoryCards from 'C:/Users/Vlad/Desktop/langarts/src/containers/memoryCards/MemoryCards.jsx';
+import MemoryCards from './containers/memoryCards/MemoryCards.jsx';
 
 const root = createRoot(document.getElementById('root'));
 

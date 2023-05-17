@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRef } from 'react';
 import './topics.css';
-import Feature from "C:/Users/Vlad/Desktop/langarts/src/components/feature/Feature.jsx";
+import Feature from "../../components/feature/Feature.jsx";
 
 const Topics = () => {
   const sportsItems = ['football', 'hokkey', 'baseball'];

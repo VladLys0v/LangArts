@@ -3,7 +3,7 @@ import './memoryCards.css';
 import { RiCloseFill, RiCheckboxCircleLine, RiMicLine, RiArrowRightSLine, RiArrowLeftSLine, RiSettings4Line, RiHeartLine, RiHeartFill, RiQuestionFill } from 'react-icons/ri';
 import axios from 'axios';
 import { createBrowserHistory } from 'history';
-import {useSpeechRecognition} from 'C:/Users/Vlad/Desktop/langarts/src/components/speechRecognition/SpeechRecognition.jsx';
+import {useSpeechRecognition} from '../../components/speechRecognition/SpeechRecognition.jsx';
 
 
 const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 }) => {
