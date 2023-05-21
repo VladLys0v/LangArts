@@ -28,6 +28,20 @@ a {
     background-size: cover;
 }
 
+.gradient__pic.slide-left {
+    background-image: url('./assets/new-picture.jpeg');
+    background-position: top 50% center;
+    background-size: cover;
+    animation: slideLeftAnimation 0.5s ease-out;
+  }
+  @keyframes slideLeftAnimation {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
 
 .gradient__text{
     background: var(--gradient-text);
