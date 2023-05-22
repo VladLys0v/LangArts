@@ -22,24 +22,38 @@ a {
 
 }
 
-.gradient__pic{
+.bg__pic {
     background-image: url('./assets/sopot_molo.jpg');
     background-position: top 50% center;
     background-size: cover;
-}
+    transition: background-image 0.5s ease-out;
+  }
 
-.gradient__pic.slide-left {
+  .bg__pic.slide-left {
     background-image: url('./assets/new-picture.jpeg');
-    background-position: top 50% center;
-    background-size: cover;
+    background-position: top 50% left;
     animation: slideLeftAnimation 0.5s ease-out;
   }
+  
+  .bg__pic.slide-out {
+    animation: slideOutAnimation 0.5s ease-out;
+  }
+  
   @keyframes slideLeftAnimation {
     from {
       transform: translateX(100%);
     }
     to {
       transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideOutAnimation {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
     }
   }
 

@@ -5,14 +5,16 @@ import './App.css'
 
 const App = () => {
   const [showNewPicture, setShowNewPicture] = useState(false);
+  const [slideOut, setSlideOut] = useState(false);
 
   const handleCTAButtonClick = () => {
     setShowNewPicture(true);
+    setSlideOut(true);
   };
 
   return (
     <div className="App">
-      <div className={`gradient__pic ${showNewPicture ? 'slide-left' : ''}`}>  
+      <div className={`bg__pic ${showNewPicture ? 'slide-left' : ''} ${slideOut ? 'slide-out' : ''}`}> 
       <Navbar />
       <Header handleCTAButtonClick={handleCTAButtonClick} />
       </div>
