@@ -28,22 +28,45 @@
 }
 
 .cta-button {
-  background: var(--color-subtext);
-  font-weight: bolder;
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 22px;
   font-family: var(--font-family);
-  color: var(--color-bg);
-  font-size: 1.5rem;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.cta-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 2px 5px rgba(6, 5, 5, 0.2);
-}
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms;
+  overflow: hidden;
+ }
+ 
+ .cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background: var(--color-subtext);
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms
+ }
+ 
+ .cta-button:hover {
+  color: #e8e8e8;
+  cursor:pointer
+ }
+ 
+ .cta-button:hover::before {
+  width: 100%;
+ }
 
 @media screen and (max-width: 1050px) {
     .langarts__header-content {
