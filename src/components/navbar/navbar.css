@@ -55,7 +55,7 @@
 .langarts__navbar-menu_container button {
     padding: 0.5rem 1rem;
     color: #fff;
-    background: #FF4820;
+    background: #000000;
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 18px;
@@ -82,7 +82,6 @@
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: column;
-    
     text-align: end;
     background: var(--color-footer);
     padding: 2rem;

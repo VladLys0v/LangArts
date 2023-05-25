@@ -18,7 +18,10 @@ const App = () => {
       <Navbar />
       <Header handleCTAButtonClick={handleCTAButtonClick} />
       </div>
-      <Topics id="topics" />
+      <div className="mirrorBG">
+    <div className="mirrorBG__background"></div>
+    <Topics id="topics" />
+  </div>
       <Features />
       <Blog />
       <Footer />
