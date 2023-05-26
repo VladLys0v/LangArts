@@ -24,14 +24,13 @@ const Topics = () => {
       <div className="langarts__topics section__padding gradient__bg" id="topics">
         <div className="langarts__topics-heading">
           <h1 className="gradient__text">Topics:</h1>
-          <p>Create your own topic</p>
+            <div class="plus-icon"></div>
         </div>
           <div className="langarts__topics-content">
           <div className="langarts__topics-content-scroll-left">
               <button className="scroll-button left-button" onClick={scrollLeft}></button>
             </div>
-          <div className="langarts__topics-content-scroll">
-            
+          <div className="langarts__topics-content-scroll">          
               <div className="langarts__topics-content-scroll-items" ref={scrollContainerRef}>
                 <Feature title="Sports" items={sportsItems} />
                 <Feature title="Music" items={musicItems} />
@@ -39,8 +38,7 @@ const Topics = () => {
                 <Feature title="Attractions" items={attactionsItems} />
                 <Feature title="Countries" items={countriesItems} />
                 <Feature title="Profession" items={professionItems} />
-              </div>
-            
+              </div>            
           </div>
           <div className="langarts__topics-content-scroll-right">
                 <button className="scroll-button right-button" onClick={scrollRight}></button>
