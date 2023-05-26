@@ -2,8 +2,7 @@
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    background:linear-gradient(90deg, rgb(244, 244, 244) 1%, rgb(255, 255, 255) 100%);
-               
+    background:linear-gradient(90deg, rgb(244, 244, 244) 1%, rgb(255, 255, 255) 100%);       
 }
 
 .langarts__features-LangSwitch {
@@ -15,6 +14,7 @@
     justify-content: center;
     z-index: 999; 
     background: linear-gradient(90deg, rgb(26, 0, 99) 1%, rgb(83, 21, 3) 100%);
+    padding-top: 10px;
   }
 
 .langarts__features-heading{
@@ -22,7 +22,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
     margin: 2rem 0 2rem;
 }
 
@@ -148,7 +147,7 @@
   }
   
   .langarts__card2 button:hover svg {
-    transform: translateX(3em) rotate(45deg) scale(1.1);
+    transform: translateX(2.8em) rotate(45deg) scale(1.1);
   }
   
   .langarts__card2 button:hover span {
