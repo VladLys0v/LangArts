@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    background:linear-gradient(90deg, rgb(26, 0, 99) 1%, rgb(83, 21, 3) 100%);
+    background:linear-gradient(90deg, rgb(244, 244, 244) 1%, rgb(255, 255, 255) 100%);
                
 }
 
@@ -49,63 +49,129 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-}
-
-
-.langarts__card1 button
- {
-    padding: 0.5rem 1rem;
-    color: var(--color-subtext);
-    /* ff 3.6+ */
-    background:-moz-linear-gradient(90deg, rgba(255, 255, 229, 1) 0%, rgba(239, 255, 237, 0.43) 100%); 
-
-    /* safari 5.1+,chrome 10+ */
-    background:-webkit-linear-gradient(90deg, rgba(255, 255, 229, 1) 0%, rgba(239, 255, 237, 0.43) 100%);
-
-    /* opera 11.10+ */
-    background:-o-linear-gradient(90deg, rgba(255, 255, 229, 1) 0%, rgba(239, 255, 237, 0.43) 100%);
-
-    /* ie 6-9 */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EFFFED', endColorstr='#FFFFE5', GradientType=0 );
-
-    /* ie 10+ */
-    background:-ms-linear-gradient(90deg, rgba(255, 255, 229, 1) 0%, rgba(239, 255, 237, 0.43) 100%);
-
-    /* global 94%+ browsers support */
-    background:linear-gradient(90deg, rgba(255, 255, 229, 1) 0%, rgba(239, 255, 237, 0.43) 100%);
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 18px;
-    
-
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border-radius: 5px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-
 }
 
 .langarts__card1 button:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    transform: translateZ(5px);
+    cursor: pointer;
 }
+
+.langarts__card1 button {
+    font-family: var(--font-family);
+    font-size: 22px;
+    background: royalblue;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  
+  .langarts__card1 button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .langarts__card1 button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .langarts__card1 button:hover .svg-wrapper-first {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+  
+  .langarts__card1 button:hover svg {
+    transform: translateX(3.5em) rotate(45deg) scale(1.1);
+  }
+  
+  .langarts__card1 button:hover span {
+    transform: translateX(8em);
+  }
+  
+  .langarts__card1 button:active {
+    transform: scale(0.95);
+  }
+  
+  @keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+  
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
+
+  .langarts__card2 {
+    margin-top: 35px;
+  }
+
+  .langarts__card2 button:hover {
+    cursor: pointer;
+}
+
+.langarts__card2 button {
+    font-family: var(--font-family);
+    font-size: 22px;
+    background: royalblue;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  
+  .langarts__card2 button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .langarts__card2 button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .langarts__card2 button:hover .svg-wrapper-second {
+    animation: fly-2 0.6s ease-in-out infinite alternate;
+  }
+  
+  .langarts__card2 button:hover svg {
+    transform: translateX(3em) rotate(45deg) scale(1.1);
+  }
+  
+  .langarts__card2 button:hover span {
+    transform: translateX(7em);
+  }
+  
+  .langarts__card2 button:active {
+    transform: scale(0.95);
+  }
+  
+  @keyframes fly-2 {
+    from {
+      transform: translateY(0.1em);
+    }
+  
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
 
 @media screen and (max-width: 1950px) {
     .langarts__cards_container  {
         margin: 2rem 0 2rem;    
-    }
-
-    .langarts__card1 button {
-        line-height: 130px;
-        min-width: 400px;
-        max-width: 500px;
-        margin: 0.5rem 0 0.5rem;
     }
 
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {RiCheckboxMultipleBlankFill} from 'react-icons/ri';
 import './features.css';
 import { createBrowserHistory } from 'history';
 import { useLocation } from 'react-router-dom';
@@ -88,7 +89,24 @@ const Features = () => {
       </div>
       <div className="langarts__cards_container" id="cards">
         <div className="langarts__card1">
-          <button type="button" onClick={handleMemoryCards}>Memory cards</button>
+          <button type="button" onClick={handleMemoryCards}>
+            <div className="svg-wrapper-1">
+              <div className="svg-wrapper-first">
+              <RiCheckboxMultipleBlankFill size={24} />
+              </div>
+            </div>
+            <span>Memory cards</span>
+          </button>
+        </div>
+        <div className="langarts__card2">
+          <button type="button" onClick={() => handleVocabularyClick(selectedValue1)}>
+            <div className="svg-wrapper-2">
+              <div className="svg-wrapper-second">
+              <RiCheckboxMultipleBlankFill size={24} />
+              </div>
+            </div>
+            <span>Vocabulary</span>
+          </button>
         </div>
       </div>
       <MemoryCards showMemoryCards={showMemoryCards} setShowMemoryCards={setShowMemoryCards} language={selectedValue1} language2={selectedValue2} />
