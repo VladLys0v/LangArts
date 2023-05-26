@@ -81,13 +81,19 @@ const Features = () => {
       </div>
       <div className="langarts__features-heading">
         <h1 className="gradient__text">Choose the difficulty level:</h1>
-        <p>
-        <span className="langarts__features-heading-span" onClick={() => handleVocabularyClick(selectedValue1)}>
-            Append the vocabulary
-          </span>
-        </p>
+        
+
+        <div class="gears" id="one-gear">
+        <div class="gears-container">
+        <div class="gear-rotate"></div>
+        </div>
+        </div>
+
       </div>
       <div className="langarts__cards_container" id="cards">
+
+      
+
         <div className="langarts__card1">
           <button type="button" onClick={handleMemoryCards}>
             <div className="svg-wrapper-1">
