@@ -40,6 +40,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 4rem;
 }
 
 .langarts__card1 button:hover {
@@ -201,50 +202,54 @@
     left: 50%; 
     margin-top: -1em;
     margin-left: -1em;
-	background: #E9E581;
+	background: #7b756f;
 	position: absolute;
 	border-radius: 1em;
-	-webkit-animation: 1s gear-rotate linear infinite;
-	-moz-animation: 1s gear-rotate linear infinite;
-	animation: 1s gear-rotate linear infinite;
+    /* gear icon rotation speed */
+	-webkit-animation: 3s gear-rotate linear infinite;
+	-moz-animation: 3s gear-rotate linear infinite;
+	animation: 3s gear-rotate linear infinite;
 }
 
 .gear-rotate::before{
 	width: 2.8em;
 	height: 2.8em;
 	background: 
-    -webkit-linear-gradient(0deg,transparent 39%,#E9E581 39%,#E9E581 61%, transparent 61%),
-    -webkit-linear-gradient(60deg,transparent 42%,#E9E581 42%,#E9E581 58%, transparent 58%),
-    -webkit-linear-gradient(120deg,transparent 42%,#E9E581 42%,#E9E581 58%, transparent 58%);
+    -webkit-linear-gradient(0deg,transparent 39%,#7b756f 39%,#7b756f 61%, transparent 61%),
+    -webkit-linear-gradient(60deg,transparent 42%,#7b756f 42%,#7b756f 58%, transparent 58%),
+    -webkit-linear-gradient(120deg,transparent 42%,#7b756f 42%,#7b756f 58%, transparent 58%);
 	background: 
-    -moz-linear-gradient(0deg,transparent 39%,#E9E581 39%,#47EC19 61%, transparent 61%),
-    -moz-linear-gradient(60deg,transparent 42%,#E9E581 42%,#E9E581 58%, transparent 58%),
-    -moz-linear-gradient(120deg,transparent 42%,#E9E581 42%,#E9E581 58%, transparent 58%);
+    -moz-linear-gradient(0deg,transparent 39%,#7b756f 39%,#7b756f 61%, transparent 61%),
+    -moz-linear-gradient(60deg,transparent 42%,#7b756f 42%,#7b756f 58%, transparent 58%),
+    -moz-linear-gradient(120deg,transparent 42%,#7b756f 42%,#7b756f 58%, transparent 58%);
 	background: 
-    -o-linear-gradient(0deg,transparent 39%,#E9E581 39%,#E9E581 61%, transparent 61%),
-    -o-linear-gradient(60deg,transparent 42%,#E9E581 42%,#E9E581 58%, transparent 58%),
-    -o-linear-gradient(120deg,transparent 42%,#47EC19 42%,#E9E581 58%, transparent 58%);
-	background: -ms-linear-gradient(0deg,transparent 39%,#E9E581 39%,#E9E581 61%, transparent 61%),-ms-linear-gradient(60deg,transparent 42%,#E9E581 42%,#E9E581 58%, transparent 58%),-ms-linear-gradient(120deg,transparent 42%,#E9E581 42%,#E9E581 58%, transparent 58%);
+    -o-linear-gradient(0deg,transparent 39%,#7b756f 39%,#7b756f 61%, transparent 61%),
+    -o-linear-gradient(60deg,transparent 42%,#7b756f 42%,#7b756f 58%, transparent 58%),
+    -o-linear-gradient(120deg,transparent 42%,#7b756f 42%,#7b756f 58%, transparent 58%);
+	background: -ms-linear-gradient(0deg,transparent 39%,#7b756f 39%,#7b756f 61%, transparent 61%),-ms-linear-gradient(60deg,transparent 42%,#7b756f 42%,#7b756f 58%, transparent 58%),-ms-linear-gradient(120deg,transparent 42%,#7b756f 42%,#7b756f 58%, transparent 58%);
 	background: 
-      linear-gradient(0deg,transparent 39%,#E9E581 39%,#E9E581 61%, transparent 61%),
-    linear-gradient(60deg,transparent 42%,#E9E581 42%,#E9E581 58%, transparent 58%),
-    linear-gradient(120deg,transparent 42%,#E9E581 42%,#E9E581 58%, transparent 58%);
+      linear-gradient(0deg,transparent 39%,#7b756f 39%,#7b756f 61%, transparent 61%),
+    linear-gradient(60deg,transparent 42%,#7b756f 42%,#7b756f 58%, transparent 58%),
+    linear-gradient(120deg,transparent 42%,#7b756f 42%,#7b756f 58%, transparent 58%);
 	position: absolute;
 	content:"";
 	top: -.4em;
 	left: -.4em;
 	border-radius:1.4em;
+    cursor: pointer;
 }
 
 .gear-rotate::after {
 	width: 1em;
 	height: 1em;
-	background: #2B2B2B;
+    /* this is the small circle inside the gear */
+	background: #ffffff;
 	position: absolute;
 	content:"";
 	top: .5em;
 	left: .5em;
 	border-radius: .5em;
+    cursor: pointer;
 }
 
 @keyframes gear-rotate {
