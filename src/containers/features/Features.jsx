@@ -69,7 +69,7 @@ const Features = () => {
 
   return (
     
-    <div className="langarts__features section__padding" id="langartsFeatures">
+    <div className="langarts__features" id="langartsFeatures">
       <div className="langarts__features-LangSwitch">
       <LangSwitch
         selectedValue1={selectedValue1}

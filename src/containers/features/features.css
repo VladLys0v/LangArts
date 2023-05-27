@@ -1,11 +1,12 @@
 .langarts__features{
     display: flex;
     flex-direction: column;
-    padding: 2rem;
     background:linear-gradient(to bottom, rgb(255, 255, 255) 0%,
                                            rgb(255, 255, 248) 20%,
                                              rgb(252, 251, 237) 60%,
-                                               rgb(252, 246, 218) 80%);       
+                                               rgb(252, 246, 218) 80%);  
+    padding: 0rem 6rem; 
+    padding-bottom: 3rem;    
 }
 
 .langarts__features-LangSwitch {
