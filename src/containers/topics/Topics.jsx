@@ -24,12 +24,12 @@ const Topics = () => {
       <div className="langarts__topics gradient__bg">
         <div className="langarts__topics-heading">
           <h1 className="gradient__text">Topics:</h1>
-            <div class="plus-icon"></div>
+            <div className="plus-icon"></div>
         </div>
           <div className="langarts__topics-content">
           <div className="langarts__topics-content-scroll-left" onClick={scrollLeft}>
-              <div class="arrow-top" ></div>
-              <div class="arrow-bottom"></div>
+              <div className="arrow-top" ></div>
+              <div className="arrow-bottom"></div>
           </div>
           <div className="langarts__topics-content-scroll">          
               <div className="langarts__topics-content-scroll-items" ref={scrollContainerRef}>
@@ -42,8 +42,8 @@ const Topics = () => {
               </div>            
           </div>
           <div className="langarts__topics-content-scroll-right" onClick={scrollRight}>                                       
-              <div class="arrow-top" ></div>
-              <div class="arrow-bottom"></div>
+              <div className="arrow-top" ></div>
+              <div className="arrow-bottom"></div>
           </div>
           </div>
       </div>

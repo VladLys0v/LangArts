@@ -12,6 +12,11 @@
   color: var(--color-text);
 }
 
+.langarts__header-text-container {
+  background-color: rgba(195, 195, 195, 0.7);
+  border-radius: 15px;
+}
+
 .langarts__header-content h1 {
   font-size: 6rem;
   font-weight: bold;
@@ -25,6 +30,9 @@
 .langarts__header-content p {
   font-size: 2rem;
   margin: 2rem 0;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .cta-button {
@@ -42,6 +50,7 @@
   box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
   transition: all 250ms;
   overflow: hidden;
+  margin-top: 1.5rem;
  }
  
  .cta-button::before {
