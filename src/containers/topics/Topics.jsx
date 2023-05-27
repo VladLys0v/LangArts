@@ -27,9 +27,10 @@ const Topics = () => {
             <div class="plus-icon"></div>
         </div>
           <div className="langarts__topics-content">
-          <div className="langarts__topics-content-scroll-left">
-              <button className="scroll-button left-button" onClick={scrollLeft}></button>
-            </div>
+          <div className="langarts__topics-content-scroll-left" onClick={scrollLeft}>
+              <div class="arrow-top" ></div>
+              <div class="arrow-bottom"></div>
+          </div>
           <div className="langarts__topics-content-scroll">          
               <div className="langarts__topics-content-scroll-items" ref={scrollContainerRef}>
                 <Feature title="Sports" items={sportsItems} />
@@ -40,9 +41,10 @@ const Topics = () => {
                 <Feature title="Profession" items={professionItems} />
               </div>            
           </div>
-          <div className="langarts__topics-content-scroll-right">
-                <button className="scroll-button right-button" onClick={scrollRight}></button>
-            </div>
+          <div className="langarts__topics-content-scroll-right" onClick={scrollRight}>                                       
+              <div class="arrow-top" ></div>
+              <div class="arrow-bottom"></div>
+          </div>
           </div>
       </div>
   );
