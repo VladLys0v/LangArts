@@ -128,7 +128,6 @@
 .langarts__topics-content-scroll-right {
     display:flex;
     position:static;
-    margin-top: 1rem;
     align-items: center;
     cursor: pointer;
     width: 50px;
@@ -138,7 +137,7 @@
 }
 
 .langarts__topics-content-scroll-left {
-    transform: translateX(-50%) translateY(-50%) scaleX(-1);
+    transform: translateX(50%) translateY(-50%) scaleX(-1);
     margin-left: 30px;
     margin-right: 30px;
   }
@@ -202,7 +201,7 @@
   }
 
   .langarts__topics-content-scroll-left:active {
-    transform: translateX(-50%) translateY(-50%) scaleX(-1) scale(0.9);
+    transform: translateX(50%) translateY(-50%) scaleX(-1) scale(0.9);
   }
   .langarts__topics-content-scroll-right:active {
     transform: translateX(-50%) translateY(-50%) scale(0.9);
