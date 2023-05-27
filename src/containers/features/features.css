@@ -2,7 +2,10 @@
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    background:linear-gradient(90deg, rgb(244, 244, 244) 1%, rgb(255, 255, 255) 100%);       
+    background:linear-gradient(to bottom, rgb(255, 255, 255) 0%,
+                                           rgb(255, 255, 248) 20%,
+                                             rgb(252, 251, 237) 60%,
+                                               rgb(252, 246, 218) 80%);       
 }
 
 .langarts__features-LangSwitch {
@@ -40,7 +43,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
 }
 
 .langarts__card1 button:hover {

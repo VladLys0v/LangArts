@@ -1,0 +1,14 @@
+
+.city-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fcf9dc;
+  }
+  
+  .city-footer img {
+    max-width:fit-content;
+    height: auto;
+    padding-bottom: 40px;
+
+  }

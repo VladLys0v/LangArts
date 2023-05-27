@@ -1,7 +1,7 @@
 .langarts__topics{
     display: flex;
     flex-direction: column;
-    border-top: solid 2px grey;
+    border-bottom: solid white 1px;
 }
 
 .langarts__topics-heading {
@@ -60,6 +60,7 @@
     align-items: center; 
     padding-left: 30px; 
     padding-right: 30px; 
+    margin-top: 20px;
 }
 
 .langarts__topics-content-scroll {
@@ -73,6 +74,10 @@
     flex-grow: 1;
     min-width: 0;
     max-width: 800px;
+    border-left: solid #7b756f 1px;
+    border-right: solid #7b756f 1px;
+
+    
 }
 
 .langarts__topics-content-scroll::-webkit-scrollbar {
@@ -213,5 +218,7 @@
     height: 100px;
     cursor: pointer;
 }
+
+
 
 
