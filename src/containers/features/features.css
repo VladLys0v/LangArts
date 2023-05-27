@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     background:linear-gradient(to bottom, rgb(255, 255, 255) 0%,
-                                           rgb(255, 255, 246) 20%,
-                                             rgb(255, 253, 231) 60%,
+                                           rgb(254, 254, 247) 20%,
+                                             rgb(255, 254, 237) 60%,
                                                rgb(252, 246, 218) 80%);  
     padding: 0rem 6rem; 
     padding-bottom: 3rem;    
