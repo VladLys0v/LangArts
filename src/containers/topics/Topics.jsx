@@ -21,7 +21,7 @@ const Topics = () => {
   };
 
   return (
-      <div className="langarts__topics gradient__bg" id="topics">
+      <div className="langarts__topics gradient__bg">
         <div className="langarts__topics-heading">
           <h1 className="gradient__text">Topics:</h1>
             <div class="plus-icon"></div>
