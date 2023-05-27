@@ -41,7 +41,7 @@
   border-radius: 15px;
   color: #fefefe;
   z-index: 1;
-  background: #060606;
+  background: var(--color-subtext);
   position: relative;
   font-weight: 1000;
   font-size: 22px;
