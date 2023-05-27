@@ -1,4 +1,3 @@
-
 .city-footer {
     display: flex;
     justify-content: center;
@@ -7,8 +6,22 @@
   }
   
   .city-footer img {
-    max-width:fit-content;
+    max-width: 100%;
     height: auto;
-    padding-bottom: 40px;
-
+    padding-bottom: 60px;
+    transition: max-width 0.5s ease;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .city-footer img {
+      max-width: 120%;
+      padding-bottom: 60px;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .city-footer img {
+      max-width: 100%;
+      padding-bottom: 60px;
+    }
   }
