@@ -19,7 +19,7 @@ const App = () => {
       <Header handleCTAButtonClick={handleCTAButtonClick} />
       </div>
       <div className="mirrorBG">
-    <div className="mirrorBG__background"></div>
+    <div className={`mirrorBG__background ${showNewPicture ? 'slide-left' : ''} ${slideOut ? 'slide-out' : ''}`}></div>
     <Topics id="topics" />
   </div>
       <Features />
