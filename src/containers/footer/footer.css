@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fcf9dc;
+    background: linear-gradient(to bottom, rgb(252, 246, 218) 50%,
+                                            rgb(220, 162, 120) 90%);
   }
   
   .city-footer img {
