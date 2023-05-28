@@ -91,6 +91,23 @@ a {
     }
   }
 
+  .bg__pic.reset-animation {
+    animation: resetAnimation 0.5s ease-out;
+  }
+  
+  .mirrorBG__background.reset-animation {
+    animation: resetAnimation 0.5s ease-out;
+  }
+  
+  @keyframes resetAnimation {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
 .gradient__text{
     background: var(--gradient-text);
     background-clip: text;

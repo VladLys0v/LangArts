@@ -6,22 +6,32 @@ import './App.css'
 const App = () => {
   const [showNewPicture, setShowNewPicture] = useState(false);
   const [slideOut, setSlideOut] = useState(false);
+  const [resetAnimation, setResetAnimation] = useState(false);
 
   const handleCTAButtonClick = () => {
-    setShowNewPicture(!showNewPicture);
-    setSlideOut(!slideOut);
+    if (showNewPicture) {
+      setSlideOut(!slideOut);
+      setResetAnimation(true);
+      setTimeout(() => {
+        setShowNewPicture(false);
+        setResetAnimation(false);
+      }, 500);
+    } else {
+      setShowNewPicture(true);
+      setSlideOut(!slideOut);
+    }
   };
 
   return (
     <div className="App">
-      <div className={`bg__pic ${showNewPicture ? 'slide-left' : ''} ${slideOut ? 'slide-out' : ''}`}> 
+      <div className={`bg__pic ${showNewPicture ? 'slide-left' : ''} ${slideOut ? 'slide-out' : ''} ${resetAnimation ? 'reset-animation' : ''}`}> 
       <Navbar />
       <Header handleCTAButtonClick={handleCTAButtonClick} />
       </div>
       <div className="mirrorBG">
-    <div className={`mirrorBG__background ${showNewPicture ? 'slide-left' : ''} ${slideOut ? 'slide-out' : ''}`}></div>
-    <Topics id="topics" />
-  </div>
+        <div className={`mirrorBG__background ${showNewPicture ? 'slide-left' : ''} ${slideOut ? 'slide-out' : ''} ${resetAnimation ? 'reset-animation' : ''}`}></div>
+        <Topics id="topics" />
+      </div>
       <Features />
       <Footer />
     </div>
