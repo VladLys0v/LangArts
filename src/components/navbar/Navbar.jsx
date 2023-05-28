@@ -21,7 +21,7 @@ const Navbar = () => {
     <div className="langarts__navbar ">
       <div className="langarts__navbar-links">
         <div className="langarts__navbar-links_logo"> 
-        <img src={logo} alt="logo"/>
+        <img src={logo} alt="logo" />
         </div>
         <div className="langarts__navbar-links_container">
           <Menu />
@@ -32,8 +32,8 @@ const Navbar = () => {
       </div>
       <div className="langarts__navbar-menu">
           {toggleMenu 
-          ? <RiCloseLine color="#fff" size={27} onClick={() => setToggleMenu(false)}/>
-          : <RiMenu3Line color="#fff" size={27} onClick={() => setToggleMenu(true)}/>
+          ? <RiCloseLine color="#fff" size={37} onClick={() => setToggleMenu(false)}/>
+          : <RiMenu3Line color="#fff" size={37} onClick={() => setToggleMenu(true)}/>
           }
           {toggleMenu && (
             <div className= "langarts__navbar-menu_container scale-up-center">

@@ -80,7 +80,7 @@ const Features = () => {
       />
       </div>
       <div className="langarts__features-heading">
-        <h1 className="gradient__text">Choose the difficulty level:</h1> 
+        <h1 className="gradient__text">Memory cards:</h1> 
         <div className="gears" id="one-gear">
         <div className="gears-container">
         <div className="gear-rotate"></div>
