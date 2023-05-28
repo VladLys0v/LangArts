@@ -157,6 +157,11 @@ a {
     .section__margin {
         margin: 4rem;
     }
+
+    .mirrorBG__background {
+       background-position: top 100% center;
+    }
+    
 }
   
 @media screen and (max-width: 550px){

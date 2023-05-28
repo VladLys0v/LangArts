@@ -259,6 +259,33 @@
   }
 }
 
+  @media screen and (max-width: 800px) {
+    .langarts__topics-content {
+      padding-right: 0px;
+    }
 
+    .plus-icon {
+      margin-right: 0px;
+    }
+  }
+
+
+  @media screen and (max-width: 700px) {
+    .gradient__bg {
+      padding-left: 35px;
+      padding-right: 20px;
+      padding-top: 30px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .gradient__bg {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 30px;
+    }
+  }
+
+  
 
 

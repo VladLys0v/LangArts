@@ -107,13 +107,22 @@
 
 @media screen and (max-width: 700px) {
     .langarts__navbar {
-        padding: 2rem 4rem;
+        padding-left: 35px;
+        padding-right: 20px;
+        padding-top: 10px;
     }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 500px) {
     .langarts__navbar {
-        padding: 2rem;
+        padding-top:  0.5rem;
+        padding-bottom:  2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .langarts__navbar-links {
+        padding-left: 0rem;
     }
 
     .langarts__navbar-sign {
@@ -126,5 +135,15 @@
 
     .langarts__navbar-menu_container-links-sign {
         display: block;
+    }
+
+    .langarts__topics-content-scroll > .langarts__topics-content-scroll-items > *:not(.scroll-button) {
+        width: 100px;
+        height: 100px;
+        border-radius: 30px;
+    }
+
+    .langarts__topics-content-scroll > .langarts__topics-content-scroll-items > *:not(.scroll-button) h2 {
+        font-size: 16px;
     }
 }

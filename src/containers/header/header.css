@@ -142,6 +142,10 @@
 .langarts__header-content p{
   font-size: 1.3rem;   
 }
+
+.cta-button {
+  padding: 12px 23px;
+}
 }
 
 @media screen and (max-width: 700px) {
@@ -149,9 +153,17 @@
         margin-bottom: 1.5rem;
     }
 
+    .langarts__header  {
+      margin-left: 20px;
+    }
+
     .langarts__header-content p{
-        margin-right: 1rem;
+        
         margin-bottom: 1rem;
+    }
+
+    .cta-button {
+      padding: 12px 23px;
     }
 }
 
