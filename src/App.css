@@ -161,7 +161,9 @@ a {
     .mirrorBG__background {
        background-position: top 100% center;
     }
-    
+    .bg__pic {
+      height: 70vh; 
+    }
 }
   
 @media screen and (max-width: 550px){
@@ -170,5 +172,9 @@ a {
     }
     .section__margin {
         margin: 4rem 2rem;
+    }
+
+    .bg__pic {
+      height: 60vh; 
     }
 }
