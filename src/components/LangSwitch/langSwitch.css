@@ -1,7 +1,7 @@
 .langarts__langSwitch {
     display:flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 
 }
@@ -61,4 +61,13 @@
 .langarts__changebutton img{
     height: 30px;
     width: 30px;
+}
+
+
+@media screen and (max-width: 550px) {
+.langarts__option1-select,
+.langarts__option3-select {
+  font-size: 23px;
+  padding: 10px 20px;
+}
 }
