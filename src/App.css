@@ -75,7 +75,7 @@ a {
 
   @keyframes slideLeftAnimation {
     from {
-      transform: translateX(100%);
+      transform: translateX(-100%);
     }
     to {
       transform: translateX(0);
@@ -87,7 +87,7 @@ a {
       transform: translateX(0);
     }
     to {
-      transform: translateX(-100%);
+      transform: translateX(100%);
     }
   }
 
@@ -101,7 +101,7 @@ a {
   
   @keyframes resetAnimation {
     from {
-      transform: translateX(100%);
+      transform: translateX(-100%);
     }
     to {
       transform: translateX(0);

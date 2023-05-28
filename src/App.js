@@ -14,11 +14,15 @@ const App = () => {
       setResetAnimation(true);
       setTimeout(() => {
         setShowNewPicture(false);
+        setSlideOut(false);
         setResetAnimation(false);
       }, 500);
     } else {
       setShowNewPicture(true);
-      setSlideOut(!slideOut);
+      setSlideOut(false);
+      setTimeout(() => {
+        setSlideOut(true);
+      }, 50);
     }
   };
 
