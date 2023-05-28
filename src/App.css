@@ -21,6 +21,8 @@ a {
 }
 
 .bg__pic {
+    position: relative;
+    overflow: hidden;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0.2) 100%), url('./assets/sopot_molo.jpg');
     background-position: top 50% center;
     background-size: cover;
@@ -30,7 +32,6 @@ a {
   .bg__pic.slide-left {
     background-image: url('./assets/new-picture.jpeg');
     background-position: top 50% left;
-    animation: slideLeftAnimation 0.5s ease-out;
   }
   
   .bg__pic.slide-out {
