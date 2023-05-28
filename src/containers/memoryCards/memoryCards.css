@@ -179,3 +179,64 @@ body {
   padding-top: 6rem;
   font-family: var(--font-family);
 }
+
+@media screen and (max-width: 1050px) {
+.langarts__memoryCards {
+  width: 80%;
+  height: 80%;
+}
+
+.langarts__memoryCards__content {
+  display:flex;
+  height: 70vh;
+}
+
+.langarts__memoryCards__afterCountdown_header {
+  margin-bottom: 1.4rem;
+}
+
+.langarts__memoryCards__userPart {
+  padding-left: 1.6rem;
+}
+
+.langarts__memoryCards__afterCountdown-header-buttons {
+  padding-right: 2rem;
+}
+
+.langarts__memoryCards__count {
+  padding-top: 3rem;
+}
+}
+
+@media screen and (max-width: 900px) {
+  .langarts__memoryCards__afterCountdown-header-buttons {
+    padding-right: 3rem;
+  }
+
+  .langarts__memoryCards__afterCountdown_header {
+    margin-bottom: 1rem;
+  }
+
+  .langarts__memoryCards__count {
+    padding-top: 4rem;
+  }
+
+  .langarts__memoryCards__word {
+    font-size: clamp(30px, calc(2vw + 6px), 40px);
+  }  
+}
+
+@media screen and (max-width: 800px) {
+  .langarts__memoryCards {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 80%;
+    height: 90%;
+    
+    background-color: #fff;
+    z-index: 10000;
+  }
+}

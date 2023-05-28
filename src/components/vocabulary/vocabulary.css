@@ -85,6 +85,11 @@ body {
 
 }
 
+.langarts__vocabulary__controls {
+  display: flex;
+  align-items: center;
+}
+
 .langarts__vocabulary__search {
   display: flex;
   align-items: center;
@@ -188,6 +193,7 @@ padding-right: 65px;
 .langarts__vocabulary__content-menu {
   position: absolute;
   right:30px;
+  margin-bottom: 20px;
 }
 .langarts__vocabulary__content-menu ul{
   position: absolute;
@@ -236,4 +242,19 @@ padding-right: 65px;
   transform: translateZ(5px);
 }
 
-
+@media screen and (max-width: 700px) {
+  .langarts__vocabulary {
+    position: fixed;
+  left: 44.5%;
+  width: 71%;
+    height: 100%;
+}
+}
+@media screen and (max-width: 550px) {
+  .langarts__vocabulary {
+    position: fixed;
+  left: 33.3%;
+  width: 67%;
+    height: 100%;
+}
+}

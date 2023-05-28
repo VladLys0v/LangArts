@@ -293,10 +293,34 @@ return (
     <RiCloseFill color="grey" size={35} onClick={() => handleClose()} />
   </div>
 </div>
+<div className="langarts__vocabulary__controls">
 <div className="langarts__vocabulary__search">
  <input type="search" placeholder="Search" value={searchInput} onChange={handleSearch} />
 </div>
-
+<div className="langarts__vocabulary__content-menu">
+        <RiFilter2Fill color="grey" size={30} />
+      {toggleMenu 
+          ? <RiCloseLine color="grey" size={30} onClick={() => setToggleMenu(false)}/>
+          : <RiSettings4Line color="grey" size={30} onClick={() => setToggleMenu(true)}/>
+          }
+          {toggleMenu && (
+        <ul>
+          <li>
+          <button className="addToTopic">Add to Topic</button>
+          </li>
+          <li>
+          <button className="randomWords" onClick={populateDB}>Add Random Words</button>
+          </li>
+          <li>
+          <button className="addToFavourite"> Add to favourite</button>
+          </li>
+          <li>
+          <button className="changeReoccurrence">Change reoccurrence</button>
+          </li>
+        </ul>
+        )}
+      </div>
+      </div>
     <div className="langarts__vocabulary__content">
       <div className="langarts__vocabulary__content-table">
         <ul>
@@ -325,29 +349,7 @@ return (
           })}
         </ul>
       </div>
-      <div className="langarts__vocabulary__content-menu">
-        <RiFilter2Fill color="grey" size={30} />
-      {toggleMenu 
-          ? <RiCloseLine color="grey" size={30} onClick={() => setToggleMenu(false)}/>
-          : <RiSettings4Line color="grey" size={30} onClick={() => setToggleMenu(true)}/>
-          }
-          {toggleMenu && (
-        <ul>
-          <li>
-          <button className="addToTopic">Add to Topic</button>
-          </li>
-          <li>
-          <button className="randomWords" onClick={populateDB}>Add Random Words</button>
-          </li>
-          <li>
-          <button className="addToFavourite"> Add to favourite</button>
-          </li>
-          <li>
-          <button className="changeReoccurrence">Change reoccurrence</button>
-          </li>
-        </ul>
-        )}
-      </div>
+      
 </div>
 <div className="langarts__vocabulary__content-LangSwitch">        
 <LangSwitch
