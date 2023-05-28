@@ -97,8 +97,8 @@
 
 @media screen and (max-width: 1050px) {
     .langarts__header-content {
-        margin-right: 5rem;
-        margin-left: 5rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
         
     }
 
@@ -107,7 +107,10 @@
     }
 
     .langarts__header-content p{
-      font-size: 25px;    
+      font-size: 25px;  
+      margin: 0rem 0rem;  
+      margin-top: 2rem; 
+      margin-bottom: 3rem;
     }
 }
 
@@ -129,6 +132,8 @@
   .langarts__header-content {
     margin-right: 1rem;
     margin-left: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
 }
 .langarts__header-content h1 {
   font-size: 55px;
@@ -141,7 +146,6 @@
 
 @media screen and (max-width: 700px) {
     .langarts__header-content {
-        margin-right: 3rem;
         margin-bottom: 1.5rem;
     }
 
