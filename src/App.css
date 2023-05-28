@@ -48,24 +48,25 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.2) 0%,
-                                             rgba(255, 255, 255, 0.4) 20%,
-                                              rgba(204, 204, 204, 0.6) 50%,
-                                               rgba(255, 255, 255, 1) 80%), url('./assets/sopot_molo.jpg');
-                                               
   background-position: top 80% center;
   background-size: 100% auto;
   transform: rotateX(180deg);
   z-index: -1;
+  background-image: linear-gradient(to top, 
+  rgba(255, 255, 255, 0.2) 0%,
+   rgba(255, 255, 255, 0.4) 20%,
+    rgba(204, 204, 204, 0.6) 50%,
+     rgba(255, 255, 255, 1) 80%), url('./assets/sopot_molo.jpg');                                              
 }
 
 .mirrorBG__background.slide-left {
-  background-image: linear-gradient(to top, rgba(75, 75, 75, 0.2) 0%,
-                                              rgba(155, 155, 155, 0.4) 20%,
-                                               rgba(255, 255, 255, 0.6) 50%,
-                                                rgb(255, 255, 255) 80%), url('./assets/new-picture.jpeg');
   background-position: center top left;
   animation: slideLeftAnimation 0.5s ease-out;
+  background-image: linear-gradient(to top,
+   rgba(75, 75, 75, 0.2) 0%,
+    rgba(155, 155, 155, 0.4) 20%,
+     rgba(255, 255, 255, 0.6) 50%,
+      rgb(255, 255, 255) 80%), url('./assets/new-picture.jpeg');
 }
 
 .mirrorBG__background.slide-out {
