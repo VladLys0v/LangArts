@@ -6,7 +6,8 @@
                                              rgb(255, 254, 237) 60%,
                                                rgb(252, 246, 218) 80%);  
     padding: 0rem 6rem; 
-    padding-bottom: 3rem;    
+    padding-bottom: 3rem;   
+    padding-top: 2rem;  
 }
 
 .langarts__features-LangSwitch {
@@ -44,7 +45,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
 }
 
 .langarts__card1 button:hover {
@@ -116,7 +118,7 @@
   }
 
   .langarts__card2 {
-    margin-top: 35px;
+    margin-top: 45px;
   }
 
   .langarts__card2 button:hover {
@@ -191,12 +193,12 @@
   }
 
   .gears-container{
-      width:150px; 
-      height: 150px;
-      font-size:24px;
-      padding: 9%;
+      width:80px; 
+      height: 75px;
+      font-size:23px;
+
       position: relative; 
-      margin: 0px auto;
+
   }
 
   .gear-rotate{
@@ -275,10 +277,28 @@
   }
 
 
-@media screen and (max-width: 1950px) {
-    .langarts__cards_container  {
-        margin: 2rem 0 2rem;    
+@media screen and (max-width: 1050px) {
+    .langarts__features-heading h1  {
+      font-size: 32px
     }
+
+    .gears-container {
+      width: 65px;
+    height: 60px;
+    font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+  .gears-container {
+    width: 75px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .gears-container {
+    width: 30px;
+  }
 }
 
 @media screen and (max-width: 700px) {
