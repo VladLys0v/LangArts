@@ -8,8 +8,8 @@ const App = () => {
   const [slideOut, setSlideOut] = useState(false);
 
   const handleCTAButtonClick = () => {
-    setShowNewPicture(true);
-    setSlideOut(true);
+    setShowNewPicture(!showNewPicture);
+    setSlideOut(!slideOut);
   };
 
   return (
