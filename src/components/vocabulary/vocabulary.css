@@ -242,6 +242,24 @@ padding-right: 65px;
   transform: translateZ(5px);
 }
 
+@media screen and (max-width: 900px) {
+  .langarts__vocabulary {
+    position: fixed;
+  left: 50%;
+  width: 100%;
+    height: 100%;
+}
+}
+
+@media screen and (max-width: 800px) {
+  .langarts__vocabulary {
+    position: fixed;
+  left: 43.5%;
+  width: 86.9%;
+    height: 100%;
+}
+}
+
 @media screen and (max-width: 700px) {
   .langarts__vocabulary {
     position: fixed;
