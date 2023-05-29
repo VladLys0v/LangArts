@@ -34,7 +34,7 @@ const App = () => {
       </div>
       <div className="mirrorBG">
         <div className={`mirrorBG__background ${showNewPicture ? 'slide-left' : ''} ${slideOut ? 'slide-out' : ''} ${resetAnimation ? 'reset-animation' : ''}`}></div>
-        <Topics id="topics" />
+        <Topics />
       </div>
       <Features />
       <Footer />

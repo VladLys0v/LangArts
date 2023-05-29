@@ -3,7 +3,7 @@ import './header.css'
 
 const Header = ({handleCTAButtonClick}) => {
   return (
-    <div className="langarts__header section__padding" id="home">
+    <div className="langarts__header section__padding">
       <div className="langarts__header-content">
         <div className="langarts__header-text-container">
           <h1 className="gradient__text">Learn New Languages with Ease</h1>

@@ -69,7 +69,7 @@ const Features = () => {
 
   return (
     
-    <div className="langarts__features" id="langartsFeatures">
+    <div className="langarts__features">
       <div className="langarts__features-LangSwitch">
       <LangSwitch
         selectedValue1={selectedValue1}
@@ -87,7 +87,7 @@ const Features = () => {
         </div>
         </div>
       </div>
-      <div className="langarts__cards_container" id="cards">
+      <div className="langarts__cards_container">
         <div className="langarts__card1">
           <button type="button" onClick={handleMemoryCards}>
             <div className="svg-wrapper-1">
