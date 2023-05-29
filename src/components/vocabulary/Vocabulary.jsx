@@ -290,7 +290,7 @@ return (
     </div>
   </div>
   <div className="langarts__vocabulary__header-close">
-    <RiCloseFill color="grey" size={35} onClick={() => handleClose()} />
+    <RiCloseFill color="grey" onClick={() => handleClose()} />
   </div>
 </div>
 <div className="langarts__vocabulary__controls">
