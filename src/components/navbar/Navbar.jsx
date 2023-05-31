@@ -5,14 +5,18 @@ import './navbar.css'
 
 const Menu = () => (
   <>
-  <p><a href='memory-cards'>Memory cards</a></p>
-  <p><a href='vocabulary'>Vocabulary</a></p>
+  <p><span onClick={() => scrollToCards()}>Memory cards</span></p>
   <p><span onClick={() => scrollToTopics()}>Topics</span></p>
   </>
 )
 const scrollToTopics = () => {
   const topicsSection = document.querySelector(".mirrorBG");
   topicsSection.scrollIntoView({ behavior: 'smooth' });
+};
+
+const scrollToCards = () => {
+  const cardsSection = document.querySelector(".langarts__features");
+  cardsSection.scrollIntoView({ behavior: 'smooth' });
 };
 
 const Navbar = () => {
