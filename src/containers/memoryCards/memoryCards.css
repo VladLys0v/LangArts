@@ -284,6 +284,10 @@ body {
     height: 100%;
   }
 
+  .langarts__memoryCards__header h2 {
+    font-size: 35px;
+  }
+
   .langarts__memoryCards__header-close svg {
     width: 40px;
     height: 40px;
