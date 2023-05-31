@@ -156,11 +156,11 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
     <div className="langarts__memoryCards-overlay">
     <div className="langarts__memoryCards">
       <div className="langarts__memoryCards__header">
+      <h2>Memory cards</h2>
         <div className="langarts__memoryCards__header-close">
           <RiCloseFill color="grey" size={35} onClick={() => handleClose(false)} />
         </div>
       </div>
-
       <div className="langarts__memoryCards__content">
         {countdown !== 'Start!' && (
           <div className="langarts__memoryCards__countdown">{countdown}</div>
@@ -168,7 +168,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
         {showWords && words.length > 0 && (    
           <div className = "langarts__memoryCards__afterCountdown">
             <div className = "langarts__memoryCards__afterCountdown_header">
-              <h2>Memory cards</h2>
+              
               <div className = "langarts__memoryCards__afterCountdown-header-buttons">
               <div onClick={like}>
               {isFilled ? <RiHeartFill color="red" size={30} /> : <RiHeartLine color="grey" size={30} />}

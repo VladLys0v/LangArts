@@ -22,6 +22,7 @@ body {
     height: 90%;
     
     background-color: #fff;
+    border-radius: 10px;
     z-index: 10000;
   }
   
@@ -39,11 +40,15 @@ body {
 
   .langarts__memoryCards__header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
   }
   
   .langarts__memoryCards__header-close {
     display: flex;
+    justify-content: flex-end;
   }
 
   .langarts__memoryCards__header-close svg {
@@ -58,13 +63,12 @@ body {
 
 .langarts__memoryCards__content {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 85vh;
   max-width: 700px;
   margin: 0 auto;
-  
+  padding-top: 20px;
 }
 
 .langarts__memoryCards__afterCountdown {
@@ -79,17 +83,15 @@ body {
 .langarts__memoryCards__afterCountdown_header {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-bottom: 2rem;
 }
 
-.langarts__memoryCards__afterCountdown_header h2 {
-  padding-left: 1rem;
+.langarts__memoryCards__header h2 {
   justify-content: flex-start;
   font-size: 30px;
   font-family: var(--font-family);
   color: grey;
-  margin-bottom: 2rem;
 }
 
 .langarts__memoryCards__afterCountdown-header-buttons {
@@ -124,6 +126,7 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
+  padding-bottom: 2rem;
   margin-bottom: 2rem;
   width: 100%;
   border-left: 2px solid #ccc;
@@ -134,7 +137,7 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   cursor: pointer;
   width: 100%;
 }
@@ -151,7 +154,7 @@ body {
   width: 100%;
   border-left: 2px solid #ccc;
   border-right: 2px solid #ccc;
-  margin-bottom: 3rem;
+  padding-bottom: 3rem;
 }
 
 .userInput{
@@ -176,7 +179,7 @@ body {
 }
 
 .langarts__memoryCards__count {
-  padding-top: 6rem;
+  padding-top: 7rem;
   font-family: var(--font-family);
 }
 
