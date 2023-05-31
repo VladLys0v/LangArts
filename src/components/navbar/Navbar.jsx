@@ -11,7 +11,7 @@ const Menu = () => (
   </>
 )
 const scrollToTopics = () => {
-  const topicsSection = document.getElementById('topics');
+  const topicsSection = document.querySelector(".mirrorBG");
   topicsSection.scrollIntoView({ behavior: 'smooth' });
 };
 

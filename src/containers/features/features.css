@@ -196,9 +196,11 @@
       width:80px; 
       height: 75px;
       font-size:23px;
-
       position: relative; 
+  }
 
+  .gears-container:active {
+    transform: scale(0.9);
   }
 
   .gear-rotate{
