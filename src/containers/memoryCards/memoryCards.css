@@ -56,7 +56,9 @@ body {
 }
 
 .langarts__memoryCards__countdown {
+  position: sticky;
   font-size: 5rem;
+  margin-top: 170px;
   margin-bottom: 100px;
   justify-content: center;
 }
@@ -152,15 +154,33 @@ body {
   padding-top: 3rem;
   padding-left:1.6rem;
   width: 100%;
-  border-left: 2px solid #ccc;
-  border-right: 2px solid #ccc;
-  padding-bottom: 3rem;
 }
 
-.userInput{
-  display: flex;
-  justify-content: center;
+.userInput input{
+  width: 100%;
+  height: 40px;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #0d0c22;
+  transition: .3s ease;
 }
+
+.userInput input::placeholder {
+  color: #9e9ea7;
+  font-size: 16px;
+ }
+
+ .userInput input:hover {
+  outline: none;
+  border-color: rgba(234,76,137,0.4);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+ }
 
 .submitIcon {
   display: flex;
@@ -185,8 +205,9 @@ body {
 
 @media screen and (max-width: 1050px) {
 .langarts__memoryCards {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
 }
 
 .langarts__memoryCards__content {
@@ -207,7 +228,7 @@ body {
 }
 
 .langarts__memoryCards__count {
-  padding-top: 3rem;
+  padding-top: 4rem;
 }
 }
 
@@ -226,20 +247,86 @@ body {
 
   .langarts__memoryCards__word {
     font-size: clamp(30px, calc(2vw + 6px), 40px);
-  }  
+  } 
+  
+  .langarts__memoryCards__count {
+    padding-top: 3rem;
+  }
 }
 
 @media screen and (max-width: 800px) {
   .langarts__memoryCards {
-    position: fixed;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 44%;
+    width: 88%;
+    height: 100%;
+  }
+}
 
-    width: 80%;
-    height: 90%;
-    
-    background-color: #fff;
-    z-index: 10000;
+@media screen and (max-width: 700px) {
+  .langarts__memoryCards {
+    top: 50%;
+    left: 40.5%;
+    width: 81.5%;
+    height: 100%;
+  }
+
+  .langarts__memoryCards__count {
+    padding-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .langarts__memoryCards {
+    top: 50%;
+    left: 33%;
+    width: 67%;
+    height: 100%;
+  }
+
+  .langarts__memoryCards__header-close svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .langarts__memoryCards__afterCountdown-header-buttons svg {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+  }
+
+  .langarts__memoryCards__word {
+    font-size: 35px;
+    border: solid black 2px;
+  }
+
+  .langarts__memoryCards__nextWord svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .langarts__memoryCards__previousWord svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .langarts__memoryCards__Mic svg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .userInput input {
+    height: 50px;
+  }
+
+  .submitIcon svg {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+  }
+
+  .langarts__memoryCards__count {
+    font-size: 20px;
+    padding-top: 6.5rem;
   }
 }
