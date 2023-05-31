@@ -194,12 +194,8 @@ body {
   z-index: 9;
 }
 
-.userInput input::placeholder {
-  padding-left: 2px;
-}
-
 .langarts__memoryCards__count {
-  padding-top: 7rem;
+  padding-top: 8rem;
   font-family: var(--font-family);
 }
 
@@ -216,15 +212,69 @@ body {
 }
 
 .langarts__memoryCards__afterCountdown_header {
-  margin-bottom: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.langarts__memoryCards__header h2 {
+  font-size: 35px;
+}
+
+.langarts__memoryCards__header-close svg {
+  width: 40px;
+  height: 40px;
+}
+
+.langarts__memoryCards__afterCountdown-header-buttons svg {
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+}
+
+.langarts__memoryCards__nextWord {
+  padding-top:25px;
+}
+.langarts__memoryCards__nextWord svg {
+  width: 50px;
+  height: 50px;
+  
+}
+
+.langarts__memoryCards__previousWord {
+  padding-top: 25px;
+}
+
+.langarts__memoryCards__word {
+  font-size: 32px;
+  border: solid black 2px;  
+  margin-top: 30px;
+}
+
+.langarts__memoryCards__previousWord svg {
+  width: 50px;
+  height: 50px;
 }
 
 .langarts__memoryCards__userPart {
   padding-left: 1.6rem;
 }
 
+.langarts__memoryCards__Mic svg {
+  width: 70px;
+  height: 70px;
+}
+
 .langarts__memoryCards__afterCountdown-header-buttons {
   padding-right: 2rem;
+}
+
+.userInput input {
+  height: 50px;
+}
+
+.submitIcon svg {
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
 }
 
 .langarts__memoryCards__count {
@@ -249,9 +299,76 @@ body {
     font-size: clamp(30px, calc(2vw + 6px), 40px);
   } 
   
-  .langarts__memoryCards__count {
-    padding-top: 3rem;
+  .langarts__memoryCards__header h2 {
+    font-size: 35px;
   }
+
+  .langarts__memoryCards__header-close svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .langarts__memoryCards__afterCountdown-header-buttons svg {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+  }
+
+  .langarts__memoryCards__taskWord {
+    margin-top: 1rem;
+  }
+
+  .langarts__memoryCards__word {
+    font-size: 35px;
+    border: solid black 2px;  
+    margin-top: 30px;
+  }
+
+  .langarts__memoryCards__nextWord {
+    padding-top: 20px;
+  }
+  .langarts__memoryCards__nextWord svg {
+    width: 50px;
+    height: 50px;
+    
+  }
+
+  .langarts__memoryCards__previousWord {
+    padding-top: 20px;
+  }
+  .langarts__memoryCards__previousWord svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .langarts__memoryCards__Mic {
+    margin-top: 30px;
+  }
+
+  .langarts__memoryCards__Mic svg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .userInput {
+    padding-top: 30px;
+  }
+  .userInput input {
+    height: 50px;
+  }
+
+  .submitIcon svg {
+    width: 60px;
+    height: 60px;
+    margin-top: 23px;
+    margin-left: 5px;
+  }
+
+  .langarts__memoryCards__count {
+    padding-top: 15rem;
+    font-size: 20px;
+  }
+
 }
 
 @media screen and (max-width: 800px) {
@@ -260,6 +377,76 @@ body {
     left: 44%;
     width: 88%;
     height: 100%;
+  }
+
+  .langarts__memoryCards__header h2 {
+    font-size: 35px;
+  }
+
+  .langarts__memoryCards__header-close svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .langarts__memoryCards__afterCountdown-header-buttons svg {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+  }
+
+  .langarts__memoryCards__taskWord {
+    margin-top: 1rem;
+  }
+
+  .langarts__memoryCards__word {
+    font-size: 35px;
+    border: solid black 2px;  
+    margin-top: 30px;
+  }
+
+  .langarts__memoryCards__nextWord {
+    padding-top: 20px;
+  }
+  .langarts__memoryCards__nextWord svg {
+    width: 50px;
+    height: 50px;
+    
+  }
+
+  .langarts__memoryCards__previousWord {
+    padding-top: 20px;
+  }
+  .langarts__memoryCards__previousWord svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .langarts__memoryCards__Mic {
+    margin-top: 30px;
+  }
+
+  .langarts__memoryCards__Mic svg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .userInput {
+    padding-top: 30px;
+  }
+  .userInput input {
+    height: 50px;
+  }
+
+  .submitIcon svg {
+    width: 60px;
+    height: 60px;
+    margin-top: 23px;
+    margin-left: 5px;
+  }
+
+  .langarts__memoryCards__count {
+    padding-top: 15rem;
+    font-size: 20px;
   }
 }
 
@@ -271,8 +458,58 @@ body {
     height: 100%;
   }
 
+  .langarts__memoryCards__header h2 {
+    font-size: 35px;
+  }
+
+  .langarts__memoryCards__header-close svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .langarts__memoryCards__afterCountdown-header-buttons svg {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+  }
+
+  .langarts__memoryCards__taskWord {
+    margin-top: 1rem;
+  }
+
+  .langarts__memoryCards__word {
+    font-size: 35px;
+    border: solid black 2px;  
+  }
+
+  .langarts__memoryCards__nextWord svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .langarts__memoryCards__previousWord svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .langarts__memoryCards__Mic svg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .userInput input {
+    height: 50px;
+  }
+
+  .submitIcon svg {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+  }
+
   .langarts__memoryCards__count {
-    padding-top: 4rem;
+    padding-top: 5rem;
+    font-size: 20px;
   }
 }
 
@@ -331,6 +568,6 @@ body {
 
   .langarts__memoryCards__count {
     font-size: 20px;
-    padding-top: 6.5rem;
+    padding-top: 8rem;
   }
 }
