@@ -13,6 +13,7 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2,
   const [searchInput, setSearchInput] = useState('');
   const history = createBrowserHistory();
   const[toggleMenu, setToggleMenu] = useState(false);
+  const [activeTab, setActiveTab] = useState('All');
 
   const handleSearch = (event) => {
     setSearchInput(event.target.value);
@@ -263,6 +264,10 @@ const addRandomWords = async (language) => {
   }
 };
 
+const handleTabChange = (tab) => {
+  setActiveTab(tab);
+};
+
 const populateDB = async () => {
   await addRandomWords(language);
 }
@@ -322,6 +327,16 @@ return (
       </div>
       </div>
     <div className="langarts__vocabulary__content">
+
+    <div className="langarts__vocabulary__tabs">
+    <div className="langarts__vocabulary__tab" onClick={() => handleTabChange('All')}>
+      All
+    </div>
+    <div className="langarts__vocabulary__tab" onClick={() => handleTabChange('Favourite')}>
+      Favourite
+    </div>
+  </div>
+  {activeTab === 'All' && (
       <div className="langarts__vocabulary__content-table">
         <ul>
           {filteredWords.map((word, index) => {
@@ -349,7 +364,13 @@ return (
           })}
         </ul>
       </div>
-      
+  )}
+   {activeTab === 'Favourite' && (
+    <div className="langarts__vocabulary__content-favourite">
+      {/* Render the favourite words */}
+    </div>
+  )}
+
 </div>
 <div className="langarts__vocabulary__content-LangSwitch">        
 <LangSwitch
