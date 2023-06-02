@@ -17,9 +17,8 @@ const Features = () => {
   const location = useLocation(); 
   
   const handleSwap = () => {
-    const temp = selectedValue1;
     setSelectedValue1(selectedValue2);
-    setSelectedValue2(temp);
+  setSelectedValue2(selectedValue1);
   };
 
   useEffect(() => {

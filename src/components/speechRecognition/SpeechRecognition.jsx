@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-export const useSpeechRecognition = () => {
+export const useSpeechRecognition = (language) => {
   const [userInput, setUserInput] = useState('');
   const [isRecognizing, setIsRecognizing] = useState(false);
   const [recognition, setRecognition] = useState(null);
@@ -25,10 +25,13 @@ export const useSpeechRecognition = () => {
       const recognition = new SpeechRecognition();
       recognition.continuous = false;
       recognition.interimResults = false;
-       // Add support for Russian language
-       recognition.lang = 'ru-RU';
-       // Add support for Polish language
-       recognition.lang = 'pl-PL';
+      setRecognition(recognition);
+    }
+  }, [recognition]);
+
+  useEffect(() => {
+    if (recognition) {
+      recognition.lang = language === "russian" ? 'ru-RU' : 'pl-PL';
       recognition.addEventListener('result', (event) => {
         const speechToText = event.results[0][0].transcript;
         setUserInput(speechToText);
@@ -36,9 +39,8 @@ export const useSpeechRecognition = () => {
       recognition.addEventListener('end', () => {
         setIsRecognizing(false);
       });
-      setRecognition(recognition);
     }
-  }, [recognition]);
+  }, [recognition, language]);
 
   return [handleSpeechRecognition, stopSpeechRecognition, userInput, isRecognizing];
 };

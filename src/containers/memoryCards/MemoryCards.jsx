@@ -16,7 +16,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
   const [userInput, setUserInput] = useState('');
   const [matchingWord, setMatchingWord] = useState('');
   const [showCorrectMessage, setShowCorrectMessage] = useState(false)
-  const [handleSpeechRecognition, stopSpeechRecognition, recognizedSpeech, isRecognizing] = useSpeechRecognition();
+  const [handleSpeechRecognition, stopSpeechRecognition, recognizedSpeech, isRecognizing] = useSpeechRecognition(language2);
   const [isFilled, setIsFilled] = useState(false);
 
   const like = () => {
@@ -196,7 +196,8 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
             </div>
             <div className="langarts__memoryCards__userPart">
               <div className="userInput">
-                <input type="text" placeholder={matchingWord} value={userInput} onChange={(e) => setUserInput(e.target.value)} />
+                <input type="text" placeholder={matchingWord} value={userInput} onChange={(e) => 
+                  setUserInput(e.target.value)} style={language === 'russian' ? { fontFamily: 'Arial, sans-serif' } : {}} />
               </div>
               <div className="submitIcon">
                 <RiCheckboxCircleLine color="grey" size={30} onClick={() => handleSubmitAnswer()} />
