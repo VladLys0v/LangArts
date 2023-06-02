@@ -332,8 +332,8 @@ return (
     <div className="langarts__vocabulary__tab" onClick={() => handleTabChange('All')}>
       All
     </div>
-    <div className="langarts__vocabulary__tab" onClick={() => handleTabChange('Favourite')}>
-      Favourite
+    <div className="langarts__vocabulary__tab" onClick={() => handleTabChange('Favorite')}>
+      Favorite
     </div>
   </div>
   {activeTab === 'All' && (
@@ -365,8 +365,8 @@ return (
         </ul>
       </div>
   )}
-   {activeTab === 'Favourite' && (
-    <div className="langarts__vocabulary__content-favourite">
+   {activeTab === 'Favorite' && (
+    <div className="langarts__vocabulary__content-favorite">
       {/* Render the favourite words */}
     </div>
   )}

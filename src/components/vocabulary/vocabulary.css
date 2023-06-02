@@ -139,9 +139,9 @@ body {
  }
 
 .langarts__vocabulary__search svg {
-  flex-shrink: 0; /* Prevent shrinking */
-  width: 30px; /* Set desired width */
-  height: 30px; /* Set desired height */
+  flex-shrink: 0; 
+  width: 30px; 
+  height: 30px;
 
 }
 
@@ -151,14 +151,39 @@ body {
   padding-right: 50px;
   max-height: 76%;
   overflow-y: scroll;
-  display: flex; 
-  flex-wrap: wrap; 
-  flex-direction: row; 
-  justify-content: center;
   background-color: #fff;
 }
 
+.langarts__vocabulary__tabs {
+  position: absolute;
+  top: 10.5%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: -30px;
+  margin-bottom: 20px;
+  margin-right: 46px;
+  z-index: 1000;
+}
+
+.langarts__vocabulary__tab {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  border-right: 3px solid grey;
+  border-bottom: 3px solid grey;
+  font-size: 25px;
+  width:150px;
+}
+
+.langarts__vocabulary__tab:last-child {
+  border-right: none; 
+  
+}
+
 .langarts__vocabulary__content-table {
+  justify-content: center;
   display: grid;
   grid-column-gap: 10px;
   margin: auto;
