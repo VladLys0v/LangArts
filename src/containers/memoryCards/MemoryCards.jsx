@@ -4,10 +4,9 @@ import { RiCloseFill, RiCheckboxCircleLine, RiMicLine, RiArrowRightSLine, RiArro
 import axios from 'axios';
 import { createBrowserHistory } from 'history';
 import {useSpeechRecognition} from '../../components/speechRecognition/SpeechRecognition.jsx';
-import Vocabulary from '../../components/vocabulary/Vocabulary.jsx'
 
 
-const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 }) => {
+const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2, favoriteWords, setFavoriteWords }) => {
   
   const [countdown, setCountdown] = useState(3);
   const [words, setWords] = useState([]);
@@ -19,7 +18,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
   const [showCorrectMessage, setShowCorrectMessage] = useState(false)
   const [handleSpeechRecognition, stopSpeechRecognition, recognizedSpeech, isRecognizing] = useSpeechRecognition(language2);
   const [isFilledArray, setIsFilledArray] = useState([]);
-  const [favoriteWords, setFavoriteWords] = useState([]);
+  
 
   const like = () => {
     const newIsFilledArray = [...isFilledArray];
@@ -234,7 +233,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
         )}
       </div>
     </div>
-    
+
     </div>
   );
 };

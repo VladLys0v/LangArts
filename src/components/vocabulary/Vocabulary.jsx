@@ -5,7 +5,7 @@ import { RiCloseFill, RiAddLine, RiDeleteBin6Line,  RiCheckboxCircleLine, RiClos
 import LangSwitch from'../../components/LangSwitch/LangSwitch.jsx'
 
 const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2, 
-  selectedValue1, setSelectedValue1, selectedValue2, setSelectedValue2 }) => {
+  selectedValue1, setSelectedValue1, selectedValue2, setSelectedValue2, favoriteWords, setFavoriteWords }) => {
   const [words, setWords] = useState([]);
   const [words2, setWords2] = useState([]);
   const [displayInput, setDisplayInput] = useState(false);
@@ -367,7 +367,29 @@ return (
   )}
    {activeTab === 'Favorite' && (
     <div className="langarts__vocabulary__content-favorite">
-      {/* Render the favourite words */}
+      <ul>
+      {favoriteWords.map((word, index) => {
+              const matchingWord = words2.find((w) => w.id === word.id);
+              if (!matchingWord) {
+                return null; // skip rendering word
+              }
+            return (
+        <li key={index}>
+          <div className="word">
+            <input type="text" value={word.word} onChange={(e) => handleWordUpdate(e.target.value, word.word, word.id)} />
+          </div>
+
+          <div className="matching-word">
+            <input type="text" value={matchingWord.word} onChange={(e) => handleWordUpdate(word.word, e.target.value, matchingWord.id)} />
+          </div>
+
+          <div className="deleteLine">
+            <RiDeleteBin6Line color="grey" size={25} onClick={() => handleWordDelete(word.id)} />
+          </div>
+        </li>
+        )
+      })}
+    </ul>
     </div>
   )}
 

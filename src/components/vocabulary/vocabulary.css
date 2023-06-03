@@ -201,6 +201,13 @@ li {
   width: fit-content; 
 }
 
+.langarts__vocabulary__content-favorite {
+  justify-content: center;
+  display: grid;
+  grid-column-gap: 10px;
+  margin: auto;
+}
+
 .langarts__vocabulary__content-LangSwitch{
   position: sticky;
   height: 50px;
