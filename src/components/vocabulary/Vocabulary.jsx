@@ -30,9 +30,8 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2,
   });
 
   const handleSwap = () => {
-    const temp = selectedValue1;
     setSelectedValue1(selectedValue2);
-    setSelectedValue2(temp);
+    setSelectedValue2(selectedValue1);
   };
 
   useEffect(() => {
@@ -373,7 +372,7 @@ return (
               if (!matchingWord) {
                 return null; // skip rendering word
               }
-            return (
+      return (
         <li key={index}>
           <div className="word">
             <input type="text" value={word.word} onChange={(e) => handleWordUpdate(e.target.value, word.word, word.id)} />
