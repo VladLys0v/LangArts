@@ -17,29 +17,37 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2,
   const [matchingWord, setMatchingWord] = useState('');
   const [showCorrectMessage, setShowCorrectMessage] = useState(false)
   const [handleSpeechRecognition, stopSpeechRecognition, recognizedSpeech, isRecognizing] = useSpeechRecognition(language2);
-  const [isFilledArray, setIsFilledArray] = useState([]);
   
+  const [isFilledArray, setIsFilledArray] = useState(() => {
+    const storedArray = localStorage.getItem('favoriteWords');
+    return storedArray ? JSON.parse(storedArray) : new Array(words.length).fill(false);
+  });
 
   const like = () => {
     const newIsFilledArray = [...isFilledArray];
     newIsFilledArray[currentIndex] = !newIsFilledArray[currentIndex];
     setIsFilledArray(newIsFilledArray);
-  
+    localStorage.setItem('favoriteWords', JSON.stringify(newIsFilledArray));
+
+    const currentWord = words[currentIndex];
+    const currentMatchingWord = matchingWord;
     if (!isFilledArray[currentIndex]) {
-      setFavoriteWords((prevFavoriteWords) => [
-        ...prevFavoriteWords,
-        words[currentIndex],
-      ]);
+      setFavoriteWords((prevFavoriteWords) => [...prevFavoriteWords, currentWord]);
     } else {
       setFavoriteWords((prevFavoriteWords) =>
-        prevFavoriteWords.filter((word) => word.id !== words[currentIndex].id)
+        prevFavoriteWords.filter((word) => word.id !== currentWord.id)
       );
     }
+
+    return {
+      word: currentWord,
+      matchingWord: currentMatchingWord,
+    };
   };
 
   useEffect(() => {
-    setIsFilledArray(new Array(words.length).fill(false));
-  }, [words.length]);
+    localStorage.setItem('favoriteWords', JSON.stringify(isFilledArray));
+  }, [isFilledArray]);
 
   useEffect(() => {
     if (showMemoryCards) {

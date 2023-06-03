@@ -109,11 +109,26 @@ const Features = () => {
           </button>
         </div>
       </div>
-      <MemoryCards showMemoryCards={showMemoryCards} setShowMemoryCards={setShowMemoryCards} language={selectedValue1} language2={selectedValue2}
-      favoriteWords={favoriteWords} setFavoriteWords={setFavoriteWords} />
-      <Vocabulary showVocabulary={showVocabulary} setShowVocabulary={setShowVocabulary} language={selectedValue1} language2={selectedValue2}
-      selectedValue1={selectedValue1} setSelectedValue1={setSelectedValue1} selectedValue2={selectedValue2} setSelectedValue2={setSelectedValue2}
-      favoriteWords={favoriteWords} setFavoriteWords={setFavoriteWords}/>
+      <MemoryCards
+        showMemoryCards={showMemoryCards}
+        setShowMemoryCards={setShowMemoryCards}
+        language={selectedValue1}
+        language2={selectedValue2}
+        favoriteWords={favoriteWords}
+        setFavoriteWords={setFavoriteWords}
+      />
+      <Vocabulary
+        showVocabulary={showVocabulary}
+        setShowVocabulary={setShowVocabulary}
+        language={selectedValue1}
+        language2={selectedValue2}
+        selectedValue1={selectedValue1}
+        setSelectedValue1={setSelectedValue1}
+        selectedValue2={selectedValue2}
+        setSelectedValue2={setSelectedValue2}
+        favoriteWords={favoriteWords}
+        setFavoriteWords={setFavoriteWords}
+      />
     </div>
   );
 };

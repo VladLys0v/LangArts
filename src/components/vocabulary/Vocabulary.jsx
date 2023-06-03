@@ -4,8 +4,9 @@ import { createBrowserHistory } from 'history';
 import { RiCloseFill, RiAddLine, RiDeleteBin6Line,  RiCheckboxCircleLine, RiCloseCircleLine, RiCloseLine, RiSettings4Line, RiFilter2Fill} from 'react-icons/ri';
 import LangSwitch from'../../components/LangSwitch/LangSwitch.jsx'
 
-const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2, 
-  selectedValue1, setSelectedValue1, selectedValue2, setSelectedValue2, favoriteWords, setFavoriteWords }) => {
+const Vocabulary = ({
+  showVocabulary,setShowVocabulary,language,language2,selectedValue1,setSelectedValue1,
+  selectedValue2,setSelectedValue2,favoriteWords,setFavoriteWords}) => {
   const [words, setWords] = useState([]);
   const [words2, setWords2] = useState([]);
   const [displayInput, setDisplayInput] = useState(false);
@@ -22,7 +23,7 @@ const Vocabulary = ({ showVocabulary, setShowVocabulary, language, language2,
   const filteredWords = words.filter((word) => {
     const matchingWord = words2.find((w) => w.id === word.id);
     if (!matchingWord) {
-      return false; 
+      return false;
     }
     const wordContainsSearchInput = word.word.toLowerCase().includes(searchInput.toLowerCase());
     const matchingWordContainsSearchInput = matchingWord.word.toLowerCase().includes(searchInput.toLowerCase());
