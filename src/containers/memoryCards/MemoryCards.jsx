@@ -4,6 +4,7 @@ import { RiCloseFill, RiCheckboxCircleLine, RiMicLine, RiArrowRightSLine, RiArro
 import axios from 'axios';
 import { createBrowserHistory } from 'history';
 import {useSpeechRecognition} from '../../components/speechRecognition/SpeechRecognition.jsx';
+import Vocabulary from '../../components/vocabulary/Vocabulary.jsx'
 
 
 const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 }) => {
@@ -17,11 +18,29 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
   const [matchingWord, setMatchingWord] = useState('');
   const [showCorrectMessage, setShowCorrectMessage] = useState(false)
   const [handleSpeechRecognition, stopSpeechRecognition, recognizedSpeech, isRecognizing] = useSpeechRecognition(language2);
-  const [isFilled, setIsFilled] = useState(false);
+  const [isFilledArray, setIsFilledArray] = useState([]);
+  const [favoriteWords, setFavoriteWords] = useState([]);
 
   const like = () => {
-    setIsFilled(!isFilled);
-  }
+    const newIsFilledArray = [...isFilledArray];
+    newIsFilledArray[currentIndex] = !newIsFilledArray[currentIndex];
+    setIsFilledArray(newIsFilledArray);
+  
+    if (!isFilledArray[currentIndex]) {
+      setFavoriteWords((prevFavoriteWords) => [
+        ...prevFavoriteWords,
+        words[currentIndex],
+      ]);
+    } else {
+      setFavoriteWords((prevFavoriteWords) =>
+        prevFavoriteWords.filter((word) => word.id !== words[currentIndex].id)
+      );
+    }
+  };
+
+  useEffect(() => {
+    setIsFilledArray(new Array(words.length).fill(false));
+  }, [words.length]);
 
   useEffect(() => {
     if (showMemoryCards) {
@@ -171,7 +190,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
               
               <div className = "langarts__memoryCards__afterCountdown-header-buttons">
               <div onClick={like}>
-              {isFilled ? <RiHeartFill color="red" size={30} /> : <RiHeartLine color="grey" size={30} />}
+              {isFilledArray[currentIndex]  ? (<RiHeartFill color="red" size={30} /> ) : (<RiHeartLine color="grey" size={30} />)}
               </div>
                 <RiQuestionFill color="grey" size={30} />
                 <RiSettings4Line color="grey" size={30} />
@@ -215,6 +234,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2 
         )}
       </div>
     </div>
+    
     </div>
   );
 };
