@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {RiCheckboxMultipleBlankFill, RiBookMarkLine} from 'react-icons/ri';
+import {RiCheckboxMultipleBlankFill, RiBookMarkLine, RiCloseFill} from 'react-icons/ri';
 import './features.css';
 import { createBrowserHistory } from 'history';
 import { useLocation } from 'react-router-dom';
@@ -18,6 +18,10 @@ const Features = () => {
   const [favoriteWords, setFavoriteWords] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
   
+  const handleCloseSettings = () => {
+    setShowSettings(false);
+  };
+
   const handleSwap = () => {
     setSelectedValue1(selectedValue2);
   setSelectedValue2(selectedValue1);
@@ -94,6 +98,7 @@ const Features = () => {
       </div>
       {showSettings && (
   <div className="langarts__features-settings">
+    <RiCloseFill className="close-button" color='grey' size={30} onClick={handleCloseSettings} />
     <h3>You have found an Easter egg</h3>
     <div className="settings-img">
     <pre>
