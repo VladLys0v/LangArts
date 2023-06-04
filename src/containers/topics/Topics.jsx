@@ -12,13 +12,27 @@ const Topics = () => {
   const professionItems = ['IT', 'Analitics', 'Developer'];
 
   const scrollContainerRef = useRef(null);
+
   const scrollLeft = () => {
-    scrollContainerRef.current.style.transform = `translateX(-80px)`;
+    const scrollContainerItems = scrollContainerRef.current;
+    const scrollAmount = scrollContainerItems.offsetWidth * 0.3; // Adjust this value as needed
+  
+    scrollContainerItems.scrollTo({
+      left: scrollContainerItems.scrollLeft - scrollAmount,
+      behavior: 'smooth',
+    });
+  };
+  
+  const scrollRight = () => {
+    const scrollContainerItems = scrollContainerRef.current;
+    const scrollAmount = scrollContainerItems.offsetWidth * 0.3; // Adjust this value as needed
+  
+    scrollContainerItems.scrollTo({
+      left: scrollContainerItems.scrollLeft + scrollAmount,
+      behavior: 'smooth',
+    });
   };
 
-  const scrollRight = () => {
-    scrollContainerRef.current.style.transform = `translateX(80px)`;
-  };
 
   return (
       <div className="langarts__topics gradient__bg">
