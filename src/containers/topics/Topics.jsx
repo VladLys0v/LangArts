@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './topics.css';
 import Feature from "../../components/feature/Feature.jsx";
 
@@ -15,11 +15,23 @@ const Topics = () => {
   const [additionalItems, setAdditionalItems] = useState([]);
 
   const handleAddFeatureItem = () => {
-    const newItem = prompt("Enter the name of the feature item:");
+    const newItem = prompt("Enter the name of the topic:");
     if (newItem) {
       setAdditionalItems((prevItems) => [...prevItems, newItem]);
     }
   };
+
+  useEffect(() => {
+    const storedItems = localStorage.getItem('additionalItems');
+    if (storedItems) {
+      setAdditionalItems(JSON.parse(storedItems));
+    }
+  }, []);
+
+  // Update additional items in localStorage when they change
+  useEffect(() => {
+    localStorage.setItem('additionalItems', JSON.stringify(additionalItems));
+  }, [additionalItems]);
 
   const scrollLeft = () => {
     const scrollContainerItems = scrollContainerRef.current;
