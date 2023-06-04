@@ -150,6 +150,22 @@
     text-align: center;
 }
 
+.additional-item {
+  position: relative;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  cursor: pointer;
+}
+
+.delete-icon svg {
+  background-color: rgb(254, 255, 228) ;
+  border-radius: 15px;
+}
+
 .langarts__topics-content-scroll-left,
 .langarts__topics-content-scroll-right {
     display:flex;

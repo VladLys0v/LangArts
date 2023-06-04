@@ -2,6 +2,7 @@ import React from 'react';
 import { useRef, useState, useEffect } from 'react';
 import './topics.css';
 import Feature from "../../components/feature/Feature.jsx";
+import { RiCloseFill} from 'react-icons/ri';
 
 const Topics = () => {
   const sportsItems = ['football', 'hokkey', 'baseball'];
@@ -17,8 +18,17 @@ const Topics = () => {
   const handleAddFeatureItem = () => {
     const newItem = prompt("Enter the name of the topic:");
     if (newItem) {
-      setAdditionalItems((prevItems) => [...prevItems, newItem]);
+      const newItemObj = { id: Date.now(), name: newItem };
+      setAdditionalItems((prevItems) => [...prevItems, newItemObj]);
     }
+  };
+
+  const handleDeleteFeatureItem = (itemId) => {
+    setAdditionalItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+    localStorage.setItem(
+      'additionalItems',
+      JSON.stringify(additionalItems.filter((item) => item.id !== itemId))
+    );
   };
 
   useEffect(() => {
@@ -73,8 +83,14 @@ const Topics = () => {
                 <Feature title="Attractions" items={attactionsItems} />
                 <Feature title="Countries" items={countriesItems} />
                 <Feature title="Profession" items={professionItems} />
-                {additionalItems.map((item, index) => (
-  <Feature key={index} title={item} items={[]} /> ))}
+                {additionalItems.map((item) => (
+  <div key={item.id} className="additional-item">
+    <Feature title={item.name} items={[]} />
+    <div className="delete-icon" >
+      <RiCloseFill color='grey' size={30} onClick={() => handleDeleteFeatureItem(item.id)} />
+    </div>
+  </div>
+))}
               </div>            
           </div>
           <div className="langarts__topics-content-scroll-right" onClick={scrollRight}>                                       
