@@ -16,10 +16,15 @@ const Features = () => {
   const history = createBrowserHistory();
   const location = useLocation(); 
   const [favoriteWords, setFavoriteWords] = useState([]);
+  const [showSettings, setShowSettings] = useState(false);
   
   const handleSwap = () => {
     setSelectedValue1(selectedValue2);
   setSelectedValue2(selectedValue1);
+  };
+
+  const handleSettingsClick = () => {
+    setShowSettings(!showSettings);
   };
 
   useEffect(() => {
@@ -81,12 +86,32 @@ const Features = () => {
       </div>
       <div className="langarts__features-heading">
         <h1 className="gradient__text">Memory cards:</h1> 
-        <div className="gears" id="one-gear">
+        <div className="gears" id="one-gear" onClick={handleSettingsClick}>
         <div className="gears-container">
         <div className="gear-rotate"></div>
         </div>
         </div>
       </div>
+      {showSettings && (
+  <div className="langarts__features-settings">
+    <h3>You have found an Easter egg</h3>
+    <div className="settings-img">
+    <pre>
+    {`
+        .-""""""-.
+      .'          '.
+     /   O      O   \\
+    :           \`    :
+    |   \\        /   |    
+    :    '.     .'   :
+     \\     '--'     /
+      '.          .'
+        '-......-'
+    `}
+  </pre> 
+    </div>
+  </div>
+)}
       <div className="langarts__cards_container">
         <div className="langarts__card1">
           <button type="button" onClick={handleMemoryCards}>
