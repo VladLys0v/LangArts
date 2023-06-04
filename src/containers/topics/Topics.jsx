@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import './topics.css';
 import Feature from "../../components/feature/Feature.jsx";
 
@@ -12,6 +12,14 @@ const Topics = () => {
   const professionItems = ['IT', 'Analitics', 'Developer'];
 
   const scrollContainerRef = useRef(null);
+  const [additionalItems, setAdditionalItems] = useState([]);
+
+  const handleAddFeatureItem = () => {
+    const newItem = prompt("Enter the name of the feature item:");
+    if (newItem) {
+      setAdditionalItems((prevItems) => [...prevItems, newItem]);
+    }
+  };
 
   const scrollLeft = () => {
     const scrollContainerItems = scrollContainerRef.current;
@@ -25,7 +33,7 @@ const Topics = () => {
   
   const scrollRight = () => {
     const scrollContainerItems = scrollContainerRef.current;
-    const scrollAmount = scrollContainerItems.offsetWidth * 0.3; // Adjust this value as needed
+    const scrollAmount = scrollContainerItems.offsetWidth * 0.3 + (additionalItems.length * 100); // Adjust this value as needed
   
     scrollContainerItems.scrollTo({
       left: scrollContainerItems.scrollLeft + scrollAmount,
@@ -38,7 +46,7 @@ const Topics = () => {
       <div className="langarts__topics gradient__bg">
         <div className="langarts__topics-heading">
           <h1 className="gradient__text">Topics:</h1>
-            <div className="plus-icon"></div>
+            <div className="plus-icon"onClick={handleAddFeatureItem} ></div>
         </div>
           <div className="langarts__topics-content">
           <div className="langarts__topics-content-scroll-left" onClick={scrollLeft}>
@@ -53,6 +61,8 @@ const Topics = () => {
                 <Feature title="Attractions" items={attactionsItems} />
                 <Feature title="Countries" items={countriesItems} />
                 <Feature title="Profession" items={professionItems} />
+                {additionalItems.map((item, index) => (
+  <Feature key={index} title={item} items={[]} /> ))}
               </div>            
           </div>
           <div className="langarts__topics-content-scroll-right" onClick={scrollRight}>                                       
