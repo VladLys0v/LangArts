@@ -98,12 +98,24 @@ const Vocabulary = ({
       console.error(err);
     }
   };
-  const handleWordUpdate = (newWord, matchingWord, id) => {
-    // check if newWord or matchingWord is empty and update state accordingly
+  const filteredFavoriteWords = words.filter((word) => favoriteWords.some((favWord) => favWord.id === word.id));
+  const handleWordUpdate = (newWord, matchingWord, id, isFilled) => {
+    if (isFilled) {
+      setFavoriteWords((prevFavoriteWords) =>
+        prevFavoriteWords.filter((word) => word.id !== id)
+      );
+    } else {
+      const wordToUpdate = words.find((w) => w.id === id);
+      if (wordToUpdate) {
+        setFavoriteWords((prevFavoriteWords) => [...prevFavoriteWords, wordToUpdate]);
+      }
+    }
+
     if (newWord === '' && matchingWord === '') {
       handleWordDelete(id);
       return;
     }
+
     fetch(`/${language}/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -147,7 +159,6 @@ const Vocabulary = ({
     .catch((error) => {
       console.log('Error updating word:', error);
     });
-    
   };
 
   const handleWordDelete = async (id) => {
@@ -368,7 +379,7 @@ return (
    {activeTab === 'Favorite' && (
     <div className="langarts__vocabulary__content-favorite">
       <ul>
-      {favoriteWords.map((word, index) => {
+      {filteredFavoriteWords.map((word, index) => {
               const matchingWord = words2.find((w) => w.id === word.id);
               if (!matchingWord) {
                 return null; // skip rendering word

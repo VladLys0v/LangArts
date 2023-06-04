@@ -28,7 +28,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2,
     newIsFilledArray[currentIndex] = !newIsFilledArray[currentIndex];
     setIsFilledArray(newIsFilledArray);
     localStorage.setItem('favoriteWords', JSON.stringify(newIsFilledArray));
-
+    const currentIsFilled = isFilledArray[currentIndex];
     const currentWord = words[currentIndex];
     const currentMatchingWord = matchingWord;
     if (!isFilledArray[currentIndex]) {
@@ -42,6 +42,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2,
     return {
       word: currentWord,
       matchingWord: currentMatchingWord,
+      isFilled: currentIsFilled,
     };
   };
 
