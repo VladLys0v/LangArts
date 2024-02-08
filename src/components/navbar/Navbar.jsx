@@ -5,8 +5,8 @@ import './navbar.css'
 
 const Menu = () => (
   <>
-  <p><span onClick={() => scrollToCards()}>Memory cards</span></p>
-  <p><span onClick={() => scrollToTopics()}>Topics</span></p>
+  <p><span id="memory-cards-navbar" onClick={() => scrollToCards()}>Memory cards</span></p>
+  <p><span id="topics-navbar" onClick={() => scrollToTopics()}>Topics</span></p>
   </>
 )
 const scrollToTopics = () => {
