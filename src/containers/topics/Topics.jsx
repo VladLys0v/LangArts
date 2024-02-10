@@ -68,7 +68,7 @@ const Topics = () => {
       <div className="langarts__topics gradient__bg">
         <div className="langarts__topics-heading">
           <h1 className="gradient__text">Topics:</h1>
-            <div className="plus-icon"onClick={handleAddFeatureItem} ></div>
+            <div id = "add-btn" className="plus-icon"onClick={handleAddFeatureItem} ></div>
         </div>
           <div className="langarts__topics-content">
           <div className="langarts__topics-content-scroll-left" onClick={scrollLeft}>

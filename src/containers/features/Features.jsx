@@ -119,7 +119,7 @@ const Features = () => {
 )}
       <div className="langarts__cards_container">
         <div className="langarts__card1">
-          <button type="button" onClick={handleMemoryCards}>
+          <button id="cards_btn" type="button" onClick={handleMemoryCards}>
             <div className="svg-wrapper-1">
               <div className="svg-wrapper-first">
               <RiCheckboxMultipleBlankFill size={24} />
@@ -129,7 +129,7 @@ const Features = () => {
           </button>
         </div>
         <div className="langarts__card2">
-          <button type="button" onClick={() => handleVocabularyClick(selectedValue1)}>
+          <button id="vocabulary-btn" type="button" onClick={() => handleVocabularyClick(selectedValue1)}>
             <div className="svg-wrapper-2">
               <div className="svg-wrapper-second">
               <RiBookMarkLine size={24} />

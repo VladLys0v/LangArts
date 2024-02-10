@@ -197,7 +197,7 @@ const MemoryCards = ({ showMemoryCards, setShowMemoryCards, language, language2,
             <div className = "langarts__memoryCards__afterCountdown_header">
               
               <div className = "langarts__memoryCards__afterCountdown-header-buttons">
-              <div onClick={like}>
+              <div id="like-icon" onClick={like}>
               {isFilledArray[currentIndex]  ? (<RiHeartFill color="red" size={30} /> ) : (<RiHeartLine color="grey" size={30} />)}
               </div>
                 <RiQuestionFill color="grey" size={30} />
