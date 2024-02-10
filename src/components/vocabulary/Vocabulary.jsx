@@ -297,9 +297,9 @@ return (
       {!displayInput ? (
         <RiAddLine color="grey" size={35} onClick={handleAddWord} />
       ) : (
-        <div>
-          <input type="text" placeholder="Add new word" value={newWord} onChange={handleWordInputChange} />
-          <RiCheckboxCircleLine color="grey" size={35} onClick={handleWordSubmit} />
+        <div >
+          <input id="add-word-input" type="text" placeholder="Add new word" value={newWord} onChange={handleWordInputChange} />
+          <RiCheckboxCircleLine id="submit-new-word" color="grey" size={35} onClick={handleWordSubmit} />
           <RiCloseCircleLine color="grey" size={35} onClick= { ()=> setDisplayInput(false)} />
         </div>
       )}
