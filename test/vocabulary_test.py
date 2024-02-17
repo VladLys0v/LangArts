@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from memory_cards_test import test_cards_tab_visibility
 
 @pytest.fixture
 def driver():
@@ -16,33 +17,16 @@ def test_vocabulary_list (driver):
     driver.maximize_window()
     driver.get(base_url)
 
-    #cards = WebDriverWait(driver, 40).until(
-    #EC.element_to_be_clickable((By.ID, "cards-btn")))
-    #cards.click()
-    #driver.implicitly_wait(40)
-#
-    #like = WebDriverWait(driver,20).until(
-    #EC.element_to_be_clickable((By.ID,'like-icon')))
-    #like.click()
-    #close_cards = driver.find_element(By.CLASS_NAME, "langarts__memoryCards__header-close")
-    #close_cards.click()
-
     vocabulary = WebDriverWait(driver, 30).until(
     EC.element_to_be_clickable((By.XPATH, '//*[@id="vocabulary-btn"]')))
     driver.execute_script("arguments[0].click();", vocabulary)
     driver.implicitly_wait(10)
-
 
     vocabulary_list=driver.find_element(By.CLASS_NAME, "langarts__vocabulary__content-table")
     assert vocabulary_list.is_displayed()
 
 def test_add_word (driver):
-    driver.maximize_window()
-    driver.get(base_url)
-    vocabulary = WebDriverWait(driver, 30).until(
-    EC.element_to_be_clickable((By.XPATH, '//*[@id="vocabulary-btn"]')))
-    driver.execute_script("arguments[0].click();", vocabulary)
-    driver.implicitly_wait(10)
+    test_vocabulary_list(driver)
 
     add_word_btn = WebDriverWait(driver, 30).until(
     EC.element_to_be_clickable((By.CLASS_NAME, 'langarts__vocabulary__header-add')))
@@ -62,3 +46,32 @@ def test_add_word (driver):
 
     word = "слово"
     assert word in extracted_text
+
+
+def test_favourites_tab (driver):
+    driver.maximize_window()
+    driver.get(base_url)
+
+    cards = WebDriverWait(driver, 30).until(
+    EC.element_to_be_clickable((By.XPATH, '//*[@id="cards_btn"]'))
+    )
+    driver.execute_script("arguments[0].click();", cards)
+
+    no_countdown = WebDriverWait(driver,30).until_not(
+    EC.visibility_of_element_located((By.CLASS_NAME, "langarts__memoryCards__countdown")))
+    
+    like = WebDriverWait(driver,30).until( no_countdown and
+    EC.element_to_be_clickable((By.ID,'like-icon')))
+    like.click()
+
+    close_cards = driver.find_element(By.CLASS_NAME, "langarts__memoryCards__header-close")
+    close_cards.click()
+
+    
+    try:
+        cards_page = WebDriverWait(driver, 10).until_not(
+        EC.visibility_of_element_located((By.CLASS_NAME, "langarts__memoryCards-overlay"))
+        )
+        assert True, "page is closed"
+    except:
+        assert False,"page is displayed"
