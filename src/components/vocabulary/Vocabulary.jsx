@@ -343,7 +343,7 @@ return (
     <div className="langarts__vocabulary__tab" onClick={() => handleTabChange('All')}>
       All
     </div>
-    <div className="langarts__vocabulary__tab" onClick={() => handleTabChange('Favorite')}>
+    <div id="favorite-tab" className="langarts__vocabulary__tab" onClick={() => handleTabChange('Favorite')}>
       Favorite
     </div>
   </div>

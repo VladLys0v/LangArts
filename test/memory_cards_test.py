@@ -28,4 +28,18 @@ def test_cards_tab_visibility (driver):
     EC.visibility_of_element_located((By.CLASS_NAME, "langarts__memoryCards-overlay")))
     
     assert cards_tab.is_displayed()
+
+def test_cards_tab_close (driver):
+    test_cards_tab_visibility(driver)
+
+    close_cards = driver.find_element(By.CLASS_NAME, "langarts__memoryCards__header-close")
+    close_cards.click()
+
+    try:
+        WebDriverWait(driver, 10).until_not(
+        EC.visibility_of_element_located((By.CLASS_NAME, "langarts__memoryCards-overlay"))
+        )
+        assert True, "page is closed"
+    except:
+        assert False,"page is displayed"
     
